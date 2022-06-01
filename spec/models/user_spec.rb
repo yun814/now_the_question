@@ -50,6 +50,12 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("パスワードは6文字以上で入力してください")
       end
+      it 'passwordが129文字以上では登録できない' do
+        @user.password = Faker::Internet.password(min_length: 129)
+        @user.password_confirmation = @user.password
+        @user.valid?
+        expect(@user.errors.full_messages).to include('パスワードは128文字以内で入力してください')
+      end
       it 'passwordとpassword_confirmationが不一致だと新規登録できない' do
         @user.password = 'aaa111'
         @user.password_confirmation = 'bbb222'
