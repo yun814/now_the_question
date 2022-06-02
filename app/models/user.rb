@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true, uniqueness: true
   has_many :drills
+  has_many :quizzes
 end
