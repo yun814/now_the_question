@@ -9,4 +9,15 @@
     <%= @drill.information %>
   </div>
 </div>
+<% @quizzes.each_with_index do |quiz, i| %>
+  <div class="quiz">
+    <div><%= "第#{i + 1}問" %></div>
+    <%= quiz.question %>
+    <%= quiz.choices_1 %>
+    <%= quiz.choices_2 %>
+    <%= quiz.choices_3 %>
+    <%= quiz.choices_4 %>
+    <%= quiz.correct_answer %>
+  </div>
+<% end %>
 <%= render 'shared/quiz-form' %>

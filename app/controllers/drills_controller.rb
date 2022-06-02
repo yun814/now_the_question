@@ -19,6 +19,7 @@ class DrillsController < ApplicationController
   def show
     @drill = Drill.find(params[:id])
     @quiz = Quiz.new
+    @quizzes = @drill.quizzes.includes(:user)
   end
 
   private
