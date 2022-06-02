@@ -10,10 +10,15 @@ class DrillsController < ApplicationController
   def create
     @drill = Drill.new(drill_params)
     if @drill.save
-      redirect_to root_path
+      redirect_to drill_path(@drill.id)
     else
       render :new
     end
+  end
+
+  def show
+    @drill = Drill.find(params[:id])
+    @quiz = Quiz.new
   end
 
   private
