@@ -1,0 +1,8 @@
+<div class="drill-form">
+  <%= form_with model: @drill, local: true do |f| %>
+    <%= f.text_field :title, placeholder: "〇〇のクイズ", autoforcus: true %>
+    ジャンルタグ
+    <%= f.text_area :infomation, placeholder: "1000文字以内で記入してください。", maxlength: "1000" %>
+    <%= f.submit "問題集を作成" %>
+  <% end %>
+</div>
