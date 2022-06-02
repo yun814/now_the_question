@@ -1,5 +1,6 @@
 <div class="drill-form">
   <%= form_with model: @drill, local: true do |f| %>
+    <%= render 'shared/error_messages', model: f.object %>
     <%= f.text_field :title, placeholder: "〇〇のクイズ", autoforcus: true, class: "form-title" %>
     <%= f.collection_select(:genre_id, Genre.all, :id, :name, {include_blank: "---"}, {class:"form-genre"}) %>
     <%= f.text_area :information, placeholder: "1000文字以内で入力してください。", maxlength: "1000", class: "form-information" %>
