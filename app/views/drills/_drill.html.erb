@@ -2,9 +2,13 @@
   <div class="drill">
     <div class="drill-top">
       <div class="drill-left">
-        <div class="drill-title"><%= link_to drill.title, drill_path(drill) %></div>
-        <div class="drill-genre">ジャンル：<%= link_to drill.genre.name, '#' %></div>
+        <div class="drill-left_1"><%= link_to drill.title, drill_path(drill) %></div>
+        <div class="drill-left_2">
+          <div>ジャンル：<%= link_to drill.genre.name, '#' %></div>
+          <div>あなたは00回挑戦しました</div>
+        </div>
       </div>
+      
       <div class="drill-right">
         <div class="drill-right_1">
           <div><%= link_to "#{drill.user.nickname}さん", '#', class: "drill-user" %>が投稿</div>
@@ -12,10 +16,11 @@
         <div class="drill-right_2">
           <div><%= "#{drill.quizzes.size}問のクイズ" %></div>
           <div><%= "000いいね" %></div>
-          <div><%= link_to "ランキング", '#' %></div>
+          <div><%= link_to "ランキングへ", '#' %></div>
         </div>
       </div>
     </div>
+
     <div class="drill-bottom">
       <%= "詳細：#{drill.information}" %>
     </div>

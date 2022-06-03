@@ -1,0 +1,67 @@
+/************************************
+ ドリル詳細ボックス 
+************************************/
+.show-drill{
+  padding: 5px 10px;
+  border: 1px solid black;
+}
+
+.show-drill-title_box{
+  width: 90%;
+  padding-bottom: 2.5px;
+  margin: 0 auto 0;
+  border-bottom: 1px solid rgb(180, 180, 180);
+}
+
+.show-drill-title{
+  font-size: 35px;
+  text-align: center;
+}
+
+.show-drill-sub_1{
+  width: 45%;
+  font-size: 15px;
+  margin: 2.5px auto 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.show-drill-user_name{
+  font-size: 15px;
+}
+
+.show-drill-user{
+  font-size: 13px;
+}
+
+.show-drill-sub_2{
+  width: 50%;
+  font-size: 15px;
+  margin: 5px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.show-drill-ans_times{
+  font-size: 15px;
+  text-align: center;
+  margin-bottom: 2.5px;
+}
+
+.show-drill-info_box{
+  width: 90%;
+  padding-top: 2.5px;
+  margin: 0 auto 0;
+  border-top: 1px solid rgb(180, 180, 180);
+  display: flex;
+  justify-content: center;
+}
+
+.show-drill-info{
+  width: 90%;
+  font-size: 15px;
+}
+
+/************************************
+ クイズ追加フォーム 
+************************************/
