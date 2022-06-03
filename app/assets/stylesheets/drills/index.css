@@ -1,17 +1,23 @@
-.drill-index{
-  width: 75%;
+/************************************
+ ドリル表示領域 
+************************************/
+.drill-main{
+  width: 73%;
+  padding: 10px;
   border: 1px solid black;
 }
 
 .drill-index-title{
   font-size: 25px;
-  margin: 5px 0 10px;
   text-align: center;
 }
 
+/************************************
+ ドリル表示ボックス 
+************************************/
 .drill{
   padding: 5px 10px;
-  margin: 0 10px 15px;
+  margin-top: 15px;
   border: 1px solid black;
 }
 
@@ -26,12 +32,18 @@
   width: 60%;
 }
 
-.drill-title{
+.drill-left_1{
   font-size: 18px;
 }
 
-.drill-genre{
+.drill-left_2{
   font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.drill-ans_times{
+
 }
 
 .drill-right{
