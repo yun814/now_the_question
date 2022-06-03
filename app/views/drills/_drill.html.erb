@@ -1,0 +1,23 @@
+<% if drill.quizzes.present? %>
+  <div class="drill">
+    <div class="drill-top">
+      <div class="drill-left">
+        <div class="drill-title"><%= drill.title %></div>
+        <div class="drill-genre"><%= "ジャンル：#{drill.genre.name}" %></div>
+      </div>
+      <div class="drill-right">
+        <div class="drill-right_1">
+          <div><%= "#{drill.user.nickname}さんが投稿" %></div>
+        </div>
+        <div class="drill-right_2">
+          <div><%= "#{drill.quizzes.size}問のクイズ" %></div>
+          <div><%= "000いいね" %></div>
+          <div><%= "ランキング" %></div>
+        </div>
+      </div>
+    </div>
+    <div class="drill-bottom">
+      <%= "説明：#{drill.information}" %>
+    </div>
+  </div>
+<% end %>
