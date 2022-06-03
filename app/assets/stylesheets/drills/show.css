@@ -6,6 +6,13 @@
   border: 1px solid black;
 }
 
+.show-drill-title_box{
+  width: 90%;
+  padding-bottom: 2.5px;
+  margin: 0 auto 0;
+  border-bottom: 1px solid rgb(180, 180, 180);
+}
+
 .show-drill-title{
   font-size: 35px;
   text-align: center;
@@ -14,7 +21,7 @@
 .show-drill-sub_1{
   width: 45%;
   font-size: 15px;
-  margin: 5px auto;
+  margin: 2.5px auto 5px;
   display: flex;
   justify-content: space-between;
 }
