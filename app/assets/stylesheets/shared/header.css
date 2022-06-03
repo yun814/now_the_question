@@ -23,9 +23,10 @@
 .nickname,
 .logout,
 .login,
-.sign-up{
+.sign-up,
+.create-drill{
   margin-left: 20px;
   font-size: 15px;
-  padding: 10px 20px;
+  padding: 10px 15px;
   border: 1px solid black;
 }

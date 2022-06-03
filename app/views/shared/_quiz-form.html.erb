@@ -1,0 +1,12 @@
+<div class="quiz-form">
+  <%= form_with model: [@drill, @quiz], local: true do |f| %>
+    <%= render 'shared/error_messages', model: f.object %>
+    <%= f.text_area :question, autofocus: true, class: "form-question" %>
+    <%= f.text_field :choices_1, placeholder: "選択肢１", maxlength: "10", class: "form-choices" %>
+    <%= f.text_field :choices_2, placeholder: "選択肢２", maxlength: "10", class: "form-choices" %>
+    <%= f.text_field :choices_3, placeholder: "選択肢３", maxlength: "10", class: "form-choices" %>
+    <%= f.text_field :choices_4, placeholder: "選択肢４", maxlength: "10", class: "form-choices" %>
+    <%= f.number_field :correct_answer, placeholder: "正解番号", in: 1..4, class: "form-correct" %>
+    <%= f.submit "クイズを追加", class: "post-btn" %>
+  <% end %>
+</div>
