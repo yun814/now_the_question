@@ -1,0 +1,59 @@
+.drill-index{
+  width: 75%;
+  border: 1px solid black;
+}
+
+.drill-index-title{
+  font-size: 25px;
+  margin: 5px 0 10px;
+  text-align: center;
+}
+
+.drill{
+  padding: 5px 10px;
+  margin: 0 10px 15px;
+  border: 1px solid black;
+}
+
+.drill-top{
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.drill-left{
+  width: 60%;
+}
+
+.drill-title{
+  font-size: 18px;
+}
+
+.drill-genre{
+  font-size: 13px;
+}
+
+.drill-right{
+  width: 35%;
+}
+
+.drill-right_1{
+  font-size: 13px;
+}
+
+.drill-user{
+  font-size: 15px;
+}
+
+.drill-right_2{
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.drill-bottom{
+  padding-top: 5px;
+  font-size: 15px;
+  border-top: 1px solid rgb(180, 180, 180);
+}

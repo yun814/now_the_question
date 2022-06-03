@@ -1,6 +1,6 @@
 class DrillsController < ApplicationController
   def index
-    
+    @drills = Drill.all.order(id: "DESC")
   end
 
   def new
