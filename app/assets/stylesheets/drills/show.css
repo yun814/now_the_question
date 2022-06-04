@@ -156,3 +156,18 @@
 /************************************
  クイズ追加フォーム 
 ************************************/
+.quiz-form{
+  margin-top: 20px;
+  padding: 5px 10px;
+  border: 1px solid black;
+}
+
+.form-correct_ans{
+  width: 60px;
+  height: 30px;
+}
+
+.quiz-post-btn{
+  width: 150px;
+  height: 40px;
+}

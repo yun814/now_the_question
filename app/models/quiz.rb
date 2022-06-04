@@ -1,5 +1,5 @@
 class Quiz < ApplicationRecord
-  validates :question, presence: true, length: {minimum: 1, maximum: 100, message: "は1文字以上100文字以内で入力してください"}
+  validates :question, presence: true, length: {minimum: 1, maximum: 112, message: "は1文字以上112文字以内で入力してください"}
   validates :choices_1, presence: true, length: {minimum: 1, maximum: 10, message: "は1文字以上10文字以内で入力してください"}
   validates :choices_2, presence: true, length: {minimum: 1, maximum: 10, message: "は1文字以上10文字以内で入力してください"}
   validates :choices_3, presence: true, length: {minimum: 1, maximum: 10, message: "は1文字以上10文字以内で入力してください"}
