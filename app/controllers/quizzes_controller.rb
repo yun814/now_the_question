@@ -5,6 +5,7 @@ class QuizzesController < ApplicationController
       redirect_to drill_path(@quiz.drill.id)
     else
       @drill = Drill.find(params[:drill_id])
+      @quizzes = @drill.quizzes.includes(:user)
       render "drills/show"
     end
   end
