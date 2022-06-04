@@ -8,7 +8,7 @@
 
 .show-drill-title_box{
   width: 90%;
-  padding-bottom: 2.5px;
+  padding-bottom: 5px;
   margin: 0 auto 0;
   border-bottom: 1px solid rgb(180, 180, 180);
 }
@@ -21,7 +21,7 @@
 .show-drill-sub_1{
   width: 45%;
   font-size: 15px;
-  margin: 2.5px auto 5px;
+  margin: 10px auto 5px;
   display: flex;
   justify-content: space-between;
 }
@@ -45,12 +45,12 @@
 .show-drill-ans_times{
   font-size: 15px;
   text-align: center;
-  margin-bottom: 2.5px;
+  margin-bottom: 5px;
 }
 
 .show-drill-info_box{
   width: 90%;
-  padding-top: 2.5px;
+  padding-top: 5px;
   margin: 0 auto 0;
   border-top: 1px solid rgb(180, 180, 180);
   display: flex;
@@ -62,6 +62,113 @@
   font-size: 15px;
 }
 
+.show-drill-btn{
+  width: 90%;
+  padding-top: 15px;
+  margin: 20px auto 10px;
+  border-top: 1px solid rgb(180, 180, 180);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.drill-editor{
+  width: 100%;
+  padding: 0 25% 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.to_edit,
+.to_destroy{
+  font-size: 15px;
+  padding: 8px 20px;
+  border: 1px solid black;
+}
+
+.challenge-btn{
+  font-size: 20px;
+  letter-spacing: 5px;
+  padding: 8px 20px;
+  border: 1px solid black;
+}
+
+/************************************
+ クイズプレビュー 
+************************************/
+.quiz{
+  margin-top: 20px;
+  padding: 5px 10px;
+  border: 1px solid black;
+}
+
+.quiz-num_box{
+  width: 90%;
+  padding-bottom: 5px;
+  margin: 0 auto 0;
+  border-bottom: 1px solid rgb(180, 180, 180);
+}
+
+.quiz-num{
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.quiz-question{
+  width: 80%;
+  font-size: 20px;
+  text-align: center;
+  margin: 15px auto 0;
+}
+
+.quiz-choices-boxes{
+  width: 90%;
+  margin: 20px auto 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.quiz-choices{
+  width: 275px;
+  height: 50px;
+  font-size: 20px;
+  text-align: center;
+  line-height: 50px;
+  border: 1px solid black;
+}
+
+.quiz-editor{
+  width: 90%;
+  padding-top: 15px;
+  margin: 20px auto 10px;
+  border-top: 1px solid rgb(180, 180, 180);
+  display: flex;
+  justify-content: space-around;
+  align-items: center
+}
+
+.quiz-correct_ans{
+  font-size: 20px;
+  text-align: center;
+  display: flex;
+}
+
 /************************************
  クイズ追加フォーム 
 ************************************/
+.quiz-form{
+  margin-top: 20px;
+  padding: 5px 10px;
+  border: 1px solid black;
+}
+
+.form-correct_ans{
+  width: 60px;
+  height: 30px;
+}
+
+.quiz-post-btn{
+  width: 150px;
+  height: 40px;
+}
