@@ -23,8 +23,19 @@
       <div class="show-drill-info_box">
         <div class="show-drill-info"><%= "詳細：#{@drill.information}" %></div>
       </div>
-      <div class="editor">
-        <div><%= link_to "編集する", '#', class: "to_edit" %></div>
+      <div class="show-drill-btn">
+        <% if user_signed_in? && current_user.id == @drill.user_id %>
+          <div class="drill-editor">
+            <div><%= link_to "編集する", '#', class: "to_edit" %></div>
+            <div><%= link_to "削除する", '#', class: "to_destroy" %></div>
+          </div>
+
+        <% elsif user_signed_in? %>
+          <div><%= link_to 'クイズに挑戦', '#', class: "challenge-btn" %></div>
+
+        <% else %>
+          <div>※クイズに挑戦するにはログインする必要があります</div>
+        <% end %>
       </div>
     </div>
 
@@ -46,19 +57,16 @@
             <div class="quiz-choices"><%= "4. #{quiz.choices_4}" %></div>
           </div>
 
-          <div class="editor">
+          <div class="quiz-editor">
             <div class="quiz-correct_ans"><%= "正解は#{quiz.correct_answer}番の選択肢に設定しています" %></div>
             <div><%= link_to "編集する", '#', class: "to_edit" %></div>
+            <div><%= link_to "削除する", '#', class: "to_destroy" %></div>
           </div>
         </div>
       <% end %>
       <%= render 'shared/quiz-form' %>
-
-    <% elsif user_signed_in? %>
-      <%= link_to 'クイズに挑戦', '#', class: "challenge-btn" %>
-
-    <% else %>
-      <div>クイズに挑戦するにはログインする必要があります</div>
     <% end %>
+
+
   </div>
 </div>

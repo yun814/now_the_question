@@ -62,24 +62,39 @@
   font-size: 15px;
 }
 
-.editor{
+.show-drill-btn{
   width: 90%;
   padding-top: 15px;
   margin: 20px auto 10px;
   border-top: 1px solid rgb(180, 180, 180);
   display: flex;
-  justify-content: space-around;
-  align-items: center
+  justify-content: center;
+  align-items: center;
 }
 
-.to_edit{
+.drill-editor{
+  width: 100%;
+  padding: 0 25% 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.to_edit,
+.to_destroy{
   font-size: 15px;
   padding: 8px 20px;
   border: 1px solid black;
 }
 
+.challenge-btn{
+  font-size: 20px;
+  letter-spacing: 5px;
+  padding: 8px 20px;
+  border: 1px solid black;
+}
+
 /************************************
- クイズ追加フォーム 
+ クイズプレビュー 
 ************************************/
 .quiz{
   margin-top: 20px;
@@ -137,3 +152,7 @@
   font-size: 20px;
   text-align: center;
 }
+
+/************************************
+ クイズ追加フォーム 
+************************************/
