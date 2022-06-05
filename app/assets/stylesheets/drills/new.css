@@ -1,0 +1,49 @@
+/************************************
+ ドリル投稿ボックス 
+************************************/
+.drill-form{
+  width: 100%;
+  padding: 50px 10px;
+  text-align: center;
+}
+
+.drill-form-title{
+  font-size: 40px;
+  text-align: center;
+}
+
+/************************************
+ ドリル投稿フォーム 
+************************************/
+.form-title-box{
+  font-size: 25px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.form-genre-box{
+  font-size: 20px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.form-info-box{
+  font-size: 20px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.form-info{
+  font-size: 16px;
+}
+
+.drill-create-btn{
+  padding: 10px 10px 10px 30px;
+  font-size: 30px;
+  letter-spacing: 20px;
+  margin-top: 40px;
+}
