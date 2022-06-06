@@ -14,7 +14,7 @@
       <div class="quiz-choices"><%= "3. #{quiz.choices_3}" %></div>
       <div class="quiz-choices"><%= "4. #{quiz.choices_4}" %></div>
     </div>
-    <div class="answer" hidden></div>
+    <div class="answer" hidden>0</div>
   <% if user_signed_in? && current_user.id == @drill.user_id %>
     <div class="quiz-editor">
       <div class="quiz-correct_ans"><%= "正解は#{quiz.correct_answer}番の選択肢に設定しています" %></div>
