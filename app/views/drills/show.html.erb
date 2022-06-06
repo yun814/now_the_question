@@ -30,7 +30,7 @@
         </div>
 
       <% elsif user_signed_in? %>
-        <div><%= link_to 'クイズに挑戦', '#', class: "challenge-btn" %></div>
+        <div><%= link_to 'クイズに挑戦', drill_quizzes_path(@drill), class: "challenge-btn" %></div>
 
       <% else %>
         <div>※クイズに挑戦するにはログインする必要があります</div>

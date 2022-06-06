@@ -1,4 +1,8 @@
 class QuizzesController < ApplicationController
+  def index
+    @drill = Drill.find(params[:drill_id])
+  end
+
   def create
     @quiz = Quiz.new(quiz_params)
     if @quiz.save
