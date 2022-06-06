@@ -1,6 +1,7 @@
 class QuizzesController < ApplicationController
   def index
     @drill = Drill.find(params[:drill_id])
+    @quizzes = @drill.quizzes.includes(:user)
   end
 
   def create

@@ -39,31 +39,7 @@
   </div>
 
   <% if user_signed_in? && current_user.id == @drill.user_id %>
-    <% @quizzes.each_with_index do |quiz, i| %>
-      <div class="quiz">
-        <div class="quiz-num_box">
-          <div class="quiz-num"><%= "第#{i + 1}問" %></div>
-        </div>
-
-        <div class="quiz-question"><%= quiz.question %></div>
-        
-        <div class="quiz-choices-boxes">
-          <div class="quiz-choices"><%= "1. #{quiz.choices_1}" %></div>
-          <div class="quiz-choices"><%= "2. #{quiz.choices_2}" %></div>
-        </div>
-        <div class="quiz-choices-boxes">
-          <div class="quiz-choices"><%= "3. #{quiz.choices_3}" %></div>
-          <div class="quiz-choices"><%= "4. #{quiz.choices_4}" %></div>
-        </div>
-
-        <div class="quiz-editor">
-          <div class="quiz-correct_ans"><%= "正解は#{quiz.correct_answer}番の選択肢に設定しています" %></div>
-          <div><%= link_to "編集する", '#', class: "to_edit" %></div>
-          <div><%= link_to "削除する", '#', class: "to_destroy" %></div>
-        </div>
-      </div>
-    <% end %>
-    
+    <%= render 'shared/quiz' %>
     <%= render 'shared/quiz-form' %>
   <% end %>
 </div>

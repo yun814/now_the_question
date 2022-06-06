@@ -1,1 +1,7 @@
-quiz
+<div class="quiz-answer">
+  <div class="quiz-answer-title"><%= @drill.title %>に挑戦！</div>
+
+  <%= render 'shared/quiz' %>
+  
+  <div class="finish-btn-box"><%= link_to '回答終了', '#', class: "finish-btn" %></div>
+</div>
