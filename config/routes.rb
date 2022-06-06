@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   resources :drills, only: [:index, :new, :create, :show] do
     resources :quizzes, only: [:index, :create]
+    resources :results, only: :index
   end
 end
