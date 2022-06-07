@@ -54,17 +54,57 @@ function answer() {
       });
     });
   });
+
   
   // 回答終了ボタンをクリックした時に処理を実行
   finishBtn.addEventListener('click', (e) => {
-    // 回答を格納する配列を生成
+    e.preventDefault()
+
+    // 正解が記述してある要素を取得
+    const correctAnswer = document.querySelectorAll('.correct-answer');
+    // 回答を格納する配列と正解を格納する配列を生成
     const answersArray = [];
-    // 回答を数値化して配列に格納
+    const correctAnswersArray = [];
+    
+    // 回答と正解の内容を取り出して配列に格納
     answer.forEach((ans) => {
-      const ansNum = Number(ans.innerHTML)
+      const ansNum = ans.innerHTML;
       answersArray.push(ansNum);
     });
+    correctAnswer.forEach((correctAns) => {
+      const correctAnsNum = correctAns.innerHTML;
+      correctAnswersArray.push(correctAnsNum);
+    });
+    
+    // 回答が正解と等しいかを判定し、正解数をカウント
+    let correctAnsCount = 0;
+    answersArray.forEach((ans, i) => {
+      if (ans == correctAnswersArray[i]) {
+        correctAnsCount++;
+      };
+    });
 
+    // 正答率を計算
+    const correctAnsRate = Math.floor((correctAnsCount / correctAnswersArray.length) * 10000) /100
+
+    // 今回の回答回数の要素を取得し、内容を数値に変換
+    const times = document.getElementById('times');
+    const timesNum = Number(times.innerHTML);
+
+    // 送信用のフォームを取得
+    const answerForm = document.getElementById('answer-form');
+    // 送信内容のフォームを生成
+    const timesObj = `<input value=${timesNum} name='times' type="hidden">`;
+    const numOfQuestionsObj = `<input value=${correctAnswer.length} name='number_of_questions' type="hidden">`;
+    const numOfCorrectAnsObj = `<input value=${correctAnsCount} name='number_of_correct_answers' type="hidden">`;
+    const correctAnsRateObj = `<input value=${correctAnsRate} name='correct_answer_rate' type="hidden">`;
+    // 生成したフォームを挿入
+    answerForm.insertAdjacentHTML('beforeend', timesObj);
+    answerForm.insertAdjacentHTML('beforeend', numOfQuestionsObj);
+    answerForm.insertAdjacentHTML('beforeend', numOfCorrectAnsObj);
+    answerForm.insertAdjacentHTML('beforeend', correctAnsRateObj);
+    // フォームの内容を送信
+    answerForm.submit();
   });
 };
 
