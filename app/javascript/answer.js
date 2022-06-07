@@ -57,7 +57,6 @@ function answer() {
   
   // 回答終了ボタンをクリックした時に処理を実行
   finishBtn.addEventListener('click', (e) => {
-    e.preventDefault();
     // 回答を格納する配列を生成
     const answersArray = [];
     // 回答を数値化して配列に格納
@@ -65,7 +64,7 @@ function answer() {
       const ansNum = Number(ans.innerHTML)
       answersArray.push(ansNum);
     });
-    
+
   });
 };
 
