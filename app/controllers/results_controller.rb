@@ -1,6 +1,5 @@
 class ResultsController < ApplicationController
   def index
-    binding.pry
 
   end
 
