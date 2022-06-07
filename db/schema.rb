@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_02_091558) do
+ActiveRecord::Schema.define(version: 2022_06_06_122914) do
 
   create_table "drills", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
@@ -37,6 +37,19 @@ ActiveRecord::Schema.define(version: 2022_06_02_091558) do
     t.index ["user_id"], name: "index_quizzes_on_user_id"
   end
 
+  create_table "results", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "times", null: false
+    t.integer "number_of_questions", null: false
+    t.integer "number_of_correct_answers", null: false
+    t.float "correct_answer_rate", null: false
+    t.bigint "user_id", null: false
+    t.bigint "drill_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["drill_id"], name: "index_results_on_drill_id"
+    t.index ["user_id"], name: "index_results_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "email", default: "", null: false
@@ -53,4 +66,6 @@ ActiveRecord::Schema.define(version: 2022_06_02_091558) do
   add_foreign_key "drills", "users"
   add_foreign_key "quizzes", "drills"
   add_foreign_key "quizzes", "users"
+  add_foreign_key "results", "drills"
+  add_foreign_key "results", "users"
 end

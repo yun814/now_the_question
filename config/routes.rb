@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'drills#index'
 
   resources :drills, only: [:index, :new, :create, :show] do
-    resources :quizzes, only: :create
+    resources :quizzes, only: [:index, :create]
+    resources :results, only: [:index, :create]
   end
 end

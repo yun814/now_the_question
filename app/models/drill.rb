@@ -4,6 +4,7 @@ class Drill < ApplicationRecord
   validates :information, presence: true, length: {minimum: 1, maximum: 175, message: "は175文字以内で入力してください"}
 
   has_many :quizzes
+  has_many :results
   belongs_to :user
 
   extend ActiveHash::Associations::ActiveRecordExtensions
