@@ -18,10 +18,14 @@
     </div>
 
     <div class="show-drill-ans_times">
-      <% if @results.present? %>
+      <% if user_signed_in? && @drill.user_id == current_user.id %>
+        あなたが作成したクイズ集です
+      <% elsif user_signed_in? && @results.present? %>
         <%= "あなたは#{@results.count}回挑戦しました" %>
-      <% else %>
+      <% elsif user_signed_in? %>
         あなたはまだ挑戦していません
+      <% else %>
+        ログインすると挑戦回数が表示されます
       <% end %>
     </div>
 
