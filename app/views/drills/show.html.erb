@@ -18,10 +18,14 @@
     </div>
 
     <div class="show-drill-ans_times">
-      <% if @results.present? %>
+      <% if user_signed_in? && @drill.user_id == current_user.id %>
+        あなたが作成したクイズ集です
+      <% elsif user_signed_in? && @results.present? %>
         <%= "あなたは#{@results.count}回挑戦しました" %>
-      <% else %>
+      <% elsif user_signed_in? %>
         あなたはまだ挑戦していません
+      <% else %>
+        ログインすると挑戦回数が表示されます
       <% end %>
     </div>
 
@@ -31,8 +35,8 @@
     <div class="show-drill-btn">
       <% if user_signed_in? && current_user.id == @drill.user_id %>
         <div class="drill-editor">
-          <div><%= link_to "編集する", '#', class: "to_edit" %></div>
-          <div><%= link_to "削除する", '#', class: "to_destroy" %></div>
+          <div><%= link_to "編集する", edit_drill_path(@drill), class: "to_edit" %></div>
+          <div><%= link_to "削除する", drill_path(@drill), method: :delete, data: {confirm: "本当に削除しますか？\n※このクイズ集に関するクイズや回答した人の成績が全て削除されます。"}, class: "to_destroy" %></div>
         </div>
 
       <% elsif user_signed_in? %>
@@ -46,7 +50,35 @@
 
   <% if user_signed_in? && current_user.id == @drill.user_id %>
     <%= render 'shared/quiz' %>
-    <%= render 'shared/quiz-form' %>
+    
+    <div class="quiz-form">
+      <div class="quiz-num_box">
+        <div class="quiz-num">次のクイズを追加する</div>
+      </div>
+
+      <%= form_with model: [@drill, @quiz], local: true do |f| %>
+        <%= render 'shared/error_messages', model: f.object %>
+
+        <div class="quiz-question"><%= f.text_area :question, placeholder: "問題文を入力\n例)「なぜ山に登るのか」と聞かれて「そこに山があるから」と答えたことで有名な、イギリスの登山家は誰でしょう？",size: "50x4", maxlength: "112", class: "form-question" %></div>
+
+        <div class="quiz-choices-boxes">
+          <%= f.text_field :choices_1, placeholder: "選択肢１を入力", maxlength: "10", class: "quiz-choices" %>
+          <%= f.text_field :choices_2, placeholder: "選択肢２を入力", maxlength: "10", class: "quiz-choices" %>
+        </div>
+        <div class="quiz-choices-boxes">
+          <%= f.text_field :choices_3, placeholder: "選択肢３を入力", maxlength: "10", class: "quiz-choices" %>
+          <%= f.text_field :choices_4, placeholder: "選択肢４を入力", maxlength: "10", class: "quiz-choices" %>
+        </div>
+
+        <div class="quiz-editor">
+          <div class="quiz-correct_ans">正解は
+            <%= f.number_field :correct_answer, placeholder: "正解", in: 1..4, class: "form-correct_ans" %>
+            番にの選択肢に設定します
+          </div>
+          <%= f.submit "クイズを追加", class: "quiz-post-btn" %>
+        </div>
+      <% end %>
+    </div>
   
   <% elsif @results.present? %>
   <div class="show-drill-results-box">

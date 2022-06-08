@@ -1,6 +1,6 @@
-<div class="quiz-form">
+<div class="quiz-edit-form">
   <div class="quiz-num_box">
-    <div class="quiz-num">次のクイズを追加する</div>
+    <div class="quiz-num">次のクイズを編集する</div>
   </div>
 
   <%= form_with model: [@drill, @quiz], local: true do |f| %>
@@ -22,7 +22,7 @@
         <%= f.number_field :correct_answer, placeholder: "正解", in: 1..4, class: "form-correct_ans" %>
         番にの選択肢に設定します
       </div>
-      <%= f.submit "クイズを追加", class: "quiz-post-btn" %>
+      <%= f.submit "クイズを変更", class: "quiz-post-btn" %>
     </div>
   <% end %>
 </div>

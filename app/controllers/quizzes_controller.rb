@@ -17,6 +17,28 @@ class QuizzesController < ApplicationController
     end
   end
 
+  def edit
+    @drill = Drill.find(params[:drill_id])
+    @quiz = Quiz.find(params[:id])
+  end
+
+  def update
+    @quiz = Quiz.find(params[:id])
+    @quiz.update(quiz_params)
+    if @quiz.save
+      redirect_to drill_path(@quiz.drill.id)
+    else
+      @drill = Drill.find(params[:drill_id])
+      render :edit
+    end
+  end
+
+  def destroy
+    quiz = Quiz.find(params[:id])
+    quiz.destroy
+    redirect_to drill_path(quiz.drill_id)
+  end
+
   private
   def quiz_params
     params.require(:quiz)
