@@ -21,7 +21,7 @@
     <div class="quiz-editor">
       <div class="quiz-correct_ans"><%= "正解は#{quiz.correct_answer}番の選択肢に設定しています" %></div>
       <div><%= link_to "編集する", edit_drill_quiz_path(@drill, quiz), class: "to_edit" %></div>
-      <div><%= link_to "削除する", '#', class: "to_destroy" %></div>
+      <div><%= link_to "削除する", drill_quiz_path(@drill, quiz), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "to_destroy" %></div>
     </div>
   <% end %>
   </div>

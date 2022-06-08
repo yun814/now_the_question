@@ -33,6 +33,12 @@ class QuizzesController < ApplicationController
     end
   end
 
+  def destroy
+    quiz = Quiz.find(params[:id])
+    quiz.destroy
+    redirect_to drill_path(quiz.drill_id)
+  end
+
   private
   def quiz_params
     params.require(:quiz)
