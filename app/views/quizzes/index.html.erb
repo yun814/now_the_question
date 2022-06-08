@@ -1,6 +1,13 @@
 <div class="quiz-answer">
   <div class="quiz-answer-title">
-    <%= @drill.title %>に<span id="times"><%= @times + 1 %></span>回目の挑戦！
+    <%= @drill.title %>に
+    <span id="times">
+      <% if @last_result %>
+        <%= @last_result.times + 1 %>
+      <% else %>
+        1
+      <% end %>
+    </span>回目の挑戦！
   </div>
 
   <%= render 'shared/quiz' %>

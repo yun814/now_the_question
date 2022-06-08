@@ -3,12 +3,7 @@ class QuizzesController < ApplicationController
     @drill = Drill.find(params[:drill_id])
     @quizzes = @drill.quizzes.includes(:user)
     @result = Result.new
-
-    if Result.find_by(drill_id: @drill.id, user_id: current_user.id)
-      @times = Result.find_by(drill_id: @drill.id, user_id: current_user.id).count
-    else
-      @times = 0
-    end
+    @last_result = Result.order(created_at: "DESC").find_by(drill_id: @drill.id, user_id: current_user.id)
   end
 
   def create
