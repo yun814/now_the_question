@@ -17,7 +17,13 @@
       <div><%= link_to "ランキングへ", '#' %></div>
     </div>
 
-    <div class="show-drill-ans_times"><%= "あなたは00回挑戦しました" %></div>
+    <div class="show-drill-ans_times">
+      <% if @results.present? %>
+        <%= "あなたは#{@results.count}回挑戦しました" %>
+      <% else %>
+        あなたはまだ挑戦していません
+      <% end %>
+    </div>
 
     <div class="show-drill-info_box">
       <div class="show-drill-info"><%= "詳細：#{@drill.information}" %></div>
@@ -42,7 +48,7 @@
     <%= render 'shared/quiz' %>
     <%= render 'shared/quiz-form' %>
   
-  <% elsif @results %>
+  <% elsif @results.present? %>
   <div class="show-drill-results-box">
     <div class="show-drill-results-title">〜過去の成績〜</div>
     <div class="show-drill-results">
