@@ -17,7 +17,13 @@
       <div><%= link_to "ランキングへ", '#' %></div>
     </div>
 
-    <div class="show-drill-ans_times"><%= "あなたは00回挑戦しました" %></div>
+    <div class="show-drill-ans_times">
+      <% if @results.present? %>
+        <%= "あなたは#{@results.count}回挑戦しました" %>
+      <% else %>
+        あなたはまだ挑戦していません
+      <% end %>
+    </div>
 
     <div class="show-drill-info_box">
       <div class="show-drill-info"><%= "詳細：#{@drill.information}" %></div>
@@ -41,5 +47,17 @@
   <% if user_signed_in? && current_user.id == @drill.user_id %>
     <%= render 'shared/quiz' %>
     <%= render 'shared/quiz-form' %>
+  
+  <% elsif @results.present? %>
+  <div class="show-drill-results-box">
+    <div class="show-drill-results-title">〜過去の成績〜</div>
+    <div class="show-drill-results">
+      <% @results.each do |result| %>
+        <div>
+          <%= result.times %>回目は、<%= result.number_of_questions %>問中<%= result.number_of_correct_answers %>問正解で、<%= result.correct_answer_rate.round(1) %>%の正解率でした。
+        </div>
+      <% end %>
+    </div>
+  </div>
   <% end %>
 </div>

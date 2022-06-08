@@ -172,3 +172,22 @@
   width: 150px;
   height: 40px;
 }
+
+/************************************
+ 過去の成績表示 
+************************************/
+.show-drill-results-box{
+  text-align: center;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border: 1px solid black;
+}
+
+.show-drill-results-title{
+  font-size: 25px;
+}
+
+.show-drill-results{
+  font-size: 15px;
+  margin-top: 10px;
+}

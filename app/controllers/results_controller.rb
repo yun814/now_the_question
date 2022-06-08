@@ -1,6 +1,8 @@
 class ResultsController < ApplicationController
   def index
-
+    @drill = Drill.find(params[:drill_id])
+    @quizzes = @drill.quizzes.includes(:user)
+    @result = Result.order(created_at: "DESC").find_by(drill_id: @drill.id, user_id: current_user.id)
   end
 
   def create

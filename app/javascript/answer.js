@@ -85,7 +85,7 @@ function answer() {
     });
 
     // 正答率を計算
-    const correctAnsRate = Math.floor((correctAnsCount / correctAnswersArray.length) * 10000) /100
+    const correctAnsRate = (correctAnsCount / correctAnswersArray.length) * 100
 
     // 今回の回答回数の要素を取得し、内容を数値に変換
     const times = document.getElementById('times');
