@@ -31,6 +31,19 @@ class DrillsController < ApplicationController
     end
   end
 
+  def edit
+    @drill = Drill.find(params[:id])
+  end
+
+  def update
+    @drill = Drill.new(drill_params)
+    if @drill.save
+      redirect_to drill_path(@drill.id)
+    else
+      render :edit
+    end
+  end
+
   private
   def drill_params
     params.require(:drill)

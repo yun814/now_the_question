@@ -1,1 +1,12 @@
-<%= render 'shared/drill-form' %>
+<div class="drill-form">
+  <div class="drill-form-title">〜 クイズ集を新規作成 〜</div>
+  <%= form_with model: @drill, local: true do |f| %>
+    <%= render 'shared/error_messages', model: f.object %>
+
+    <div class="form-title-box">タイトル：<%= f.text_field :title, placeholder: "〇〇のクイズ", autofocus: true, size: "37", maxlength: "20", class: "form-title" %></div>
+    <div class="form-genre-box">ジャンル：<%= f.collection_select(:genre_id, Genre.all, :id, :name, {include_blank: "---"}, {class:"form-genre"}) %></div>
+    <div class="form-info-box">詳細：<%= f.text_area :information, placeholder: "175文字以内で入力してください。\n例1)〇〇についてのクイズです。\n      結構易しめなので全問正解目指して頑張ってください。\n例2)〇〇の難しいクイズです。\n      要望があればぜひコメントください。", maxlength: "175", size: "62x5", class: "form-info" %></div>
+
+    <div><%= f.submit "新規作成", class: "drill-create-btn" %></div>
+  <% end %>
+</div>
