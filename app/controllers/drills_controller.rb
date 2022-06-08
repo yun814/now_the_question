@@ -36,7 +36,8 @@ class DrillsController < ApplicationController
   end
 
   def update
-    @drill = Drill.new(drill_params)
+    @drill = Drill.find(params[:id])
+    @drill.update(drill_params)
     if @drill.save
       redirect_to drill_path(@drill.id)
     else
