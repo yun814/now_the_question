@@ -41,5 +41,17 @@
   <% if user_signed_in? && current_user.id == @drill.user_id %>
     <%= render 'shared/quiz' %>
     <%= render 'shared/quiz-form' %>
+  
+  <% elsif @results %>
+  <div class="show-drill-results-box">
+    <div class="show-drill-results-title">〜過去の成績〜</div>
+    <div class="show-drill-results">
+      <% @results.each do |result| %>
+        <div>
+          <%= result.times %>回目は、<%= result.number_of_questions %>問中<%= result.number_of_correct_answers %>問正解で、<%= result.correct_answer_rate.round(1) %>%の正解率でした。
+        </div>
+      <% end %>
+    </div>
+  </div>
   <% end %>
 </div>

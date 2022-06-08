@@ -24,6 +24,7 @@ class DrillsController < ApplicationController
     @drill = Drill.find(params[:id])
     @quiz = Quiz.new
     @quizzes = @drill.quizzes.includes(:user)
+    @results = @drill.results.order(created_at: "DESC").where(user_id: current_user.id)
   end
 
   private
