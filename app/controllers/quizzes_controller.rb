@@ -2,8 +2,8 @@ class QuizzesController < ApplicationController
   def index
     @drill = Drill.find(params[:drill_id])
     @quizzes = @drill.quizzes.includes(:user)
+    @times = @drill.results.where(user_id: current_user.id).count
     @result = Result.new
-    @last_result = Result.order(created_at: "DESC").find_by(drill_id: @drill.id, user_id: current_user.id)
   end
 
   def create
