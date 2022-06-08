@@ -1,6 +1,10 @@
 class DrillsController < ApplicationController
   def index
     @drills = Drill.all.order(id: "DESC")
+    @times_array = []
+    @drills.each do |drill|
+      @times_array << drill.results.where(user_id: current_user.id).count
+    end
   end
 
   def new

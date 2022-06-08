@@ -5,7 +5,11 @@
         <div class="drill-left_1"><%= link_to drill.title, drill_path(drill) %></div>
         <div class="drill-left_2">
           <div>ジャンル：<%= link_to drill.genre.name, '#' %></div>
-          <div>あなたは00回挑戦しました</div>
+          <% if @times_array[drill_counter] == 0 %>
+            <div>あなたはまだ挑戦していません</div>
+          <% else %>
+            <div>あなたは<%= @times_array[drill_counter] %>回挑戦しました</div>
+          <% end %>
         </div>
       </div>
       
