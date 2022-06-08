@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'drills#index'
 
   resources :drills do
-    resources :quizzes, only: [:index, :create, :edit, :update, :delete]
+    resources :quizzes, only: [:index, :create, :edit, :update, :destroy]
     resources :results, only: [:index, :create]
   end
 end
