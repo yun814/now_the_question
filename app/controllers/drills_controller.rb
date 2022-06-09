@@ -1,6 +1,6 @@
 class DrillsController < ApplicationController
   def index
-    @drills = Drill.all.order(id: "DESC")
+    @drills = Drill.all.order(id: "DESC").includes(:user, :quizzes)
     if user_signed_in?
       @times_array = []
       @drills.each do |drill|
@@ -25,7 +25,7 @@ class DrillsController < ApplicationController
   def show
     @drill = Drill.find(params[:id])
     @quiz = Quiz.new
-    @quizzes = @drill.quizzes.includes(:user)
+    @quizzes = @drill.quizzes
     if user_signed_in?
       @results = @drill.results.order(created_at: "DESC").where(user_id: current_user.id)
     end

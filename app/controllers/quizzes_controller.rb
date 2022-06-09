@@ -1,7 +1,7 @@
 class QuizzesController < ApplicationController
   def index
     @drill = Drill.find(params[:drill_id])
-    @quizzes = @drill.quizzes.includes(:user)
+    @quizzes = @drill.quizzes
     @times = @drill.results.where(user_id: current_user.id).count
     @result = Result.new
   end
@@ -12,7 +12,7 @@ class QuizzesController < ApplicationController
       redirect_to drill_path(@quiz.drill.id)
     else
       @drill = Drill.find(params[:drill_id])
-      @quizzes = @drill.quizzes.includes(:user)
+      @quizzes = @drill.quizzes
       render "drills/show"
     end
   end

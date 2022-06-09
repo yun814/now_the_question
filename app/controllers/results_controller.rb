@@ -1,8 +1,7 @@
 class ResultsController < ApplicationController
-  attr_accessor :first_number_of_questions, :first_number_of_correct_answers, :first_correct_answer_rate
   def index
     @drill = Drill.find(params[:drill_id])
-    @quizzes = @drill.quizzes.includes(:user)
+    @quizzes = @drill.quizzes
     @result = Result.order(created_at: "DESC").find_by(drill_id: @drill.id, user_id: current_user.id)
   end
 
