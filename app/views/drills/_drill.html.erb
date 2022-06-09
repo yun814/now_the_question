@@ -19,7 +19,7 @@
       
       <div class="drill-right">
         <div class="drill-right_1">
-          <div><%= link_to "#{drill.user.nickname}さん", '#', class: "drill-user" %>が投稿</div>
+          <div><%= link_to "#{drill.user.nickname}さん", user_path(drill.user), class: "drill-user" %>が投稿</div>
         </div>
         <div class="drill-right_2">
           <div><%= "#{drill.quizzes.size}問のクイズ" %></div>
