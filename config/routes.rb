@@ -6,4 +6,6 @@ Rails.application.routes.draw do
     resources :quizzes, only: [:index, :create, :edit, :update, :destroy]
     resources :results, only: [:index, :create]
   end
+
+  resources :users, only: :show
 end
