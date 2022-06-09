@@ -10,13 +10,13 @@
           <th></th> <th>初見の回答のみ</th> <th>全ての回答の合計</th>
         </tr>
         <tr>
-          <th>回答数</th> <td>00問</td> <td>00問</td>
+          <th>回答数</th> <td><%= @user.record.first_number_of_questions %>問</td> <td><%= @user.record.all_number_of_questions %>問</td>
         </tr>
         <tr>
-          <th>正解数</th> <td>00問</td> <td>00問</td>
+          <th>正解数</th> <td><%= @user.record.first_number_of_correct_answers %>問</td> <td><%= @user.record.all_number_of_correct_answers %>問</td>
         </tr>
         <tr>
-          <th>正解率</th> <td>00%</td> <td>00%</td>
+          <th>正解率</th> <td><%= @user.record.first_correct_answer_rate.round(1) %>%</td> <td><%= @user.record.all_correct_answer_rate.round(1) %>%</td>
         </tr>
       </table>
     </div>
