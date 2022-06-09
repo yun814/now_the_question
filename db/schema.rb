@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_06_122914) do
+ActiveRecord::Schema.define(version: 2022_06_09_090056) do
 
   create_table "drills", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
@@ -35,6 +35,19 @@ ActiveRecord::Schema.define(version: 2022_06_06_122914) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["drill_id"], name: "index_quizzes_on_drill_id"
     t.index ["user_id"], name: "index_quizzes_on_user_id"
+  end
+
+  create_table "records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "first_number_of_qusetions", default: 0
+    t.integer "first_number_of_correct_answers", default: 0
+    t.float "first_correct_answer_rate", default: 0.0
+    t.integer "all_number_of_qusetions", default: 0
+    t.integer "all_number_of_correct_answers", default: 0
+    t.float "all_correct_answer_rate", default: 0.0
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_records_on_user_id"
   end
 
   create_table "results", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -66,6 +79,7 @@ ActiveRecord::Schema.define(version: 2022_06_06_122914) do
   add_foreign_key "drills", "users"
   add_foreign_key "quizzes", "drills"
   add_foreign_key "quizzes", "users"
+  add_foreign_key "records", "users"
   add_foreign_key "results", "drills"
   add_foreign_key "results", "users"
 end
