@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_09_090056) do
+ActiveRecord::Schema.define(version: 2022_06_09_124346) do
 
   create_table "drills", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
@@ -38,10 +38,10 @@ ActiveRecord::Schema.define(version: 2022_06_09_090056) do
   end
 
   create_table "records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "first_number_of_qusetions", default: 0
+    t.integer "first_number_of_questions", default: 0
     t.integer "first_number_of_correct_answers", default: 0
     t.float "first_correct_answer_rate", default: 0.0
-    t.integer "all_number_of_qusetions", default: 0
+    t.integer "all_number_of_questions", default: 0
     t.integer "all_number_of_correct_answers", default: 0
     t.float "all_correct_answer_rate", default: 0.0
     t.bigint "user_id", null: false
