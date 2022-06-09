@@ -1,1 +1,36 @@
-<%= @user.nickname %>さんの詳細
+<%= render 'shared/side-bar' %>
+
+<div class="user-show">
+  <div class="user-show-nickname"><%= @user.nickname %>さん</div>
+  <div class="user-show-record">
+    <div class="record-table-box">
+      <table class="record-table" border="1">
+        <tr>
+          <th></th> <th>初見の回答のみ</th> <th>全ての回答の合計</th>
+        </tr>
+        <tr>
+          <th>回答数</th> <td>00問</td> <td>00問</td>
+        </tr>
+        <tr>
+          <th>正解数</th> <td>00問</td> <td>00問</td>
+        </tr>
+        <tr>
+          <th>正解率</th> <td>00%</td> <td>00%</td>
+        </tr>
+      </table>
+    
+    <div class="lastest-drills">
+      <div class="lastest-drills-info"><%= @user.nickname %>さんが最近挑戦したクイズ集</div>
+      <% @results.each do |result| %>
+        <div><%= result.drill.title %></div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="user-show-drills">
+    <div class="user-show-drills-num"><%= @user.nickname %>さんが投稿したクイズ集は<%= @user.drills.count %>個あります。</div>
+    <% @user.drills.each do |drill| %>
+      <div><%= drill.title %></div>
+    <% end %>
+  </div>
+</div>
