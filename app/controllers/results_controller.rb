@@ -1,4 +1,5 @@
 class ResultsController < ApplicationController
+  attr_accessor :first_number_of_questions, :first_number_of_correct_answers, :first_correct_answer_rate
   def index
     @drill = Drill.find(params[:drill_id])
     @quizzes = @drill.quizzes.includes(:user)
@@ -6,8 +7,9 @@ class ResultsController < ApplicationController
   end
 
   def create
-    result = Result.new(result_params)
-    if result.save
+    result_records = ResultRecords.new(result_params)
+    if result_records.valid?
+      result_records.save
       redirect_to drill_results_path(params[:drill_id])
     else
       render 'quiz/index'

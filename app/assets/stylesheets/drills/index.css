@@ -2,8 +2,8 @@
  ドリル表示領域 
 ************************************/
 .drill-main{
-  width: 73%;
-  padding: 10px;
+  width: 71%;
+  padding: 20px;
   border: 1px solid black;
 }
 

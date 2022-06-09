@@ -1,0 +1,79 @@
+/************************************
+ ユーザー詳細表示領域 
+************************************/
+.user-show{
+  width: 71%;
+  padding: 20px;
+  border: 1px solid black;
+}
+
+/************************************
+ 成績表示 
+************************************/
+.user-show-record{
+  padding: 20px 15px;
+  border: 1px solid black;
+}
+
+.user-show-nickname{
+  font-size: 30px;
+}
+
+.honorific{
+  font-size: 20px;
+}
+
+.record-table-box{
+  margin-top: 10px;
+}
+
+.record-table-info{
+  font-size: 20px;
+}
+
+.record-table,
+th, td{
+  font-size: 20px;
+  text-align: center;
+  border: 5px ridge lightseagreen;
+}
+th{
+  font-weight: 600;
+  background-color: rgba(180, 180, 180, 0.3);
+}
+th{
+  width: 200px;
+  height: 50px;
+}
+
+.latest-drills{
+  margin-top: 20px;
+}
+
+.latest-drills-info{
+  font-size: 20px;
+  margin-bottom: -10px;
+}
+
+.no-results{
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+/************************************
+ 投稿情報 
+************************************/
+.user-show-drills{
+  padding: 20px 15px;
+  margin-top: 20px;
+  border: 1px solid black;
+}
+
+.user-show-drills-num{
+  font-size: 20px;
+  margin-bottom: -10px;
+}
+
+.no-drills{
+  font-size: 20px;
+}
