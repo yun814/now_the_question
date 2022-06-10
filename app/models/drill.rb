@@ -1,6 +1,6 @@
 class Drill < ApplicationRecord
   validates :title, presence: true, length: {minimum: 1, maximum: 20, message: "は20文字以内で入力してください"}
-  validates :genre_id, numericality: {other_than: 0, message: "を選択してください"}
+  validate :add_error_genre_id
   validates :information, presence: true, length: {minimum: 1, maximum: 175, message: "は175文字以内で入力してください"}
 
   has_many :quizzes, dependent: :destroy
@@ -9,4 +9,10 @@ class Drill < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :genre
+
+  def add_error_genre_id
+    if genre_id.blank?
+      errors[:base] << "ジャンルを選択してください"
+    end
+  end
 end
