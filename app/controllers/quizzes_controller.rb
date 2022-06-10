@@ -13,6 +13,8 @@ class QuizzesController < ApplicationController
     else
       @drill = Drill.find(params[:drill_id])
       @quizzes = @drill.quizzes
+      @side_results = current_user.results.order(created_at: "DESC").limit(5)
+      @genres = Genre.all
       render "drills/show"
     end
   end

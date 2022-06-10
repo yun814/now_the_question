@@ -3,3 +3,13 @@ ja:
     attributes:
       user:
         nickname: ニックネーム
+      drill:
+        title: タイトル
+        information: 詳細
+      quiz:
+        question: 問題文
+        choices_1: 選択肢１
+        choices_2: 選択肢２
+        choices_3: 選択肢３
+        choices_4: 選択肢４
+        correct_answer: 正解
