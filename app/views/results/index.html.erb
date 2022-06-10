@@ -1,10 +1,10 @@
-<div class="result">
+<div class="result main-box">
   <div class="result-user">
     <div class="result-title">〜結果発表〜</div>
     <div class="result-times">今回は<%= @result.times %>回目の挑戦でした！</div>
-    <div class="result-numbers"><%= @result.number_of_questions %>問中<%= @result.number_of_correct_answers %>問正解でした！</div>
+    <div class="result-numbers"><%= @result.number_of_questions %>問中 <%= @result.number_of_correct_answers %>問正解でした！</div>
     <div class="result-rate">正解率：<%= @result.correct_answer_rate.round(1) %>%</div>
-    <div class="root-btn-box"><%= link_to 'トップ画面へ戻る', root_path, class: "root-btn" %></div>
+    <div class="root-btn-box"><%= link_to 'トップ画面へ戻る', root_path, class: "root-btn btn" %></div>
   </div>
 
   <div class="result-questions">
@@ -29,10 +29,10 @@
         <div class="correct-answer" hidden><%= quiz.correct_answer %></div>
 
         <div class="quiz-editor">
-          <div class="quiz-correct_ans"><%= "正解は#{quiz.correct_answer}番でした。" %></div>
+          <div class="quiz-correct_ans result-correct_ans"><%= "正解は#{quiz.correct_answer}番でした" %></div>
         </div>
       </div>
     <% end %>
-    <div class="root-btn-box"><%= link_to 'トップ画面へ戻る', root_path, class: "root-btn" %></div>
+    <div class="root-btn-box"><%= link_to 'トップ画面へ戻る', root_path, class: "root-btn btn" %></div>
   </div>
 </div>
