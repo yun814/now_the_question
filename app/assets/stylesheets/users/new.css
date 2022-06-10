@@ -1,0 +1,38 @@
+/************************************
+ 新規登録・ログイン画面 
+************************************/
+.user-main{
+  width: 100%;
+  padding: 20px 10px;
+  background-color: white;
+  text-align: center;
+}
+
+.user-form{
+  width: 40%;
+  margin: 20px auto 0;
+}
+
+.user-title{
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: 5px;
+  color: lightseagreen;
+}
+
+.field{
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pass{
+  display: flex;
+}
+
+.user-btn{
+  font-size: 20px;
+  margin-top: 10px;
+  padding: 10px 35px 10px 40px;
+  letter-spacing: 5px;
+}
