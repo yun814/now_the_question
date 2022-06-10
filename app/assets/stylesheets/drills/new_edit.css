@@ -5,11 +5,15 @@
   width: 100%;
   padding: 50px 10px;
   text-align: center;
+  background-color: white;
 }
 
 .drill-form-title{
   font-size: 40px;
+  font-weight: 600;
+  letter-spacing: 5px;
   text-align: center;
+  color: tomato;
 }
 
 /************************************
