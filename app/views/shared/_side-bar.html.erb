@@ -1,2 +1,45 @@
 <div class="side-bar">
+  <div class="user-info">
+    <div class="side-title">＜ユーザー情報＞</div>
+    <% if user_signed_in? %>
+      <div>ニックネーム：<%= link_to current_user.nickname, user_path(current_user) %></div>
+      <div>初見正解率：<%= current_user.record.first_correct_answer_rate.round(1) %>%</div>
+      <div>全体正解率：<%= current_user.record.all_correct_answer_rate.round(1) %>%</div>
+      <div class="side-latest-drill">
+        <div class="side-title">＜最近挑戦したクイズ集＞</div>
+        <% @side_results.each do |result| %>
+          <div><%= link_to result.drill.title, drill_path(result.drill) %></div>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        ログインしていません。<br>
+        新規登録またはログインして、<br>
+        クイズの作成や解答を行いましょう！
+      </div>
+    <% end %>
+  </div>
+
+  <div class="genre-links">
+    <div class="side-title">＜ジャンル別クイズ集＞</div>
+      <ul>
+        <% @genres.each do |genre| %>
+          <li><%= link_to genre.name, '#' %></li>
+        <% end %>
+      </ul>
+  </div>
+
+  <div class="ranking-links">
+    <div class="side-title">＜ユーザーランキング＞</div>
+    <ul>
+      <li><%= link_to "初見正解率", '#' %></li>
+      <li><%= link_to "全体正解率", '#' %></li>
+      <li><%= link_to "いいね数", '#' %></li>
+    </ul>
+    <div class="side-title quiz-ranking">＜クイズ集ランキング＞</div>
+    <ul>
+      <li><%= link_to "回答回数", '#' %></li>
+      <li><%= link_to "いいね数", '#' %></li>
+    </ul>
+  </div>
 </div>
