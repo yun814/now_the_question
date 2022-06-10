@@ -6,6 +6,7 @@
   padding: 50px 10px;
   text-align: center;
   background-color: white;
+  border: 1px solid rgb(180, 180, 180, 0.5);
 }
 
 .drill-form-title{
@@ -46,9 +47,9 @@
 }
 
 .drill-create-btn{
-  padding: 10px 10px 10px 20px;
+  padding: 10px 35px 10px 40px;
   font-size: 20px;
-  letter-spacing: 10px;
+  letter-spacing: 5px;
   margin-top: 40px;
 }
 
@@ -63,8 +64,8 @@
 }
 
 .back-btn{
-  padding: 10px 10px 10px 20px;
+  padding: 10px 35px 10px 40px;
   font-size: 20px;
-  letter-spacing: 10px;
+  letter-spacing: 5px;
   margin-top: 40px;
 }

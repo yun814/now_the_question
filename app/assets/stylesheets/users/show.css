@@ -4,7 +4,7 @@
 .user-show{
   width: 71%;
   padding: 20px;
-  border: 1px solid black;
+  background-color: rgba(250, 235, 215, 0.5);
 }
 
 /************************************
@@ -12,11 +12,13 @@
 ************************************/
 .user-show-record{
   padding: 20px 15px;
-  border: 1px solid black;
+  border: 1px solid rgb(180, 180, 180, 0.5);
+  background-color: white;
 }
 
 .user-show-nickname{
   font-size: 30px;
+  font-weight: 600;
 }
 
 .honorific{
@@ -29,6 +31,7 @@
 
 .record-table-info{
   font-size: 20px;
+  font-weight: 600;
 }
 
 .record-table,
@@ -52,6 +55,7 @@ th{
 
 .latest-drills-info{
   font-size: 20px;
+  font-weight: 600;
   margin-bottom: -10px;
 }
 
@@ -66,11 +70,13 @@ th{
 .user-show-drills{
   padding: 20px 15px;
   margin-top: 20px;
-  border: 1px solid black;
+  border: 1px solid rgb(180, 180, 180, 0.5);
+  background-color: white;
 }
 
 .user-show-drills-num{
   font-size: 20px;
+  font-weight: 600;
   margin-bottom: -10px;
 }
 

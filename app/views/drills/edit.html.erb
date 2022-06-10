@@ -8,8 +8,8 @@
     <div class="form-info-box">詳細：<%= f.text_area :information, placeholder: "175文字以内で入力してください。\n例1)〇〇についてのクイズです。\n      結構易しめなので全問正解目指して頑張ってください。\n例2)〇〇の難しいクイズです。\n      要望があればぜひコメントください。", maxlength: "175", size: "62x5", class: "form-info" %></div>
 
     <div class="drill-edit-btn-box">
-      <%= f.submit "変更する", class: "drill-create-btn" %>
-      <%= link_to "戻る", drill_path(@drill), class: "back-btn" %>
+      <%= f.submit "変更する", class: "drill-create-btn btn" %>
+      <%= link_to "戻る", drill_path(@drill), class: "back-btn btn" %>
     </div>
   <% end %>
 </div>

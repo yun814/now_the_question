@@ -1,4 +1,4 @@
-<div class="quiz-edit-form">
+<div class="quiz-edit-form main-box">
   <div class="quiz-num_box">
     <div class="quiz-num">次のクイズを編集する</div>
   </div>
@@ -22,7 +22,10 @@
         <%= f.number_field :correct_answer, placeholder: "正解", in: 1..4, class: "form-correct_ans" %>
         番にの選択肢に設定します
       </div>
-      <%= f.submit "クイズを変更", class: "quiz-post-btn" %>
+      <div class="quiz-editor-btn-box">
+        <%= f.submit "クイズを変更", class: "quiz-edit-btn btn" %>
+        <%= link_to "戻る", drill_path(@drill), class: "quiz-edit-btn btn" %>
+      </div>
     </div>
   <% end %>
 </div>

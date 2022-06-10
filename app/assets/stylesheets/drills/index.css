@@ -22,6 +22,7 @@
   padding: 5px 10px;
   margin-top: 15px;
   border: 1px solid rgb(180, 180, 180, 0.5);
+  border-radius: 10px;
   background-color: white;
 }
 
@@ -33,11 +34,12 @@
 }
 
 .drill-left{
-  width: 60%;
+  width: 55%;
 }
 
 .drill-left_1{
   font-size: 18px;
+  font-weight: 600;
 }
 
 .drill-left_2{
@@ -47,7 +49,7 @@
 }
 
 .drill-right{
-  width: 35%;
+  width: 40%;
 }
 
 .drill-right_1{
@@ -56,6 +58,7 @@
 
 .drill-user{
   font-size: 15px;
+  font-weight: 600;
 }
 
 .drill-right_2{

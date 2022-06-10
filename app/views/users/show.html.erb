@@ -1,6 +1,6 @@
 <%= render 'shared/side-bar' %>
 
-<div class="user-show">
+<div class="user-show main-box">
   <div class="user-show-record">
     <div class="user-show-nickname"><%= @user.nickname %><span class="honorific">さん</span></div>
     <div class="record-table-box">
@@ -29,7 +29,7 @@
               <div class="drill-left">
                 <div class="drill-left_1"><%= link_to result.drill.title, drill_path(result.drill) %></div>
                 <div class="drill-left_2">
-                  <div>ジャンル：<%= link_to result.drill.genre.name, '#' %></div>
+                  <div>ジャンル：<%= link_to result.drill.genre.name, '#', class: "mini-btn" %></div>
                   <% if user_signed_in? && result.drill.user_id == current_user.id %>
                     <div>あなたが作成したクイズ集です</div>
                   <% elsif user_signed_in? && @times_array_for_record[i] == 0 %>
@@ -49,7 +49,7 @@
                 <div class="drill-right_2">
                   <div><%= "#{result.drill.quizzes.count}問のクイズ" %></div>
                   <div><%= "000いいね" %></div>
-                  <div><%= link_to "ランキングへ", '#' %></div>
+                  <div><%= link_to "ランキングへ", '#', class: "mini-btn" %></div>
                 </div>
               </div>
             </div>
@@ -74,7 +74,7 @@
             <div class="drill-left">
               <div class="drill-left_1"><%= link_to drill.title, drill_path(drill) %></div>
               <div class="drill-left_2">
-                <div>ジャンル：<%= link_to drill.genre.name, '#' %></div>
+                <div>ジャンル：<%= link_to drill.genre.name, '#', class: "mini-btn" %></div>
                 <% if user_signed_in? && drill.user_id == current_user.id %>
                   <div>あなたが作成したクイズ集です</div>
                 <% elsif user_signed_in? && @times_array_for_user[i] == 0 %>
@@ -94,7 +94,7 @@
               <div class="drill-right_2">
                 <div><%= "#{drill.quizzes.count}問のクイズ" %></div>
                 <div><%= "000いいね" %></div>
-                <div><%= link_to "ランキングへ", '#' %></div>
+                <div><%= link_to "ランキングへ", '#', class: "mini-btn" %></div>
               </div>
             </div>
           </div>
