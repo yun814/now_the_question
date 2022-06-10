@@ -4,4 +4,6 @@ footer{
   width: 100vw;
   height: 100px;
   background-color: rgba(150, 150, 150, 0.5);
+  border-top: 1px solid rgb(180, 180 , 180, 0.5);
+  box-shadow: 0 0 5px rgb(180, 180, 180);
 }
