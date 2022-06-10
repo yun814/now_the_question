@@ -14,10 +14,24 @@
  *= require_self
  */
 
+body{
+  background-color: rgba(240, 240, 240, 0.3);
+}
+
 .main{
   width: 80vw;
   margin: 20px auto;
   display: flex;
   justify-content: space-between;
-  border: 1px solid black;
+}
+
+.main-box{
+  border: 1px solid rgb(180, 180, 180);
+  background-color: rgba(250, 235, 215, 0.5);
+  box-shadow: 0 0 5px rgb(180, 180, 180);
+}
+
+.btn{
+  border: 3px outset lightsalmon;
+  border-radius: 10px;
 }

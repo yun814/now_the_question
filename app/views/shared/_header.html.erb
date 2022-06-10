@@ -8,12 +8,12 @@
   <div class="nav">
     <ul class="nav-list">
       <% if user_signed_in? %>
-        <li><%= link_to "クイズ集を作成", new_drill_path, class: "create-drill" %></li>
-        <li><%= link_to "#{current_user.nickname}さん", user_path(current_user), class: "nickname" %></li>
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+        <li><%= link_to "クイズ集を作成", new_drill_path, class: "create-drill btn" %></li>
+        <li><%= link_to "#{current_user.nickname}さん", user_path(current_user), class: "nickname btn" %></li>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout btn" %></li>
       <% else %>
-        <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-        <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+        <li><%= link_to 'ログイン', new_user_session_path, class: "login btn" %></li>
+        <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up btn" %></li>
       <% end %>
     </ul>
   </div>

@@ -4,7 +4,6 @@
 .drill-main{
   width: 71%;
   padding: 20px;
-  border: 1px solid black;
 }
 
 .drill-index-title{
@@ -18,7 +17,8 @@
 .drill{
   padding: 5px 10px;
   margin-top: 15px;
-  border: 1px solid black;
+  border: 1px solid rgb(180, 180, 180, 0.5);
+  background-color: white;
 }
 
 .drill-top{
