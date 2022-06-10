@@ -4,11 +4,14 @@
 .quiz-answer{
   width: 100%;
   padding: 30px 20px;
+  background-color: rgba(250, 235, 215, 0.5);
 }
 
 .quiz-answer-title{
-  font-size: 30px;
+  font-size: 40px;
+  font-weight: 600;
   text-align: center;
+  color: lightseagreen;
 }
 
 .finish-btn-box{
@@ -19,8 +22,8 @@
 
 .finish-btn{
   font-size: 30px;
-  letter-spacing: 20px;
-  padding: 5px 10px 5px 30px;
+  letter-spacing: 10px;
+  padding: 5px 40px 5px 50px;
   border: 1px solid black;
   margin-top: 30px;
 }

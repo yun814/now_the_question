@@ -1,4 +1,4 @@
-<div class="quiz-answer">
+<div class="quiz-answer main-box">
   <div class="quiz-answer-title">
     <%= @drill.title %>に<span id="times"><%= @times + 1 %></span>回目の挑戦！
   </div>
@@ -7,7 +7,7 @@
   
   <div class="finish-btn-box">
     <%= form_with model: [@drill, @result], id: "answer-form", local: true do |f| %>
-      <%= f.submit '回答終了', class: "finish-btn", id: "finish-btn" %>
+      <%= f.submit '回答終了', class: "finish-btn btn", id: "finish-btn" %>
     <% end %>
   </div>
 </div>
