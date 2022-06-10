@@ -3,7 +3,8 @@
 ************************************/
 .show-drill{
   padding: 5px 10px;
-  border: 1px solid black;
+  border: 1px solid rgb(180, 180, 180, 0.5);
+  background-color: white;
 }
 
 .show-drill-title_box{
@@ -99,7 +100,8 @@
 .quiz{
   margin-top: 20px;
   padding: 20px 10px;
-  border: 1px solid black;
+  border: 1px solid rgb(180, 180, 180, 0.5);
+  background-color: white;
 }
 
 .quiz-num_box{
@@ -159,8 +161,9 @@
 ************************************/
 .quiz-form{
   margin-top: 20px;
-  padding: 5px 10px;
-  border: 1px solid black;
+  padding: 20px 10px;
+  border: 1px solid rgb(180, 180, 180, 0.5);
+  background-color: white;
 }
 
 .form-correct_ans{
@@ -180,7 +183,8 @@
   text-align: center;
   padding: 10px 20px;
   margin-top: 20px;
-  border: 1px solid black;
+  border: 1px solid rgb(180, 180, 180, 0.5);
+  background-color: white;
 }
 
 .show-drill-results-title{

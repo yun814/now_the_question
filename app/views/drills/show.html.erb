@@ -1,6 +1,6 @@
 <%= render 'shared/side-bar' %>
 
-<div class="drill-main">
+<div class="drill-main main-box">
   <div class="show-drill">
     <div class="show-drill-title_box">
       <div class="show-drill-title"><%= @drill.title %></div>
@@ -35,12 +35,12 @@
     <div class="show-drill-btn">
       <% if user_signed_in? && current_user.id == @drill.user_id %>
         <div class="drill-editor">
-          <div><%= link_to "編集する", edit_drill_path(@drill), class: "to_edit" %></div>
-          <div><%= link_to "削除する", drill_path(@drill), method: :delete, data: {confirm: "本当に削除しますか？\n※このクイズ集に関するクイズや回答した人の成績が全て削除されます。"}, class: "to_destroy" %></div>
+          <div><%= link_to "編集する", edit_drill_path(@drill), class: "to_edit btn" %></div>
+          <div><%= link_to "削除する", drill_path(@drill), method: :delete, data: {confirm: "本当に削除しますか？\n※このクイズ集に関するクイズや回答した人の成績が全て削除されます。"}, class: "to_destroy btn" %></div>
         </div>
 
       <% elsif user_signed_in? %>
-        <div><%= link_to 'クイズに挑戦', drill_quizzes_path(@drill), class: "challenge-btn" %></div>
+        <div><%= link_to 'クイズに挑戦', drill_quizzes_path(@drill), class: "challenge-btn btn" %></div>
 
       <% else %>
         <div>※クイズに挑戦するにはログインする必要があります</div>
@@ -75,7 +75,7 @@
             <%= f.number_field :correct_answer, placeholder: "正解", in: 1..4, class: "form-correct_ans" %>
             番にの選択肢に設定します
           </div>
-          <%= f.submit "クイズを追加", class: "quiz-post-btn" %>
+          <%= f.submit "クイズを追加", class: "quiz-post-btn btn" %>
         </div>
       <% end %>
     </div>
