@@ -34,11 +34,15 @@ function answer() {
         // マウスを合わせた選択肢のボーダーを変更
         currentQuizChoice.addEventListener('mouseover', () => {
           currentQuizChoice.style.borderStyle = 'inset';
+          // カーソルを指に変更
+          currentQuizChoice.style.cursor = 'pointer';
         });
         
         // マウスを離した選択肢のボーダーを元に戻す
         currentQuizChoice.addEventListener('mouseout', () => {
           currentQuizChoice.style.borderStyle = '';
+          // カーソルを元に戻す
+          currentQuizChoice.style.cursor = '';
         });
         
         // 選択肢をクリックすると処理を実行
