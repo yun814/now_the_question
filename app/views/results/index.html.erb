@@ -8,9 +8,10 @@
   </div>
 
   <div class="result-questions">
-    <div class="result-title">〜クイズの正解〜</div>
+    <div class="result-title" id="confirm-title">〜クイズの正解〜</div>
+    <div class="confirm-btn" id="confirm-btn">正解を確認する</div>
     <% @quizzes.each_with_index do |quiz, i| %>
-      <div class="quiz">
+      <div class="quiz" hidden>
         <div class="quiz-num_box">
           <div class="quiz-num" id="quiz-num"><%= "第#{i + 1}問" %></div>
         </div>
@@ -33,6 +34,6 @@
         </div>
       </div>
     <% end %>
-    <div class="root-btn-box"><%= link_to 'トップ画面へ戻る', root_path, class: "root-btn btn" %></div>
+    <div class="root-btn-box" id="hidden-btn" hidden><%= link_to 'トップ画面へ戻る', root_path, class: "root-btn btn" %></div>
   </div>
 </div>
