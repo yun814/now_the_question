@@ -1,5 +1,6 @@
 function result() {
   const confirmBtn = document.getElementById('confirm-btn');
+  if (!confirmBtn) return null;
 
   confirmBtn.addEventListener('mouseover', () => {
     confirmBtn.style.boxShadow = '0 0 5px rgb(150, 150, 150)'
