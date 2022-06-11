@@ -51,7 +51,7 @@
   <% if user_signed_in? && current_user.id == @drill.user_id %>
     <%= render 'shared/quiz' %>
     
-    <div class="quiz-form">
+    <div class="quiz-form" id="quiz-form">
       <div class="quiz-num_box">
         <div class="quiz-num">次のクイズを追加する</div>
       </div>
