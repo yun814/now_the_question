@@ -7,6 +7,11 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script>
+      <% if flash.present? && flash.to_hash.has_key?('alert') %>
+        alert("<%= flash[:alert] %>");
+      <% end %>
+    </script>
   </head>
 
 

@@ -11,7 +11,7 @@ class ResultsController < ApplicationController
       result_records.save
       redirect_to drill_results_path(params[:drill_id])
     else
-      render 'quiz/index'
+      redirect_to root_path, alert: '不正な解答です。'
     end
   end
 

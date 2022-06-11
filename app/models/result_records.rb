@@ -2,6 +2,14 @@ class ResultRecords
   include ActiveModel::Model
   attr_accessor :times, :number_of_questions, :number_of_correct_answers, :correct_answer_rate, :user_id, :drill_id,
                 :first_number_of_questions, :first_number_of_correct_answers, :first_correct_answer_rate, :all_number_of_questions, :all_number_of_correct_answers, :all_correct_answer_rate
+
+  
+
+  validates :times, presence: true
+  validate :add_error_times
+  validates :number_of_questions, presence: true
+  validates :number_of_correct_answers, presence: true
+  validates :correct_answer_rate, presence: true
   
   def save
     Result.create(times: times, number_of_questions: number_of_questions, number_of_correct_answers: number_of_correct_answers, correct_answer_rate: correct_answer_rate, user_id: user_id, drill_id: drill_id)
@@ -26,5 +34,11 @@ class ResultRecords
       all_number_of_correct_answers: all_number_of_correct_answers,
       all_correct_answer_rate: all_correct_answer_rate
     }
+  end
+
+  def add_error_times
+    if Result.find_by(user_id: user_id, drill_id: drill_id, times: times)
+      errors[:base] << ""
+    end
   end
 end
