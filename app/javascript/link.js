@@ -53,7 +53,7 @@ function link() {
   // ミニボタン型のリンクの処理
   miniBtns.forEach((miniBtn) => {
     miniBtn.addEventListener('mouseover', () => {
-      miniBtn.style.boxShadow = '0 0 5px rgb(200, 200, 200)'
+      miniBtn.style.boxShadow = '0 0 5px rgb(150, 150, 150)'
     });
     miniBtn.addEventListener('mouseout', () => {
       miniBtn.style.boxShadow = ''

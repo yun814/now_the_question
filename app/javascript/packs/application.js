@@ -9,6 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 require("../answer")
 require("../link")
+require("../drill")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
