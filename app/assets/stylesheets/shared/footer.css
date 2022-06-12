@@ -1,9 +1,24 @@
-footer{
+.footer{
   position: absolute;
   bottom: 0;
   width: 100vw;
-  height: 100px;
+  height: 150px;
   background-color: rgba(150, 150, 150, 0.5);
   border-top: 1px solid rgb(180, 180 , 180, 0.5);
   box-shadow: 0 0 5px rgb(180, 180, 180);
+}
+
+.footer-logo{
+  margin-top: 20px;
+  text-align: center;
+}
+
+.footer-lists-box{
+  margin: 20px auto 0;
+  width: 800px;
+}
+
+.footer-lists{
+  display: flex;
+  justify-content: space-between;
 }

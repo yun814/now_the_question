@@ -2,8 +2,9 @@ function link() {
   // 画面内のリンクを取得し、配列化
   const links = document.getElementsByTagName('a');
   const linksArray = Array.prototype.slice.call(links);
-  // 画面内のロゴを取得
-  const logo = document.getElementById('logo');
+  // 画面内のロゴを取得し、配列化
+  const logos = document.querySelectorAll('.logo');
+  const logosArray = Array.prototype.slice.call(logos);
   // 画面内のボタンを取得し、配列化
   const btns = document.querySelectorAll('.btn');
   const btnsArray = Array.prototype.slice.call(btns);
@@ -15,19 +16,17 @@ function link() {
   // 普通のリンクの処理
   linksArray.forEach((link) => {
     // リンクがロゴの場合は処理を行わない
-    if (link == logo) return null
-
-    // リンクがボタン型以外の場合の処理
-    if (!btnsArray.includes(link) && !miniBtnsArray.includes(link)) {
-      // リンクにカーソルを合わせると下線を表示
-      link.addEventListener('mouseover', () => {
-        link.style.textDecoration = 'underline';
-      });
-      // リンクからカーソールを離すと下線を削除
-      link.addEventListener('mouseout', () => {
-        link.style.textDecoration = '';
-      });
-    };
+      // リンクがボタン型以外の場合の処理
+      if (!logosArray.includes(link) && !btnsArray.includes(link) && !miniBtnsArray.includes(link)) {
+        // リンクにカーソルを合わせると下線を表示
+        link.addEventListener('mouseover', () => {
+          link.style.textDecoration = 'underline';
+        });
+        // リンクからカーソールを離すと下線を削除
+        link.addEventListener('mouseout', () => {
+          link.style.textDecoration = '';
+        });
+      };
   });
 
   // ボタン型のリンクの処理
