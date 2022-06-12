@@ -22,7 +22,7 @@
         <% if @drill.status == 0 %>
           <span class="show-drill-status">このクイズ集は非公開です</span>
         <% else %>
-          <span class="show-drill-status">このクイズ集は公開中です</span>
+          <span>このクイズ集は公開中です</span>
         <% end %>
       <% elsif user_signed_in? && @results.present? %>
         <%= "あなたは#{@results.count}回挑戦しました" %>

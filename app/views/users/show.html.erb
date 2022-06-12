@@ -76,7 +76,11 @@
               <div class="drill-left_2">
                 <div>ジャンル：<%= link_to drill.genre.name, '#', class: "mini-btn" %></div>
                 <% if user_signed_in? && drill.user_id == current_user.id %>
-                  <div>あなたが作成したクイズ集です</div>
+                  <% if drill.status == 0 %>
+                    <div class="show-user-drill-status">このクイズ集は非公開です</div>
+                  <% else %>
+                    <div>このクイズ集は公開中です</div>
+                  <% end %>
                 <% elsif user_signed_in? && @times_array_for_user[i] == 0 %>
                   <div>あなたはまだ挑戦していません</div>
                 <% elsif user_signed_in? %>

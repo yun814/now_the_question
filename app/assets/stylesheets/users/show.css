@@ -74,6 +74,10 @@ th{
   background-color: white;
 }
 
+.show-user-drill-status{
+  color: red;
+}
+
 .user-show-drills-num{
   font-size: 20px;
   font-weight: 600;
