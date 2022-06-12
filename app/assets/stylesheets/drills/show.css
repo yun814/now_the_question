@@ -3,7 +3,7 @@
 ************************************/
 .show-drill{
   padding: 20px 10px;
-  border: 1px solid rgb(180, 180, 180, 0.5);
+  border: 1px solid rgba(180, 180, 180, 0.5);
   border-radius: 10px;
   background-color: white;
 }
@@ -101,7 +101,7 @@
 .quiz{
   margin-top: 20px;
   padding: 20px 10px;
-  border: 1px solid rgb(180, 180, 180, 0.5);
+  border: 1px solid rgba(180, 180, 180, 0.5);
   border-radius: 10px;
   background-color: white;
 }
@@ -164,7 +164,7 @@
 .quiz-form{
   margin-top: 20px;
   padding: 20px 10px;
-  border: 1px solid rgb(180, 180, 180, 0.5);
+  border: 1px solid rgba(180, 180, 180, 0.5);
   border-radius: 10px;
   background-color: white;
 }

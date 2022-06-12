@@ -1,13 +1,13 @@
 class DrillsController < ApplicationController
   def index
-    @drills = Drill.all.order(id: "DESC").includes(:user, :quizzes)
+    @drills = Drill.all.order(id: 'DESC').includes(:user, :quizzes)
     @genres = Genre.all
     if user_signed_in?
       @times_array = []
       @drills.each do |drill|
         @times_array << drill.results.where(user_id: current_user.id).count
       end
-      @side_results = current_user.results.order(created_at: "DESC").limit(5)
+      @side_results = current_user.results.order(created_at: 'DESC').limit(5)
     end
   end
 
@@ -30,8 +30,8 @@ class DrillsController < ApplicationController
     @quizzes = @drill.quizzes
     @genres = Genre.all
     if user_signed_in?
-      @results = @drill.results.order(created_at: "DESC").where(user_id: current_user.id)
-      @side_results = current_user.results.order(created_at: "DESC").limit(5)
+      @results = @drill.results.order(created_at: 'DESC').where(user_id: current_user.id)
+      @side_results = current_user.results.order(created_at: 'DESC').limit(5)
     end
   end
 
@@ -56,6 +56,7 @@ class DrillsController < ApplicationController
   end
 
   private
+
   def drill_params
     params.require(:drill)
           .permit(:title, :genre_id, :information)

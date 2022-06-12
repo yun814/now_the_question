@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @results = @user.results.order(created_at: "DESC").limit(5)
+    @results = @user.results.order(created_at: 'DESC').limit(5)
     @genres = Genre.all
     if user_signed_in?
       @times_array_for_record = []
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
         @times_array_for_record << drill.results.where(user_id: current_user.id).count
       end
 
-      @side_results = current_user.results.order(created_at: "DESC").limit(5)
+      @side_results = current_user.results.order(created_at: 'DESC').limit(5)
 
     end
   end

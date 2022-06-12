@@ -8,18 +8,20 @@ class ResultRecords
   validates :number_of_questions, presence: true
   validates :number_of_correct_answers, presence: true
   validates :correct_answer_rate, presence: true
-  
+
   def save
-    Result.create(times: times, number_of_questions: number_of_questions, number_of_correct_answers: number_of_correct_answers, correct_answer_rate: correct_answer_rate, user_id: user_id, drill_id: drill_id)
+    Result.create(times: times, number_of_questions: number_of_questions, number_of_correct_answers: number_of_correct_answers,
+                  correct_answer_rate: correct_answer_rate, user_id: user_id, drill_id: drill_id)
     record = Record.find_by(user_id: user_id)
     record.update(record_hash)
   end
 
   private
+
   def record_hash
     user = User.find(user_id)
 
-    if times == "1"
+    if times == '1'
       first_number_of_questions = user.record.first_number_of_questions + number_of_questions.to_i
       first_number_of_correct_answers = user.record.first_number_of_correct_answers + number_of_correct_answers.to_i
       first_correct_answer_rate = (first_number_of_correct_answers.to_f / first_number_of_questions.to_f) * 100
@@ -53,8 +55,6 @@ class ResultRecords
   end
 
   def add_error_times
-    if Result.find_by(user_id: user_id, drill_id: drill_id, times: times)
-      errors[:base] << "不正な回答です。"
-    end
+    errors[:base] << '不正な回答です。' if Result.find_by(user_id: user_id, drill_id: drill_id, times: times)
   end
 end

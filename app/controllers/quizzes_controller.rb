@@ -13,9 +13,9 @@ class QuizzesController < ApplicationController
     else
       @drill = Drill.find(params[:drill_id])
       @quizzes = @drill.quizzes
-      @side_results = current_user.results.order(created_at: "DESC").limit(5)
+      @side_results = current_user.results.order(created_at: 'DESC').limit(5)
       @genres = Genre.all
-      render "drills/show"
+      render 'drills/show'
     end
   end
 
@@ -42,6 +42,7 @@ class QuizzesController < ApplicationController
   end
 
   private
+
   def quiz_params
     params.require(:quiz)
           .permit(:question, :choices_1, :choices_2, :choices_3, :choices_4, :correct_answer)
