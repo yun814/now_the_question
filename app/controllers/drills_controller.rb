@@ -52,7 +52,7 @@ class DrillsController < ApplicationController
   def destroy
     drill = Drill.find(params[:id])
     drill.destroy
-    redirect_to root_path
+    redirect_to user_path(current_user)
   end
 
   def publish
