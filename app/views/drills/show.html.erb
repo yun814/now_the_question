@@ -36,7 +36,7 @@
       <% if user_signed_in? && current_user.id == @drill.user_id %>
         <div class="drill-editor">
           <div><%= link_to "編集する", edit_drill_path(@drill), class: "to_edit btn" %></div>
-          <div><%= link_to "削除する", drill_path(@drill), method: :delete, data: {confirm: "本当に削除しますか？\n※このクイズ集に関するクイズや回答した人の成績が全て削除されます。"}, class: "to_destroy btn" %></div>
+          <div><%= link_to "削除する", drill_path(@drill), method: :delete, data: {confirm: "本当に削除しますか？\n※このクイズ集に関するクイズや回答した人の結果が全て削除されます。\n※回答した人の正解率は変化しません。"}, class: "to_destroy btn" %></div>
         </div>
 
       <% elsif user_signed_in? %>
