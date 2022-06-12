@@ -38,7 +38,7 @@ class ResultRecords
 
   def add_error_times
     if Result.find_by(user_id: user_id, drill_id: drill_id, times: times)
-      errors[:base] << ""
+      errors[:base] << "不正な回答です。"
     end
   end
 end
