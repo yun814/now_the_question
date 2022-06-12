@@ -55,6 +55,18 @@ class DrillsController < ApplicationController
     redirect_to root_path
   end
 
+  def publish
+    drill = Drill.find(params[:id])
+    if drill.status == 0
+      drill.status = 1
+      drill.save
+    else
+      drill.status = 0
+      drill.save
+    end
+    redirect_to drill_path(drill)
+  end
+
   private
 
   def drill_params
