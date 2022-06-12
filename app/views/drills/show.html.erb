@@ -19,7 +19,11 @@
 
     <div class="show-drill-ans_times">
       <% if user_signed_in? && @drill.user_id == current_user.id %>
-        あなたが作成したクイズ集です
+        <% if @drill.status == 0 %>
+          <span class="show-drill-status">このクイズ集は非公開です</span>
+        <% else %>
+          <span>このクイズ集は公開中です</span>
+        <% end %>
       <% elsif user_signed_in? && @results.present? %>
         <%= "あなたは#{@results.count}回挑戦しました" %>
       <% elsif user_signed_in? %>
@@ -35,6 +39,11 @@
     <div class="show-drill-btn">
       <% if user_signed_in? && current_user.id == @drill.user_id %>
         <div class="drill-editor">
+          <% if @drill.status == 0 %>
+            <div><%= link_to "公開する", publish_drill_path(@drill), method: :post, data: {confirm: "クイズ集を公開しますか？\n※問題数が0問のクイズ集は一覧に表示されません。\n※クイズを追加・編集中は非公開にすることを推奨します。"}, class: "to_edit btn" %></div>
+          <% else %>
+            <div><%= link_to "公開しない", publish_drill_path(@drill), method: :post, data: {confirm: "クイズを非公開にしますか？\n※非公開にしたクイズ集は一覧に表示されません。\n※非公開のクイズ集を編集・公開するにはマイページからクイズ集のページにアクセスして下さい。"}, class: "to_edit btn" %></div>
+          <% end %>
           <div><%= link_to "編集する", edit_drill_path(@drill), class: "to_edit btn" %></div>
           <div><%= link_to "削除する", drill_path(@drill), method: :delete, data: {confirm: "本当に削除しますか？\n※このクイズ集に関するクイズや回答した人の結果が全て削除されます。\n※回答した人の正解率は変化しません。"}, class: "to_destroy btn" %></div>
         </div>

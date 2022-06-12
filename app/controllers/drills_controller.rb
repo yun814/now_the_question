@@ -1,6 +1,6 @@
 class DrillsController < ApplicationController
   def index
-    @drills = Drill.all.order(id: 'DESC').includes(:user, :quizzes)
+    @drills = Drill.where(status: 1).order(id: 'DESC').includes(:user, :quizzes)
     @genres = Genre.all
     if user_signed_in?
       @times_array = []
@@ -52,7 +52,19 @@ class DrillsController < ApplicationController
   def destroy
     drill = Drill.find(params[:id])
     drill.destroy
-    redirect_to root_path
+    redirect_to user_path(current_user)
+  end
+
+  def publish
+    drill = Drill.find(params[:id])
+    if drill.status == 0
+      drill.status = 1
+      drill.save
+    else
+      drill.status = 0
+      drill.save
+    end
+    redirect_to drill_path(drill)
   end
 
   private
