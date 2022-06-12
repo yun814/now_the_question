@@ -1,6 +1,6 @@
 class DrillsController < ApplicationController
   def index
-    @drills = Drill.all.order(id: 'DESC').includes(:user, :quizzes)
+    @drills = Drill.where(status: 1).order(id: 'DESC').includes(:user, :quizzes)
     @genres = Genre.all
     if user_signed_in?
       @times_array = []
