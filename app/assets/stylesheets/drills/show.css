@@ -52,6 +52,10 @@
   margin-bottom: 10px;
 }
 
+.show-drill-status{
+  color: red;
+}
+
 .show-drill-info_box{
   width: 90%;
   padding-top: 10px;
@@ -78,7 +82,7 @@
 
 .drill-editor{
   width: 100%;
-  padding: 0 25% 0;
+  padding: 0 10% 0;
   display: flex;
   justify-content: space-between;
 }
