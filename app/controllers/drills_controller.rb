@@ -1,4 +1,7 @@
 class DrillsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :edit, :destroy]
+  before_action :move_to_index, only: [:edit, :destroy]
+
   def index
     @drills = Drill.where(status: 1).order(id: 'DESC').includes(:user, :quizzes)
     @genres = Genre.all
