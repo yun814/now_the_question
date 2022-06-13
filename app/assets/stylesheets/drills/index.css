@@ -15,6 +15,22 @@
   color: lightseagreen;
 }
 
+.search-box{
+  margin: 10px auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-keyword{
+  width: 300px;
+}
+
+.search-btn{
+  margin-left: 10px;
+  padding: 0 10px;
+}
+
 /************************************
  ドリル表示ボックス 
 ************************************/

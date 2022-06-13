@@ -4,6 +4,14 @@
   <div class="drill-index-title">
     〜投稿されたクイズ集〜
   </div>
+  <div class="search-box">
+    <%= form_with url: search_drills_path, local: true, method: :get do |form| %>
+      <div class="search-form">
+        <%= form.text_field :keyword, placeholder: 'フリーワード検索', class: "search-keyword" %>
+        <%= form.submit '検索', class: "search-btn btn" %>
+      </div>
+    <% end %>
+  </div>
   <div class="drill-index-drills">
     <%= render partial: 'drill', collection: @drills %>
   </div>
