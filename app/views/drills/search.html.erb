@@ -1,0 +1,130 @@
+<%= render 'shared/side-bar' %>
+
+<div class="drill-main main-box">
+  <div class="drill-index-title">
+    〜投稿されたクイズ集〜
+  </div>
+  <div class="search-box">
+    <%= form_with url: search_drills_path, local: true, method: :get do |form| %>
+      <div class="search-form">
+        <%= form.text_field :keyword, placeholder: 'フリーワード検索', class: "search-keyword" %>
+        <%= form.submit '検索', class: "search-btn btn" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="drill-index-drills">
+    <% if params[:keyword] != "" %>
+      <div class="searched-box">
+        <div class="search-title-box">
+          <div class="search-title">タイトルに<%= params[:keyword] %>が含まれているクイズ集</div>
+          <div class="display-btn">非表示</div>
+        </div>
+        <div class="search-num">検索結果は<%= @drills_searched_by_title.count %>件です。</div>
+
+        <div class="search-result">
+          <%= render partial: 'drill', collection: @drills_searched_by_title %>
+        </div>
+      </div>
+
+      <div class="searched-box">
+        <div class="search-title-box">
+          <div class="search-title">詳細に<%= params[:keyword] %>が含まれているクイズ集</div>
+          <div class="display-btn">非表示</div>
+        </div>
+        <div class="search-num">検索結果は<%= @drills_searched_by_info.count %>件です。</div>
+
+        <div class="search-result">
+          <% @drills_searched_by_info.each_with_index do |drill, i| %>
+            <div class="drill">
+              <div class="drill-top">
+                <div class="drill-left">
+                  <div class="drill-left_1"><%= link_to drill.title, drill_path(drill) %></div>
+                  <div class="drill-left_2">
+                    <div class="drill-genre">ジャンル：<%= link_to drill.genre.name, '#', class: "mini-btn" %></div>
+                    <% if user_signed_in? && drill.user_id == current_user.id %>
+                      <div>あなたが作成したクイズ集です</div>
+                    <% elsif user_signed_in? && @times_array_by_info[i] == 0 %>
+                      <div>あなたはまだ挑戦していません</div>
+                    <% elsif user_signed_in? %>
+                      <div>あなたは<%= @times_array_by_info[i] %>回挑戦しました</div>
+                    <% else %>
+                      <div>ログインすると挑戦回数が表示されます</div>
+                    <% end %>
+                  </div>
+                </div>
+                
+                <div class="drill-right">
+                  <div class="drill-right_1">
+                    <div><%= link_to "#{drill.user.nickname}さん", user_path(drill.user), class: "drill-user" %>が投稿</div>
+                  </div>
+                  <div class="drill-right_2">
+                    <div><%= "#{drill.quizzes.count}問のクイズ" %></div>
+                    <div><%= "000いいね" %></div>
+                    <div><%= link_to "ランキングへ", '#', class: "mini-btn" %></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="drill-bottom">
+                <%= "詳細：#{drill.information}" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="searched-box">
+        <div class="search-title-box">
+          <div class="search-title">作成者名に<%= params[:keyword] %>が含まれているクイズ集</div>
+          <div class="display-btn">非表示</div>
+        </div>
+        <div class="search-num">検索結果は<%= @drills_searched_by_user.count %>件です。</div>
+
+        <div class="search-result">
+          <% @drills_searched_by_user.each_with_index do |drill, i| %>
+            <div class="drill">
+              <div class="drill-top">
+                <div class="drill-left">
+                  <div class="drill-left_1"><%= link_to drill.title, drill_path(drill) %></div>
+                  <div class="drill-left_2">
+                    <div class="drill-genre">ジャンル：<%= link_to drill.genre.name, '#', class: "mini-btn" %></div>
+                    <% if user_signed_in? && drill.user_id == current_user.id %>
+                      <div>あなたが作成したクイズ集です</div>
+                    <% elsif user_signed_in? && @times_array_by_user[i] == 0 %>
+                      <div>あなたはまだ挑戦していません</div>
+                    <% elsif user_signed_in? %>
+                      <div>あなたは<%= @times_array_by_user[i] %>回挑戦しました</div>
+                    <% else %>
+                      <div>ログインすると挑戦回数が表示されます</div>
+                    <% end %>
+                  </div>
+                </div>
+                
+                <div class="drill-right">
+                  <div class="drill-right_1">
+                    <div><%= link_to "#{drill.user.nickname}さん", user_path(drill.user), class: "drill-user" %>が投稿</div>
+                  </div>
+                  <div class="drill-right_2">
+                    <div><%= "#{drill.quizzes.count}問のクイズ" %></div>
+                    <div><%= "000いいね" %></div>
+                    <div><%= link_to "ランキングへ", '#', class: "mini-btn" %></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="drill-bottom">
+                <%= "詳細：#{drill.information}" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% else %>
+
+      <div class="search-num">キーワードが空欄です</div>
+      <%= render partial: 'drill', collection: @drills_searched_by_title %>
+    <% end %>
+
+
+  </div>
+</div>

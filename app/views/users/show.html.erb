@@ -68,7 +68,7 @@
   <div class="user-show-drills">
     <% if @user.drills.present? %>
       <div class="user-show-drills-num"><%= @user.nickname %>さんが投稿したクイズ集は<%= @user.drills.count %>個あります。</div>
-      <% @user.drills.each_with_index do |drill, i| %>
+      <% @drills.each_with_index do |drill, i| %>
         <div class="drill">
           <div class="drill-top">
             <div class="drill-left">

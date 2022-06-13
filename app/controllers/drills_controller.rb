@@ -1,11 +1,11 @@
 class DrillsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
   before_action :set_drill, only: [:show, :edit, :update, :destroy, :publish]
-  before_action :set_genres, only: [:index, :show]
+  before_action :set_genres, only: [:index, :show, :search]
   before_action :move_to_index, only: [:edit, :destroy]
 
   def index
-    @drills = Drill.where(status: 1).order(id: 'DESC').includes(:user, :quizzes)
+    @drills = Drill.where(status: 1).order(updated_at: 'DESC').includes(:user, :quizzes)
     if user_signed_in?
       @times_array = []
       @drills.each do |drill|
@@ -63,6 +63,33 @@ class DrillsController < ApplicationController
       @drill.save
     end
     redirect_to drill_path(@drill)
+  end
+
+  def search
+    @drills_searched_by_title = Drill.search_by_title(params[:keyword])
+    
+    if user_signed_in?
+      @times_array = []
+      @drills_searched_by_title.each do |drill|
+        @times_array << drill.results.where(user_id: current_user.id).count
+      end
+      
+      unless params[:keyword] == ""
+        @drills_searched_by_info = Drill.search_by_info(params[:keyword])
+        @times_array_by_info = []
+        @drills_searched_by_info.each do |drill|
+          @times_array_by_info << drill.results.where(user_id: current_user.id).count
+        end
+
+        @users = User.search_by_user(params[:keyword])
+        @drills_searched_by_user = Drill.where(user_id: @users.ids).order(updated_at: 'DESC')
+        @times_array_by_user = []
+        @drills_searched_by_user.each do |drill|
+          @times_array_by_user << drill.results.where(user_id: current_user.id).count
+        end
+      end
+      @side_results = current_user.results.order(updated_at: 'DESC').limit(5)
+    end
   end
 
   private
