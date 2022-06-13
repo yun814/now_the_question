@@ -1,9 +1,9 @@
 /************************************
  タイトル検索結果 
 ************************************/
-.search-title-box{
+.searched-box{
   margin-top: 20px;
-  padding: 10px;
+  padding: 10px 10px 20px;
   border: 3px ridge rgba(180, 180, 180, 0.5);
 }
 
@@ -13,6 +13,6 @@
   color: lightseagreen;
 }
 
-.search-title-num{
+.search-num{
   margin: 10px 0 -10px;
 }

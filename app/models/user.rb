@@ -9,4 +9,12 @@ class User < ApplicationRecord
   has_many :quizzes
   has_many :results
   has_one :record
+
+  def self.search_by_user(search)
+    if search != ""
+      User.where('nickname LIKE(?)', "%#{search}%")
+    else
+      return nil
+    end
+  end
 end

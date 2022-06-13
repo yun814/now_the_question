@@ -66,11 +66,27 @@ class DrillsController < ApplicationController
   end
 
   def search
-    @drills = Drill.search(params[:keyword])
+    @drills_searched_by_title = Drill.search_by_title(params[:keyword])
+    
     if user_signed_in?
       @times_array = []
-      @drills.each do |drill|
+      @drills_searched_by_title.each do |drill|
         @times_array << drill.results.where(user_id: current_user.id).count
+      end
+      
+      unless params[:keyword] == ""
+        @drills_searched_by_info = Drill.search_by_info(params[:keyword])
+        @times_array_by_info = []
+        @drills_searched_by_info.each do |drill|
+          @times_array_by_info << drill.results.where(user_id: current_user.id).count
+        end
+
+        @users = User.search_by_user(params[:keyword])
+        @drills_searched_by_user = Drill.where(user_id: @users.ids).order(updated_at: 'DESC')
+        @times_array_by_user = []
+        @drills_searched_by_user.each do |drill|
+          @times_array_by_user << drill.results.where(user_id: current_user.id).count
+        end
       end
       @side_results = current_user.results.order(updated_at: 'DESC').limit(5)
     end
