@@ -13,6 +13,15 @@
     <% end %>
   </div>
   <div class="drill-index-drills">
-    <%= render partial: 'drill', collection: @drills %>
+    <% if params[:keyword] != "" %>
+      <div class="search-title-box">
+        <div class="search-title">タイトルに<%= params[:keyword] %>が含まれているクイズ集</div>
+        <div class="search-title-num">検索結果は<%= @drills.count %>件です。</div>
+        <%= render partial: 'drill', collection: @drills %>
+      </div>
+    <% else %>
+      <div class="search-title-num">キーワードが空欄です</div>
+      <%= render partial: 'drill', collection: @drills %>
+    <% end %>
   </div>
 </div>

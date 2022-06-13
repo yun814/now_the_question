@@ -1,0 +1,18 @@
+/************************************
+ タイトル検索結果 
+************************************/
+.search-title-box{
+  margin-top: 20px;
+  padding: 10px;
+  border: 3px ridge rgba(180, 180, 180, 0.5);
+}
+
+.search-title{
+  font-size: 20px;
+  font-weight: 600;
+  color: lightseagreen;
+}
+
+.search-title-num{
+  margin: 10px 0 -10px;
+}

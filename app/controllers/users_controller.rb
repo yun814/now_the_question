@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    @drills = @user.drills.order(updated_at: 'DESC')
     @results = @user.results.order(created_at: 'DESC').limit(5)
     @genres = Genre.all
     if user_signed_in?
