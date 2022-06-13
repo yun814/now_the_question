@@ -65,6 +65,10 @@ class DrillsController < ApplicationController
     redirect_to drill_path(@drill)
   end
 
+  def search
+    
+  end
+
   private
   def drill_params
     params.require(:drill)
