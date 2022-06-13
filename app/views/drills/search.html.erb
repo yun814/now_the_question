@@ -15,19 +15,25 @@
   <div class="drill-index-drills">
     <% if params[:keyword] != "" %>
       <div class="searched-box">
-        <div class="search-title">タイトルに<%= params[:keyword] %>が含まれているクイズ集</div>
+        <div class="search-title-box">
+          <div class="search-title">タイトルに<%= params[:keyword] %>が含まれているクイズ集</div>
+          <div class="display-btn">非表示</div>
+        </div>
         <div class="search-num">検索結果は<%= @drills_searched_by_title.count %>件です。</div>
-        
-        <div class="search-title-result" id="search-title-result">
+
+        <div class="search-result">
           <%= render partial: 'drill', collection: @drills_searched_by_title %>
         </div>
       </div>
 
       <div class="searched-box">
-        <div class="search-title">詳細に<%= params[:keyword] %>が含まれているクイズ集</div>
+        <div class="search-title-box">
+          <div class="search-title">詳細に<%= params[:keyword] %>が含まれているクイズ集</div>
+          <div class="display-btn">非表示</div>
+        </div>
         <div class="search-num">検索結果は<%= @drills_searched_by_info.count %>件です。</div>
 
-        <div class="search-info-result" id="search-info-result">
+        <div class="search-result">
           <% @drills_searched_by_info.each_with_index do |drill, i| %>
             <div class="drill">
               <div class="drill-top">
@@ -68,10 +74,13 @@
       </div>
 
       <div class="searched-box">
-        <div class="search-title">作成者名に<%= params[:keyword] %>が含まれているクイズ集</div>
+        <div class="search-title-box">
+          <div class="search-title">作成者名に<%= params[:keyword] %>が含まれているクイズ集</div>
+          <div class="display-btn">非表示</div>
+        </div>
         <div class="search-num">検索結果は<%= @drills_searched_by_user.count %>件です。</div>
 
-        <div class="search-user-result" id="search-user-result">
+        <div class="search-result">
           <% @drills_searched_by_user.each_with_index do |drill, i| %>
             <div class="drill">
               <div class="drill-top">

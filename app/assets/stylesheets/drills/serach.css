@@ -7,20 +7,31 @@
   border: 3px ridge rgba(180, 180, 180, 0.5);
 }
 
+.search-title-box{
+  margin: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.display-btn{
+  letter-spacing: 3px;
+  background-color: rgb(230, 230, 230);
+  padding: 3px 17px 3px 20px;
+  border: 1px solid rgb(180, 180, 180);
+}
+
 .search-title{
   font-size: 20px;
   font-weight: 600;
   color: lightseagreen;
-  margin-left: 10px;
 }
 
 .search-num{
   margin: 10px;
 }
 
-.search-title-result,
-.search-info-result,
-.search-user-result{
+.search-result{
   margin-top: -10px;
   padding: 0px 10px 10px;
   max-height: 600px;

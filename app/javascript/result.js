@@ -8,7 +8,7 @@ function result() {
   });
   
   confirmBtn.addEventListener('mouseover', () => {
-    confirmBtn.style.boxShadow = '0 0 5px rgb(150, 150, 150)'
+    confirmBtn.style.boxShadow = '0 0 5px rgb(150, 150, 150)';
     confirmBtn.style.cursor = 'pointer';
   });
   
