@@ -1,11 +1,11 @@
 class DrillsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
   before_action :set_drill, only: [:show, :edit, :update, :destroy, :publish]
-  before_action :set_genres, only: [:index, :show]
+  before_action :set_genres, only: [:index, :show, :search]
   before_action :move_to_index, only: [:edit, :destroy]
 
   def index
-    @drills = Drill.where(status: 1).order(id: 'DESC').includes(:user, :quizzes)
+    @drills = Drill.where(status: 1).order(updated_at: 'DESC').includes(:user, :quizzes)
     if user_signed_in?
       @times_array = []
       @drills.each do |drill|
@@ -66,7 +66,14 @@ class DrillsController < ApplicationController
   end
 
   def search
-    
+    @drills = Drill.search(params[:keyword])
+    if user_signed_in?
+      @times_array = []
+      @drills.each do |drill|
+        @times_array << drill.results.where(user_id: current_user.id).count
+      end
+      @side_results = current_user.results.order(updated_at: 'DESC').limit(5)
+    end
   end
 
   private

@@ -13,4 +13,12 @@ class Drill < ApplicationRecord
   def add_error_genre_id
     errors[:base] << 'ジャンルを選択してください' if genre_id.blank?
   end
+
+  def self.search(search)
+    if search != ""
+      Drill.where('title LIKE(?)', "%#{search}%").order(updated_at: "DESC")
+    else
+      Drill.all
+    end
+  end
 end
