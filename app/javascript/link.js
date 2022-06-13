@@ -59,4 +59,5 @@ function link() {
     });
   });
 };
+
 window.addEventListener('load', link)
