@@ -58,7 +58,7 @@ class QuizzesController < ApplicationController
   end
   
   def move_to_index
-    unless current_user.id = @drill.user_id
+    unless current_user.id == @drill.user_id
       redirect_to root_path
     end
   end
