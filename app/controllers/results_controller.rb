@@ -1,4 +1,6 @@
 class ResultsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @drill = Drill.find(params[:drill_id])
     @quizzes = @drill.quizzes
