@@ -18,7 +18,7 @@ class Drill < ApplicationRecord
     if search != ""
       Drill.where('title LIKE(?)', "%#{search}%").order(updated_at: "DESC")
     else
-      Drill.all
+      Drill.all.order(updated_at: 'DESC')
     end
   end
 
