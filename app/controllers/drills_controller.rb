@@ -33,6 +33,7 @@ class DrillsController < ApplicationController
     @quizzes = @drill.quizzes
     if user_signed_in?
       @results = @drill.results.order(created_at: 'DESC').where(user_id: current_user.id)
+      @favorite = Favorite.find_by(user_id: current_user.id, drill_id: @drill.id)
     end
   end
 

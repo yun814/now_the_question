@@ -59,7 +59,7 @@
                   </div>
                   <div class="drill-right_2">
                     <div><%= "#{drill.quizzes.count}問のクイズ" %></div>
-                    <div><%= "000いいね" %></div>
+                    <div><%= drill.favorites.count %>いいね</div>
                     <div><%= link_to "ランキングへ", '#', class: "mini-btn" %></div>
                   </div>
                 </div>
@@ -106,7 +106,7 @@
                   </div>
                   <div class="drill-right_2">
                     <div><%= "#{drill.quizzes.count}問のクイズ" %></div>
-                    <div><%= "000いいね" %></div>
+                    <div><%= drill.favorites.count %>いいね</div>
                     <div><%= link_to "ランキングへ", '#', class: "mini-btn" %></div>
                   </div>
                 </div>

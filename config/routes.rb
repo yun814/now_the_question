@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :drills do
     resources :quizzes, only: [:index, :create, :edit, :update, :destroy]
     resources :results, only: [:index, :create]
+    resource :favorites, only: [:create, :destroy]
     
     member do
       post 'publish'

@@ -32,6 +32,12 @@
   color: red;
 }
 
+.favorite-btn{
+  font-size: 20px;
+  border: 1px solid rgb(180, 180, 180);
+  border-radius: 10px;
+}
+
 .root-btn-box{
   margin: 20px 0 10px 0;
 }

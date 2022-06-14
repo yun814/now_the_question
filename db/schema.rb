@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_12_133010) do
+ActiveRecord::Schema.define(version: 2022_06_14_080705) do
 
   create_table "drills", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(version: 2022_06_12_133010) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "status", default: 0
     t.index ["user_id"], name: "index_drills_on_user_id"
+  end
+
+  create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "drill_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["drill_id"], name: "index_favorites_on_drill_id"
+    t.index ["user_id", "drill_id"], name: "index_favorites_on_user_id_and_drill_id", unique: true
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "quizzes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -78,6 +88,8 @@ ActiveRecord::Schema.define(version: 2022_06_12_133010) do
   end
 
   add_foreign_key "drills", "users"
+  add_foreign_key "favorites", "drills"
+  add_foreign_key "favorites", "users"
   add_foreign_key "quizzes", "drills"
   add_foreign_key "quizzes", "users"
   add_foreign_key "records", "users"
