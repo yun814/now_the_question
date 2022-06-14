@@ -13,7 +13,17 @@
 
     <div class="show-drill-sub_2">
       <div><%= "#{@drill.quizzes.count}問のクイズ" %></div>
-      <div>000いいね</div>
+      <% if user_signed_in? && @drill.user_id == current_user.id %>
+        <div><%= @drill.favorites.count %>いいね</div>
+      <% else %>
+        <div id="show-favorite-btn-box">
+          <% if @favorite.present? %>
+            <%= link_to "★ いいね! #{@drill.favorites.count}", drill_favorites_path(@drill), method: :delete, remote: true, class: "mini-btn favorite" %>
+          <% else %>
+            <%= link_to "☆ いいね! #{@drill.favorites.count}", drill_favorites_path(@drill), method: :post, remote: true, class: "mini-btn" %>
+          <% end %>
+        </div>
+      <% end %>
       <div><%= link_to "ランキングへ", '#', class: "mini-btn" %></div>
     </div>
 

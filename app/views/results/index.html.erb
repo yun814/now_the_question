@@ -5,7 +5,7 @@
     <div class="result-numbers"><%= @result.number_of_questions %>問中 <%= @result.number_of_correct_answers %>問正解でした！</div>
     <div class="result-rate">正解率：<%= @result.correct_answer_rate.round(1) %>%</div>
     <div>
-      <div id="favorite-btn-box">
+      <div id="result-favorite-btn-box">
         <% if @favorite.present? %>
           <%= link_to "★ いいね! #{@drill.favorites.count}", drill_favorites_path(@drill), method: :delete, remote: true, class: "favorite-btn mini-btn favorite" %>
         <% else %>

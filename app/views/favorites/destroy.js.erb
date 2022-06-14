@@ -1,1 +1,2 @@
-$('#favorite-btn-box').html('<%= link_to "☆ いいね! #{@drill.favorites.count}", drill_favorites_path(@drill), method: :post, remote: true, class: "favorite-btn mini-btn" %>');
+$('#result-favorite-btn-box').html('<%= link_to "☆ いいね! #{@drill.favorites.count}", drill_favorites_path(@drill), method: :post, remote: true, class: "favorite-btn mini-btn" %>');
+$('#show-favorite-btn-box').html('<%= link_to "☆ いいね! #{@drill.favorites.count}", drill_favorites_path(@drill), method: :post, remote: true, class: "mini-btn" %>');
