@@ -1,0 +1,10 @@
+<%= render 'shared/side-bar' %>
+
+<div class="drill-main main-box">
+  <div class="drill-index-title">
+    〜<%= @genre.name %>のクイズ集〜
+  </div>
+  <div class="drill-index-drills">
+    <%= render partial: 'drill', collection: @drills %>
+  </div>
+</div>
