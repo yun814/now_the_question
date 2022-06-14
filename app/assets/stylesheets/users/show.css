@@ -12,8 +12,7 @@
 ************************************/
 .user-show-record{
   padding: 20px 15px;
-  border: 1px solid rgba(180, 180, 180, 0.5);
-  background-color: white;
+  border: 3px ridge rgba(180, 180, 180, 0.5);
 }
 
 .user-show-nickname{
@@ -39,6 +38,7 @@ th, td{
   font-size: 20px;
   text-align: center;
   border: 5px ridge lightseagreen;
+  background-color: white;
 }
 th{
   font-weight: 600;
@@ -70,8 +70,7 @@ th{
 .user-show-drills{
   padding: 20px 15px;
   margin-top: 20px;
-  border: 1px solid rgba(180, 180, 180, 0.5);
-  background-color: white;
+  border: 3px ridge rgba(180, 180, 180, 0.5);
 }
 
 .show-user-drill-status{
