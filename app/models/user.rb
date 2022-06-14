@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :drills
   has_many :quizzes
   has_many :results
+  has_many :favorites
+  has_many :favorite_drills, through: :favorites, source: :drill
   has_one :record
 
   def self.search_by_user(search)

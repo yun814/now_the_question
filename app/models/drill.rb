@@ -5,6 +5,8 @@ class Drill < ApplicationRecord
 
   has_many :quizzes, dependent: :destroy
   has_many :results, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_users, through: :favorites, source: :user
   belongs_to :user
 
   extend ActiveHash::Associations::ActiveRecordExtensions
