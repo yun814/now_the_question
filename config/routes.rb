@@ -10,11 +10,11 @@ Rails.application.routes.draw do
     
     member do
       post 'publish'
+      get 'genre'
     end
 
     collection do
       get 'search'
-      get 'genre'
     end
   end
 
