@@ -92,6 +92,10 @@ class DrillsController < ApplicationController
     end
   end
 
+  def genre
+    
+  end
+
   private
   def drill_params
     params.require(:drill)
