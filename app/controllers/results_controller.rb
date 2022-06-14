@@ -5,6 +5,7 @@ class ResultsController < ApplicationController
     @drill = Drill.find(params[:drill_id])
     @quizzes = @drill.quizzes
     @result = Result.order(created_at: 'DESC').find_by(drill_id: @drill.id, user_id: current_user.id)
+    @favorite = Favorite.find_by(user_id: current_user.id, drill_id: @drill.id)
   end
 
   def create

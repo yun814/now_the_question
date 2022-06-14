@@ -4,11 +4,18 @@
     <div class="result-times">今回は<%= @result.times %>回目の挑戦でした！</div>
     <div class="result-numbers"><%= @result.number_of_questions %>問中 <%= @result.number_of_correct_answers %>問正解でした！</div>
     <div class="result-rate">正解率：<%= @result.correct_answer_rate.round(1) %>%</div>
+    <div>
+      <% if @favorite.present? %>
+        <%= link_to "★いいね#{@drill.favorites.count}", drill_favorites_path(@drill), method: :delete, class: "result-favorite-btn mini-btn favorite" %>
+      <% else %>
+        <%= link_to "☆いいね#{@drill.favorites.count}", drill_favorites_path(@drill), method: :post, class: "result-favorite-btn mini-btn" %>
+      <% end %>
+    </div>
     <div class="root-btn-box"><%= link_to 'トップ画面へ戻る', root_path, class: "root-btn btn" %></div>
   </div>
 
   <div class="result-questions">
-    <div class="result-title" id="confirm-title">〜クイズの正解〜</div>
+    <div class="result-title" id="confirm-title">〜クイズの答え〜</div>
     <div class="confirm-btn" id="confirm-btn">正解を確認する</div>
     <% @quizzes.each_with_index do |quiz, i| %>
       <div class="quiz" hidden>
