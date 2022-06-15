@@ -1,2 +1,6 @@
 $('#result-favorite-btn-box').html('<%= link_to "★ いいね! #{@drill.favorites.count}", drill_favorites_path(@drill), method: :delete, remote: true, class: "favorite-btn mini-btn favorite" %>');
 $('#show-favorite-btn-box').html('<%= link_to "★ いいね! #{@drill.favorites.count}", drill_favorites_path(@drill), method: :delete, remote: true, class: "mini-btn favorite" %>');
+
+$(function() {
+  window.globalFunction.link();
+});
