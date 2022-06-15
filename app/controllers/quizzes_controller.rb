@@ -12,12 +12,8 @@ class QuizzesController < ApplicationController
 
   def create
     @quiz = Quiz.new(quiz_params)
-    if @quiz.save
-      # redirect_to drill_path(@quiz.drill.id)
-    else
-      @side_results = current_user.results.order(created_at: 'DESC').limit(5)
-      @genres = Genre.all
-      render 'drills/show'
+    unless @quiz.save
+      render 'error'
     end
   end
 
