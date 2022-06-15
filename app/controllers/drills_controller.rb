@@ -58,11 +58,12 @@ class DrillsController < ApplicationController
     if @drill.status == 0
       @drill.status = 1
       @drill.save
+      render 'publish'
     else
       @drill.status = 0
       @drill.save
+      render 'not_publish'
     end
-    redirect_to drill_path(@drill)
   end
 
   def search

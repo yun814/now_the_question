@@ -1,0 +1,5 @@
+<% if @drill.status == 0 %>
+  <%= link_to "公開する", publish_drill_path(@drill), method: :post, remote: true, data: {confirm: "クイズ集を公開しますか？\n※問題数が0問のクイズ集は一覧に表示されません。\n※クイズを追加・編集中は非公開にすることを推奨します。"}, class: "to_edit btn" %>
+<% else %>
+  <%= link_to "公開しない", publish_drill_path(@drill), method: :post, remote: true, data: {confirm: "クイズを非公開にしますか？\n※非公開にしたクイズ集は一覧に表示されません。\n※非公開のクイズ集を編集・公開するにはマイページからクイズ集のページにアクセスして下さい。"}, class: "to_edit btn" %>
+<% end %>
