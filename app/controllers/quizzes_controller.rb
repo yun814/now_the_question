@@ -1,7 +1,7 @@
 class QuizzesController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :destroy]
   before_action :set_drill, only: [:index, :create, :edit, :update, :destroy]
-  before_action :set_quizzes, only: [:index, :create]
+  before_action :set_quizzes, only: :index
   before_action :set_quiz, only: [:edit, :update, :destroy]
   before_action :move_to_index, only: [:edit, :destroy]
 
@@ -12,12 +12,8 @@ class QuizzesController < ApplicationController
 
   def create
     @quiz = Quiz.new(quiz_params)
-    if @quiz.save
-      redirect_to drill_path(@quiz.drill.id)
-    else
-      @side_results = current_user.results.order(created_at: 'DESC').limit(5)
-      @genres = Genre.all
-      render 'drills/show'
+    unless @quiz.save
+      render 'create_error'
     end
   end
 
@@ -26,10 +22,8 @@ class QuizzesController < ApplicationController
 
   def update
     @quiz.update(quiz_params)
-    if @quiz.save
-      redirect_to drill_path(@quiz.drill.id)
-    else
-      render :edit
+    unless @quiz.save
+      render 'update_error'
     end
   end
 

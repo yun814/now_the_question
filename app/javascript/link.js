@@ -60,4 +60,6 @@ function link() {
   });
 };
 
-window.addEventListener('load', link)
+window.globalFunction = {};
+window.globalFunction.link = link;
+window.addEventListener('load', link);

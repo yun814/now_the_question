@@ -1,0 +1,26 @@
+<div class="quiz-num_box">
+  <div class="quiz-num">クイズを編集する</div>
+</div>
+
+<%= form_with url: drill_quiz_path(@drill, @quiz), model: [@drill, @quiz], local: false do |f| %>
+  <div id ="quiz-edit-errors"></div>
+
+  <div class="quiz-question"><%= f.text_area :question, placeholder: "問題文を入力\n例)「なぜ山に登るのか」と聞かれて「そこに山があるから」と答えたことで有名な、イギリスの登山家は誰でしょう？",size: "50x4", maxlength: "112", class: "form-question" %></div>
+
+  <div class="quiz-choices-boxes">
+    <%= f.text_field :choices_1, placeholder: "選択肢１を入力", maxlength: "10", class: "quiz-choices" %>
+    <%= f.text_field :choices_2, placeholder: "選択肢２を入力", maxlength: "10", class: "quiz-choices" %>
+  </div>
+  <div class="quiz-choices-boxes">
+    <%= f.text_field :choices_3, placeholder: "選択肢３を入力", maxlength: "10", class: "quiz-choices" %>
+    <%= f.text_field :choices_4, placeholder: "選択肢４を入力", maxlength: "10", class: "quiz-choices" %>
+  </div>
+
+  <div class="quiz-editor">
+    <div class="quiz-correct_ans">正解は
+      <%= f.number_field :correct_answer, placeholder: "正解", in: 1..4, class: "form-correct_ans" %>
+      番にの選択肢に設定します
+    </div>
+    <%= f.submit "更新する", class: "quiz-post-btn btn" %>
+  </div>
+<% end %>

@@ -1,0 +1,11 @@
+$('#show-drill-quizzes').append('<%= j(render 'created_quiz') %>');
+
+$('#quiz-form-errors').html('');
+$('.form-question').val('');
+$('.quiz-choices').val('');
+$('.form-correct_ans').val('');
+
+$(function() {
+  window.globalFunction.link();
+  window.globalFunction.quiz();
+});
