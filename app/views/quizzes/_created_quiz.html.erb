@@ -1,6 +1,6 @@
-<div class="quiz">
+<div class="quiz" id="quiz_<%= @quiz.id %>">
   <div class="quiz-num_box">
-    <div class="quiz-num" id="quiz-num"><%= "第#{@drill.quizzes.count}問" %></div>
+    <div class="quiz-num" id="quiz-num"><%= "第#{@drill.quizzes.index(@quiz) + 1}問" %></div>
   </div>
 
   <div class="quiz-question"><%= @quiz.question %></div>

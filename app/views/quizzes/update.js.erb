@@ -1,0 +1,5 @@
+$('#quiz_<%= @quiz.id %>').html('<%= j(render 'updated_quiz') %>');
+
+$(function() {
+  window.globalFunction.link();
+});

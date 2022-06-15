@@ -13,7 +13,7 @@ class QuizzesController < ApplicationController
   def create
     @quiz = Quiz.new(quiz_params)
     unless @quiz.save
-      render 'error'
+      render 'create_error'
     end
   end
 
@@ -22,10 +22,8 @@ class QuizzesController < ApplicationController
 
   def update
     @quiz.update(quiz_params)
-    if @quiz.save
-      redirect_to drill_path(@quiz.drill.id)
-    else
-      render :edit
+    unless @quiz.save
+      render 'update_error'
     end
   end
 
