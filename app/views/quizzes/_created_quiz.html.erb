@@ -1,0 +1,22 @@
+<div class="quiz">
+  <div class="quiz-num_box">
+    <div class="quiz-num" id="quiz-num"><%= "第#{@drill.quizzes.count}問" %></div>
+  </div>
+
+  <div class="quiz-question"><%= @quiz.question %></div>
+  
+  <div class="quiz-choices-boxes">
+    <div class="quiz-choices"><%= "1. #{@quiz.choices_1}" %></div>
+    <div class="quiz-choices"><%= "2. #{@quiz.choices_2}" %></div>
+  </div>
+  <div class="quiz-choices-boxes">
+    <div class="quiz-choices"><%= "3. #{@quiz.choices_3}" %></div>
+    <div class="quiz-choices"><%= "4. #{@quiz.choices_4}" %></div>
+  </div>
+
+  <div class="quiz-editor">
+    <div class="quiz-correct_ans"><%= "正解は#{@quiz.correct_answer}番の選択肢に設定しています" %></div>
+    <div><%= link_to "編集する", edit_drill_quiz_path(@drill, @quiz), class: "to_edit btn" %></div>
+    <div><%= link_to "削除する", drill_quiz_path(@drill, @quiz), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "to_destroy btn" %></div>
+  </div>
+</div>

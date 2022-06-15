@@ -68,14 +68,16 @@
   </div>
 
   <% if user_signed_in? && current_user.id == @drill.user_id %>
-    <%= render 'shared/quiz' %>
-    
+    <div id="show-drill-quizzes">
+      <%= render 'shared/quiz' %>
+    </div>
+
     <div class="quiz-form" id="quiz-form">
       <div class="quiz-num_box">
         <div class="quiz-num">次のクイズを追加する</div>
       </div>
 
-      <%= form_with model: [@drill, @quiz], local: true do |f| %>
+      <%= form_with model: [@drill, @quiz], local: false do |f| %>
         <%= render 'shared/error_messages', model: f.object %>
 
         <div class="quiz-question"><%= f.text_area :question, placeholder: "問題文を入力\n例)「なぜ山に登るのか」と聞かれて「そこに山があるから」と答えたことで有名な、イギリスの登山家は誰でしょう？",size: "50x4", maxlength: "112", class: "form-question" %></div>

@@ -19,4 +19,5 @@ function quiz() {
   });
 };
 
+window.globalFunction.quiz = quiz;
 window.addEventListener('load', quiz)
