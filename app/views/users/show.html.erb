@@ -37,7 +37,7 @@
                   <% elsif user_signed_in? %>
                     <div>あなたは<%= @times_array_for_record[i] %>回挑戦しました</div>
                   <% else %>
-                    <div>ログインすると挑戦回数が表示されます</div>
+                    <div>ログインしましょう</div>
                   <% end %>
                 </div>
               </div>
@@ -66,50 +66,85 @@
   </div>
 
   <div class="user-show-drills">
-    <% if @user.drills.present? %>
-      <div class="user-show-drills-num"><%= @user.nickname %>さんが投稿したクイズ集は<%= @user.drills.count %>個あります。</div>
-      <% @drills.each_with_index do |drill, i| %>
-        <div class="drill">
-          <div class="drill-top">
-            <div class="drill-left">
-              <div class="drill-left_1"><%= link_to drill.title, drill_path(drill) %></div>
-              <div class="drill-left_2">
-                <div>ジャンル：<%= link_to drill.genre.name, '#', class: "mini-btn" %></div>
-                <% if user_signed_in? && drill.user_id == current_user.id %>
+    <% if user_signed_in? && @user.id == current_user.id %>
+      <% if @all_drills.present? %>
+        <div class="user-show-drills-num"><%= @user.nickname %>さんが作成したクイズ集は<%= @all_drills.count %>個あります。</div>
+        <% @all_drills.each_with_index do |drill, i| %>
+          <div class="drill">
+            <div class="drill-top">
+              <div class="drill-left">
+                <div class="drill-left_1"><%= link_to drill.title, drill_path(drill) %></div>
+                <div class="drill-left_2">
+                  <div>ジャンル：<%= link_to drill.genre.name, '#', class: "mini-btn" %></div>
                   <% if drill.status == 0 %>
                     <div class="show-user-drill-status">このクイズ集は非公開です</div>
                   <% else %>
                     <div>このクイズ集は公開中です</div>
                   <% end %>
-                <% elsif user_signed_in? && @times_array_for_user[i] == 0 %>
-                  <div>あなたはまだ挑戦していません</div>
-                <% elsif user_signed_in? %>
-                  <div>あなたは<%= @times_array_for_user[i] %>回挑戦しました</div>
-                <% else %>
-                  <div>ログインすると挑戦回数が表示されます</div>
-                <% end %>
+                </div>
+              </div>
+              
+              <div class="drill-right">
+                <div class="drill-right_1">
+                  <div><%= link_to "#{drill.user.nickname}さん", user_path(drill.user), class: "drill-user" %>が投稿</div>
+                </div>
+                <div class="drill-right_2">
+                  <div><%= "#{drill.quizzes.count}問のクイズ" %></div>
+                  <div><%= drill.favorites.count %>いいね</div>
+                  <div><%= link_to "ランキングへ", '#', class: "mini-btn" %></div>
+                </div>
               </div>
             </div>
-            
-            <div class="drill-right">
-              <div class="drill-right_1">
-                <div><%= link_to "#{drill.user.nickname}さん", user_path(drill.user), class: "drill-user" %>が投稿</div>
-              </div>
-              <div class="drill-right_2">
-                <div><%= "#{drill.quizzes.count}問のクイズ" %></div>
-                <div><%= drill.favorites.count %>いいね</div>
-                <div><%= link_to "ランキングへ", '#', class: "mini-btn" %></div>
-              </div>
-            </div>
-          </div>
 
-          <div class="drill-bottom">
-            <%= "詳細：#{drill.information}" %>
+            <div class="drill-bottom">
+              <%= "詳細：#{drill.information}" %>
+            </div>
           </div>
-        </div>
+        <% end %>
+      <% else %>
+        <div class="user-show-drills-num"><%= @user.nickname %>さんが作成したクイズ集はまだありません。</div>
       <% end %>
+
     <% else %>
-      <div class="no-drills"><%= @user.nickname %>さんが投稿したクイズ集はまだありません。</div>
+      <% if @public_drills.present? %>
+        <div class="user-show-drills-num"><%= @user.nickname %>さんが公開しているクイズ集は<%= @public_drills.count %>個あります。</div>
+        <% @public_drills.each_with_index do |drill, i| %>
+          <div class="drill">
+            <div class="drill-top">
+              <div class="drill-left">
+                <div class="drill-left_1"><%= link_to drill.title, drill_path(drill) %></div>
+                <div class="drill-left_2">
+                  <div>ジャンル：<%= link_to drill.genre.name, '#', class: "mini-btn" %></div>
+                  <% if user_signed_in? && @times_array_for_user[i] == 0 %>
+                    <div>あなたはまだ挑戦していません</div>
+                  <% elsif user_signed_in? %>
+                    <div>あなたは<%= @times_array_for_user[i] %>回挑戦しました</div>
+                  <% else %>
+                    <div>ログインしましょう</div>
+                  <% end %>
+                </div>
+              </div>
+              
+              <div class="drill-right">
+                <div class="drill-right_1">
+                  <div><%= link_to "#{drill.user.nickname}さん", user_path(drill.user), class: "drill-user" %>が投稿</div>
+                </div>
+                <div class="drill-right_2">
+                  <div><%= "#{drill.quizzes.count}問のクイズ" %></div>
+                  <div><%= drill.favorites.count %>いいね</div>
+                  <div><%= link_to "ランキングへ", '#', class: "mini-btn" %></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="drill-bottom">
+              <%= "詳細：#{drill.information}" %>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="user-show-drills-num"><%= @user.nickname %>さんが公開しているクイズ集はまだありません。</div>
+      <% end %>
     <% end %>
   </div>
 </div>
