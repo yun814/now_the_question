@@ -13,7 +13,7 @@
     <% if @comments.present? %>
       <%= render partial: 'shared/comment', collection: @comments %>
     <% else %>
-      <div class="no-comments">コメントはまだありません。</div>
+      <div class="no-comments" id="no-comments">コメントはまだありません。</div>
     <% end %>
   </div>
 </div>
