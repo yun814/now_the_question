@@ -13,7 +13,11 @@
         <% end %>
       </div>
     </div>
-    <div class="root-btn-box"><%= link_to 'トップ画面へ戻る', root_path, class: "root-btn btn" %></div>
+    <div class="result-btns">
+      <%= link_to '作成者ページへ', user_path(@drill.user), class: "result-btn btn" %>
+      <%= link_to "#{@drill.genre.name}の他のクイズを解く", genre_drill_path(@drill.genre), class: "result-btn btn" %>
+      <%= link_to 'トップ画面へ戻る', root_path, class: "result-btn btn" %>
+    </div>
   </div>
 
   <div class="result-questions">

@@ -38,13 +38,15 @@
   border-radius: 10px;
 }
 
-.root-btn-box{
+.result-btns{
   margin: 20px 0 10px 0;
+  padding: 0 15%;
+  display: flex;
+  justify-content: space-between;
 }
 
-.root-btn{
-  font-size: 20px;
-  padding: 10px 20px;
+.result-btn{
+  padding: 10px 15px;
 }
 
 /************************************
