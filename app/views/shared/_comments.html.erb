@@ -1,0 +1,19 @@
+<div class="comments-main">
+  <% if user_signed_in? && @drill.user_id != current_user.id %>
+  <div id="comment-errors"></div>
+    <%= form_with model: [@drill, @comment], local: false do |form| %>
+      <div class="comment-form">
+        <div><%= form.text_area :comment, placeholder: "コメントする", size: '30x2', class: "comment-text-form" %></div>
+        <div><%= form.submit '送信', class: "comment-btn btn" %></div>
+      </div>
+    <% end %>
+  <% end %>
+
+  <div id="comments-area">
+    <% if @comments.present? %>
+      <%= render partial: 'shared/comment', collection: @comments %>
+    <% else %>
+      <div class="no-comments" id="no-comments">コメントはまだありません。</div>
+    <% end %>
+  </div>
+</div>

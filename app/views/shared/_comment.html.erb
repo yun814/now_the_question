@@ -1,0 +1,9 @@
+<div class="comment" id="comment_<%= comment.id %>">
+  <div class="comment-box">
+    <div class="comment-user"><%= comment.user.nickname %>：</div>
+    <div class="comment-text"><%= comment.comment %></div>
+  </div>
+  <% if user_signed_in? && comment.user_id == current_user.id %>
+    <div><%= link_to '削除', drill_comment_path(@drill, comment), method: :delete, remote: true, data: {confirm: "コメントを削除しますか？"}, class: "comment-destroy btn" %></div>
+  <% end %>
+</div>
