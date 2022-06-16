@@ -41,7 +41,7 @@
 .show-drill-sub_2{
   width: 60%;
   font-size: 15px;
-  margin: 5px auto;
+  margin: 10px auto;
   display: flex;
   justify-content: space-between;
 }
@@ -97,6 +97,32 @@
   font-size: 20px;
   letter-spacing: 5px;
   padding: 8px 15px 8px 20px;
+}
+
+/************************************
+ コメント表示 
+************************************/
+.comments{
+  margin-top: 20px;
+  padding: 20px 10px;
+  border: 1px solid rgba(180, 180, 180, 0.5);
+  border-radius: 10px;
+  background-color: white;
+}
+
+.comments-title{
+  width: 90%;
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+  margin: 0 auto 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgb(180, 180, 180);
+}
+
+.comments-main{
+  width: 90%;
+  margin: 0 auto 0;
 }
 
 /************************************

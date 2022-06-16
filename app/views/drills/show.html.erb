@@ -72,6 +72,11 @@
   </div>
 
   <% if user_signed_in? && current_user.id == @drill.user_id %>
+    <div class="comments">
+      <div class="comments-title">コメント</div>
+      <%= render 'shared/comments' %>
+    </div>
+
     <div id="show-drill-quizzes">
       <%= render 'shared/quiz' %>
     </div>
