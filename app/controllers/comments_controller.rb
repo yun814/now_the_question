@@ -1,7 +1,10 @@
 class CommentsController < ApplicationController
   def create
-    comment = Comment.create(comment_params)
-    redirect_to drill_path(comment.drill)
+    @comment = Comment.new(comment_params)
+    @drill = @comment.drill
+    unless @comment.save
+      render 'error'
+    end
   end
 
   def destroy
