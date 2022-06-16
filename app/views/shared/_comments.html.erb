@@ -1,5 +1,12 @@
 <div class="comments-main">
-  <%= form_with do |form| %>
-
+  <% if user_signed_in? %>
+    <%= form_with model: [@drill, @comment], local: true do |form| %>
+      <div class="comment-form">
+        <div><%= form.text_area :comment, placeholder: "コメントする", size: '30x2' %></div>
+        <div><%= form.submit '送信', class: "comment-btn btn" %></div>
+      </div>
+    <% end %>
   <% end %>
+
+  <%= render partial: 'shared/comment', collection: @comments %>
 </div>

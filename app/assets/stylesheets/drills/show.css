@@ -125,6 +125,42 @@
   margin: 0 auto 0;
 }
 
+.comment-form{
+  margin: 10px 0;
+  padding: 0 20% 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment-btn{
+  padding: 5px 10px;
+}
+
+.comment{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment-box{
+  width: 90%;
+  display: flex;
+}
+
+.comment-user{
+  width: 15%;
+}
+
+.comment-text{
+  width: 85%;
+}
+
+.comment-destroy{
+  font-size: 12px;
+  padding: 1px 2px;
+}
+
 /************************************
  クイズプレビュー 
 ************************************/
