@@ -29,7 +29,7 @@
               <div class="drill-left">
                 <div class="drill-left_1"><%= link_to result.drill.title, drill_path(result.drill) %></div>
                 <div class="drill-left_2">
-                  <div>ジャンル：<%= link_to result.drill.genre.name, '#', class: "mini-btn" %></div>
+                  <div>ジャンル：<%= link_to result.drill.genre.name, genre_drill_path(result.drill.genre), class: "mini-btn" %></div>
                   <% if user_signed_in? && @user.id == current_user.id %>
                     <div>あなたは<%= result.drill.results.where(user_id: current_user.id).count %>回挑戦しました</div>
                   <% else %>
@@ -71,7 +71,7 @@
               <div class="drill-left">
                 <div class="drill-left_1"><%= link_to drill.title, drill_path(drill) %></div>
                 <div class="drill-left_2">
-                  <div>ジャンル：<%= link_to drill.genre.name, '#', class: "mini-btn" %></div>
+                  <div>ジャンル：<%= link_to drill.genre.name, genre_drill_path(drill.genre), class: "mini-btn" %></div>
                   <% if drill.status == 0 %>
                     <div class="show-user-drill-status">このクイズ集は非公開です</div>
                   <% else %>
@@ -105,7 +105,7 @@
       <% if @public_drills.present? %>
         <div class="user-show-drills-num"><%= @user.nickname %>さんが公開しているクイズ集は<%= @public_drills.count %>個あります。</div>
         <%= render partial: 'drills/drill', collection: @public_drills %>
-        
+
       <% else %>
         <div class="user-show-drills-num"><%= @user.nickname %>さんが公開しているクイズ集はまだありません。</div>
       <% end %>
