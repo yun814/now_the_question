@@ -7,12 +7,6 @@ class DrillsController < ApplicationController
 
   def index
     @drills = Drill.where(status: 1).order(updated_at: 'DESC').includes(:user, :quizzes)
-    if user_signed_in?
-      @times_array = []
-      @drills.each do |drill|
-        @times_array << drill.results.where(user_id: current_user.id).count
-      end
-    end
   end
 
   def new

@@ -7,10 +7,10 @@
           <div class="drill-genre">ジャンル：<%= link_to drill.genre.name, '#', class: "mini-btn" %></div>
           <% if user_signed_in? && drill.user_id == current_user.id %>
             <div>あなたが作成したクイズ集です</div>
-          <% elsif user_signed_in? && @times_array[drill_counter] == 0 %>
+          <% elsif user_signed_in? && drill.results.where(user_id: current_user.id).count == 0 %>
             <div>あなたはまだ挑戦していません</div>
           <% elsif user_signed_in? %>
-            <div>あなたは<%= @times_array[drill_counter] %>回挑戦しました</div>
+            <div>あなたは<%= drill.results.where(user_id: current_user.id).count %>回挑戦しました</div>
           <% else %>
             <div>ログインすると挑戦回数が表示されます</div>
           <% end %>
