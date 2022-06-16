@@ -8,9 +8,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    comment = Comment.find(params[:id])
-    comment.destroy
-    redirect_to drill_path(comment.drill)
+    @comment = Comment.find(params[:id])
+    @comment.destroy
   end
 
   private

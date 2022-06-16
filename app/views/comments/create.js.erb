@@ -1,4 +1,7 @@
-$('#comments-area').prepend('<%= j(render 'created_comment') %>')
+$('#comments-area').prepend('<%= j(render 'created_comment') %>');
+
+$('#comment-errors').html('');
+$('.comment-text-form').val('');
 
 $(function() {
   window.globalFunction.link();
