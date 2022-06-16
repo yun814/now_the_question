@@ -12,7 +12,7 @@
           <% elsif user_signed_in? %>
             <div>あなたは<%= drill.results.where(user_id: current_user.id).count %>回挑戦しました</div>
           <% else %>
-            <div>ログインすると挑戦回数が表示されます</div>
+            <div>ログインしましょう</div>
           <% end %>
         </div>
       </div>
