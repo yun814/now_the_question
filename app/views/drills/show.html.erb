@@ -109,8 +109,19 @@
         </div>
       <% end %>
     </div>
-  
-  <% elsif @results.present? %>
+
+  <% else %>
+    <div class="comments">
+      <div class="comments-title">コメント</div>
+      <div class="comment-alert hidden">※コメントにはネタバレが含まれている可能性があります。<br>初見の場合は表示しないことを推奨します。</div>
+      <div class="comment-display-btn hidden" id="comment-display-btn">表示</div>
+      <div class="comment-hidden" id ="comment-hidden">
+        <%= render 'shared/comments' %>
+      </div>
+    </div>
+  <% end %>
+
+  <% if @results.present? %>
   <div class="show-drill-results-box">
     <div class="show-drill-results-title">〜過去の成績〜</div>
     <div class="show-drill-results">

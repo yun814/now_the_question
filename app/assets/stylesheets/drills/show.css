@@ -161,6 +161,28 @@
   padding: 1px 2px;
 }
 
+.no-comments{
+  text-align: center;
+}
+
+.comment-alert{
+  text-align: center;
+}
+
+.comment-display-btn{
+  width: fit-content;
+  font-size: 15px;
+  letter-spacing: 20px;
+  background-color: rgb(230, 230, 230);
+  padding: 3px 0 3px 20px;
+  margin: 5px auto 0;
+  border: 1px solid rgb(180, 180, 180);
+}
+
+.comment-hidden{
+  display: none;
+}
+
 /************************************
  クイズプレビュー 
 ************************************/
