@@ -1,7 +1,7 @@
 class QuizzesController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :destroy]
   before_action :set_drill, only: [:index, :create, :edit, :update, :destroy]
-  before_action :set_quizzes, only: :index
+  before_action :set_quizzes, only: [:index, :destroy]
   before_action :set_quiz, only: [:edit, :update, :destroy]
   before_action :move_to_index, only: [:edit, :destroy]
 
@@ -29,7 +29,6 @@ class QuizzesController < ApplicationController
 
   def destroy
     @quiz.destroy
-    redirect_to drill_path(@quiz.drill_id)
   end
 
   private

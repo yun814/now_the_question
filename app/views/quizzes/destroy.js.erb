@@ -1,0 +1,3 @@
+$('#quiz_<%= @quiz.id %>').remove();
+
+$('#show-drill-quizzes').html('<%= j(render partial: 'shared/quiz', collection: @quizzes) %>')
