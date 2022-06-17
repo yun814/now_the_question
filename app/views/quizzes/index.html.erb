@@ -3,7 +3,7 @@
     <%= @drill.title %>に<span id="times"><%= @times + 1 %></span>回目の挑戦！
   </div>
 
-  <%= render 'shared/quiz' %>
+  <%= render partial: 'shared/quiz', collection: @quizzes %>
   
   <div class="finish-btn-box">
     <%= form_with model: [@drill, @result], id: "answer-form", local: true do |f| %>

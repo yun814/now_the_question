@@ -28,10 +28,10 @@
   <div class="result-questions">
     <div class="result-title" id="confirm-title">〜クイズの答え〜</div>
     <div class="confirm-btn" id="confirm-btn">正解を確認する</div>
-    <% @quizzes.each_with_index do |quiz, i| %>
+    <% @quizzes.each do |quiz| %>
       <div class="quiz" hidden>
         <div class="quiz-num_box">
-          <div class="quiz-num" id="quiz-num"><%= "第#{i + 1}問" %></div>
+          <div class="quiz-num" id="quiz-num"><%= "第#{@drill.quizzes.index(quiz) + 1}問" %></div>
         </div>
 
         <div class="quiz-question"><%= quiz.question %></div>
@@ -52,6 +52,12 @@
         </div>
       </div>
     <% end %>
-    <div class="root-btn-box" id="hidden-btn" hidden><%= link_to 'トップ画面へ戻る', root_path, class: "root-btn btn" %></div>
+    <div id="hidden-btn" hidden>
+      <div class="hidden-btns-box">
+        <%= link_to '作成者ページへ', user_path(@drill.user), class: "result-btn btn" %>
+        <%= link_to "#{@drill.genre.name}の他のクイズを解く", genre_drill_path(@drill.genre), class: "result-btn btn" %>
+        <%= link_to 'トップ画面へ戻る', root_path, class: "result-btn btn" %>
+      </div>
+    </div>
   </div>
 </div>
