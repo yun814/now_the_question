@@ -20,5 +20,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: :show
+  resources :users, only: :show do
+    collection do
+      get 'rank'
+    end
+  end
 end
