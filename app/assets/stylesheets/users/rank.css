@@ -1,0 +1,60 @@
+/************************************
+ ランキング 
+************************************/
+.rank-main{
+  width: 71%;
+  padding: 20px;
+  background-color: rgba(250, 235, 215, 0.5);
+}
+
+.rank-title{
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 5px;
+  text-align: center;
+  color: lightseagreen;
+}
+
+.my-rank-info{
+  font-size: 20px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.my-rank-num{
+  font-size: 25px;
+  font-weight: 600;
+  color: red;
+}
+
+/************************************
+ ランキングテーブル 
+************************************/
+.ranking{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.rank-note{
+  font-size: 15px;
+  text-align: right;
+}
+
+.ranking-table,
+.ranking-th,
+.ranking-td{
+  font-size: 18px;
+  text-align: center;
+  border: 3px ridge lightseagreen;
+  background-color: white;
+}
+.ranking-th{
+  font-weight: 600;
+  background-color: rgba(180, 180, 180, 0.3);
+}
+
+.my-rank{
+  background-color: rgba(255, 0, 0, 0.3);
+}

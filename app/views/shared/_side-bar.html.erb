@@ -32,14 +32,14 @@
   <div class="ranking-links">
     <div class="side-title">＜ユーザーランキング＞</div>
     <ul>
-      <li><%= link_to "初見正解率", '#' %></li>
-      <li><%= link_to "全体正解率", '#' %></li>
-      <li><%= link_to "いいね数", '#' %></li>
+      <li><%= link_to "初見正解率", rank_users_path(type_id: 1) %></li>
+      <li><%= link_to "全体正解率", rank_users_path(type_id: 2) %></li>
+      <li><%= link_to "いいね数獲得数", rank_users_path(type_id: 3) %></li>
     </ul>
     <div class="side-title quiz-ranking">＜クイズ集ランキング＞</div>
     <ul>
       <li><%= link_to "回答回数", '#' %></li>
-      <li><%= link_to "いいね数", '#' %></li>
+      <li><%= link_to "いいね数獲得数", '#' %></li>
     </ul>
   </div>
 </div>

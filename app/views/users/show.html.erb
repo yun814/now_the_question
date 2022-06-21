@@ -7,16 +7,16 @@
       <div class="record-table-info">＜過去の成績＞</div>
       <table class="record-table">
         <tr>
-          <th></th> <th>初見の回答のみ</th> <th>全ての回答の合計</th>
+          <th class="record-th"></th> <th class="record-th">初見の回答のみ</th> <th class="record-th">全ての回答の合計</th>
         </tr>
         <tr>
-          <th>回答数</th> <td><%= @user.record.first_number_of_questions %>問</td> <td><%= @user.record.all_number_of_questions %>問</td>
+          <th class="record-th">回答数</th> <td class="record-td"><%= @user.record.first_number_of_questions %>問</td> <td class="record-td"><%= @user.record.all_number_of_questions %>問</td>
         </tr>
         <tr>
-          <th>正解数</th> <td><%= @user.record.first_number_of_correct_answers %>問</td> <td><%= @user.record.all_number_of_correct_answers %>問</td>
+          <th class="record-th">正解数</th> <td class="record-td"><%= @user.record.first_number_of_correct_answers %>問</td> <td class="record-td"><%= @user.record.all_number_of_correct_answers %>問</td>
         </tr>
         <tr>
-          <th>正解率</th> <td><%= @user.record.first_correct_answer_rate.round(1) %>%</td> <td><%= @user.record.all_correct_answer_rate.round(1) %>%</td>
+          <th class="record-th">正解率</th> <td class="record-td"><%= @user.record.first_correct_answer_rate.round(1) %>%</td> <td class="record-td"><%= @user.record.all_correct_answer_rate.round(1) %>%</td>
         </tr>
       </table>
     </div>

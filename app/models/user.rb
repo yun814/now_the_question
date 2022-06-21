@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  attr_accessor :num_of_favorites
+
   validates :nickname, presence: true, uniqueness: true
   has_many :drills
   has_many :quizzes

@@ -34,17 +34,15 @@
 }
 
 .record-table,
-th, td{
+.record-th, .record-td{
   font-size: 20px;
   text-align: center;
   border: 5px ridge lightseagreen;
   background-color: white;
 }
-th{
+.record-th{
   font-weight: 600;
   background-color: rgba(180, 180, 180, 0.3);
-}
-th{
   width: 200px;
   height: 50px;
 }
