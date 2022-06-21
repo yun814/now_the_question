@@ -1,6 +1,18 @@
 /************************************
  ドリル表示領域 
 ************************************/
+.first-visit{
+  font-size: 20px;
+  width: 80%;
+  text-align: center;
+  margin: 0 auto 20px;
+}
+
+.first-visit-logo{
+  font-family: serif;
+  font-style: oblique;
+}
+
 .drill-main{
   width: 71%;
   padding: 20px;
