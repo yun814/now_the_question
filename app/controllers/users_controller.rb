@@ -23,10 +23,21 @@ class UsersController < ApplicationController
       @all_records = Record.where(all_number_of_questions: 10..).order(all_correct_answer_rate: "DESC")
     else
       @type = 'いいね獲得数'
+      @users = User.left_joins(drills: :favorites).group('id').order('count(favorites.id) desc').limit(100)
+      @users.each do |user|
+        num_of_favorites = 0
+        user.drills.each do |drill|
+          num_of_favorites += drill.favorites.count
+        end
+        user.num_of_favorites = num_of_favorites
+      end
+      @num_of_users = User.count
+      @all_users = User.left_joins(drills: :favorites).group('id').order('count(favorites.id) desc')
     end
     
     if user_signed_in?
-      @my_record = Record.find_by(user_id: current_user)
+      @my_record = Record.find_by(user_id: current_user.id)
+      @my_user = User.find(current_user.id)
     end
   end
   
