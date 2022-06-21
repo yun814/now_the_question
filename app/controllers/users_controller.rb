@@ -19,6 +19,8 @@ class UsersController < ApplicationController
       @all_records = Record.where(first_number_of_questions: 10..).order(first_correct_answer_rate: "DESC")
     elsif params[:type_id] == "2"
       @type = '全体正解率'
+      @records = Record.where(all_number_of_questions: 10..).order(all_correct_answer_rate: "DESC").limit(100)
+      @all_records = Record.where(all_number_of_questions: 10..).order(all_correct_answer_rate: "DESC")
     else
       @type = 'いいね獲得数'
     end
