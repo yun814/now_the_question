@@ -4,11 +4,12 @@
   <div class="rank-title">
     〜<%= @type %>ランキング〜
   </div>
-  
-  <% if params[:type_id] == "1" || params[:type_id] == "2" %>
-    <div class="my-rank-info">現在あなたは、<%= @all_records.count %>人中 <span class="my-rank-num"><%= @all_records.index(@my_record) + 1 %>位</span>です。 </div>
-  <% else %>
-    <div class="my-rank-info">現在あなたは、<%= @num_of_users %>人中 <span class="my-rank-num"><%= @all_users.index(@my_user) + 1 %>位</span>です。 </div>
+  <% if user_signed_in? %>
+    <% if params[:type_id] == "1" || params[:type_id] == "2" %>
+      <div class="my-rank-info">現在あなたは、<%= @all_records.count %>人中 <span class="my-rank-num"><%= @all_records.index(@my_record) + 1 %>位</span>です。 </div>
+    <% else %>
+      <div class="my-rank-info">現在あなたは、<%= @num_of_users %>人中 <span class="my-rank-num"><%= @all_users.index(@my_user) + 1 %>位</span>です。 </div>
+    <% end %>
   <% end %>
 
   <div class="ranking">
@@ -42,7 +43,7 @@
       <% else %>
         <% @users.each_with_index do |user, i| %>
           <tr>
-            <% if user.id == current_user.id %>
+            <% if user_signed_in? && user.id == current_user.id %>
               <th class="ranking-th my-rank"><%= i + 1 %>位</th> <td class="ranking-td my-rank"><%= link_to user.nickname, user_path(user) %></td> <td class="ranking-td my-rank"><%= user.num_of_favorites %>いいね</td>
             <% else %>
               <th class="ranking-th"><%= i + 1 %>位</th> <td class="ranking-td"><%= link_to user.nickname, user_path(user) %></td> <td class="ranking-td"><%= user.num_of_favorites %>いいね</td>
