@@ -1,0 +1,47 @@
+<%= render 'shared/side-bar' %>
+
+<div class="rank-main main-box">
+  <div class="rank-title">
+    〜<%= @type %>ランキング〜
+  </div>
+  
+  <div class="my-rank-info">現在あなたは、<%= @all_records.count %>人中 <span class="my-rank-num"><%= @all_records.index(@my_record) + 1 %>位</span>です。 </div>
+
+  <div class="ranking">
+    <table class="ranking-table">
+      <tr>
+        <th class="ranking-th">順位</th> <th class="ranking-th">ユーザー名</th> <th class="ranking-th"><%= @type %></th>
+      </tr>
+
+      <% if params[:type_id] == "1" %>
+        <div class="rank-note">※解答数が10問未満のユーザーは表示されません</div>
+        <% @records.each_with_index do |record, i| %>
+          <tr>
+            <% if record == @my_record %>
+              <th class="ranking-th my-rank"><%= i + 1 %>位</th> <td class="ranking-td my-rank"><%= link_to record.user.nickname, user_path(record.user) %></td> <td class="ranking-td my-rank"><%= record.first_correct_answer_rate.round(1) %>%</td>
+            <% else %>
+              <th class="ranking-th"><%= i + 1 %>位</th> <td class="ranking-td"><%= link_to record.user.nickname, user_path(record.user) %></td> <td class="ranking-td"><%= record.first_correct_answer_rate.round(1) %>%</td>
+            <% end %>
+          </tr>
+        <% end %>
+      <% elsif params[:type_id] == "2" %>
+        <div class="rank-note">※解答数が10問未満のユーザーは表示されません</div>
+        <% @records.each_with_index do |record, i| %>
+          <tr>
+            <% if record == @my_record %>
+              <th class="ranking-th my-rank"><%= i + 1 %>位</th> <td class="ranking-td my-rank"><%= link_to record.user.nickname, user_path(record.user) %></td> <td class="ranking-td my-rank"><%= record.all_correct_answer_rate.round(1) %>%</td>
+            <% else %>
+              <th class="ranking-th"><%= i + 1 %>位</th> <td class="ranking-td"><%= link_to record.user.nickname, user_path(record.user) %></td> <td class="ranking-td"><%= record.all_correct_answer_rate.round(1) %>%</td>
+            <% end %>
+          </tr>
+        <% end %>
+      <% else %>
+        <% @user.each_with_index do |user, i| %>
+          <tr>
+            <th class="ranking-th"><%= i + 1 %>位</th> <td class="ranking-td"><%= link_to user.nickname, user_path(user) %></td> <td class="ranking-td">いいね数</td>
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
+  </div>
+</div>
