@@ -58,3 +58,7 @@
 .my-rank{
   background-color: rgba(255, 0, 0, 0.3);
 }
+
+.ranking-last-td{
+  width: 150px;
+}

@@ -77,7 +77,17 @@ class DrillsController < ApplicationController
   end
 
   def rank
-    
+    if params[:type_id] == "1"
+      @type = "解答回数"
+      @drills = Drill.where(status: 1).left_joins(:results).group('id').order('count(results.id) desc').limit(100)
+    elsif params[:type_id] == "2"
+      @type = "いいね獲得数"
+      @drills = Drill.where(status: 1).left_joins(:favorites).group('id').order('count(favorites.id) desc').limit(100)
+    end
+
+    if user_signed_in?
+      @my_drills = current_user.drills
+    end
   end
   
   private

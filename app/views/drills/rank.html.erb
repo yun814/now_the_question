@@ -1,0 +1,38 @@
+<%= render 'shared/side-bar' %>
+
+<div class="rank-main main-box">
+  <div class="rank-title">
+    〜<%= @type %>ランキング〜
+  </div>
+
+  <div class="ranking">
+    <div class="rank-note">※非公開のクイズ集は表示されません</div>
+    <table class="ranking-table">
+      <tr>
+        <th class="ranking-th">順位</th> <th class="ranking-th">クイズ集タイトル</th> <th class="ranking-th">作成者</th> <th class="ranking-th"><%= @type %></th>
+      </tr>
+
+      <% if params[:type_id] == "1" %>
+        <% @drills.each_with_index do |drill, i| %>
+          <tr>
+            <% if user_signed_in? && @my_drills.include?(drill) %>
+              <th class="ranking-th my-rank"><%= i + 1 %>位</th> <td class="ranking-td my-rank"><%= link_to drill.title, drill_path(drill) %></td> <td class="ranking-td"><%= link_to drill.user.nickname, user_path(drill.user) %></td> <td class="ranking-td ranking-last-td my-rank"><%= drill.results.count %>回</td>
+            <% else %>
+              <th class="ranking-th"><%= i + 1 %>位</th> <td class="ranking-td"><%= link_to drill.title, drill_path(drill) %></td> <td class="ranking-td"><%= link_to drill.user.nickname, user_path(drill.user) %></td> <td class="ranking-td ranking-last-td"><%= drill.results.count %>回</td>
+            <% end %>
+          </tr>
+        <% end %>
+      <% elsif params[:type_id] == "2" %>
+        <% @drills.each_with_index do |drill, i| %>
+          <tr>
+            <% if user_signed_in? && @my_drills.include?(drill) %>
+              <th class="ranking-th my-rank"><%= i + 1 %>位</th> <td class="ranking-td my-rank"><%= link_to drill.title, drill_path(drill) %></td> <td class="ranking-td"><%= link_to drill.user.nickname, user_path(drill.user) %></td> <td class="ranking-td ranking-last-td my-rank"><%= drill.favorites.count %>いいね</td>
+            <% else %>
+              <th class="ranking-th"><%= i + 1 %>位</th> <td class="ranking-td"><%= link_to drill.title, drill_path(drill) %></td> <td class="ranking-td"><%= link_to drill.user.nickname, user_path(drill.user) %></td> <td class="ranking-td ranking-last-td"><%= drill.favorites.count %>いいね</td>
+            <% end %>
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
+  </div>
+</div>
