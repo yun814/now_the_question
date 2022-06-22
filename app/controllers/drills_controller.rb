@@ -89,6 +89,10 @@ class DrillsController < ApplicationController
       @my_drills = current_user.drills
     end
   end
+
+  def drill_rank
+    
+  end
   
   private
   def drill_params
