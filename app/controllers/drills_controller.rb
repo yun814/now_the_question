@@ -1,8 +1,8 @@
 class DrillsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
   before_action :set_drill, only: [:show, :edit, :update, :destroy, :publish]
-  before_action :set_side_results, only: [:index, :show, :search, :genre]
-  before_action :set_genres, only: [:index, :show, :search, :genre]
+  before_action :set_side_results, only: [:index, :show, :search, :genre, :rank]
+  before_action :set_genres, only: [:index, :show, :search, :genre, :rank]
   before_action :move_to_index, only: [:edit, :destroy]
 
   def index
@@ -74,6 +74,10 @@ class DrillsController < ApplicationController
   def genre
     @genre = Genre.find(params[:id])
     @drills = Drill.where(status: 1, genre_id: @genre.id).order(updated_at: 'DESC').includes(:user, :quizzes)
+  end
+
+  def rank
+    
   end
   
   private
