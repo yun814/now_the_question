@@ -46,7 +46,7 @@ https://docs.google.com/spreadsheets/d/1FjFZSAV6R4gZJtOmv5wjZROX9nFLqSOOxDfVZASl
 
 
 # 実装予定機能
-現在、マイリスト機能を実装中。
+現在、マイリスト機能を実装中。  
 今後はタイマー機能を実装予定。
 
 # データベース設計
@@ -64,14 +64,10 @@ https://docs.google.com/spreadsheets/d/1FjFZSAV6R4gZJtOmv5wjZROX9nFLqSOOxDfVZASl
 - Heroku
 
 # ローカルでの動作方法
-以下のコマンドを順に実行
-
-% git clone https://github.com/yun814/now_the_question
-
-% cd now_the_question
-
-% bundle install
-
+以下のコマンドを順に実行  
+% git clone https://github.com/yun814/now_the_question  
+% cd now_the_question  
+% bundle install  
 % yarn install
 
 # 工夫したポイント
