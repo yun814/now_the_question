@@ -1,24 +1,6 @@
-# README
+# アプリケーション名
+Now The Question
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# アプリケーション概要
+ユーザー同士でクイズを出し合い、楽しむことができる。
+正解率やいいね獲得数のランキングで競い合うことができる。
