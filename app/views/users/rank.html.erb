@@ -5,9 +5,11 @@
     〜<%= @type %>ランキング〜
   </div>
   <% if user_signed_in? %>
-    <% if params[:type_id] == "1" || params[:type_id] == "2" %>
+    <% if params[:type_id] == "1" && @my_record.first_number_of_questions >= 10 %>
       <div class="my-rank-info">現在あなたは、<%= @all_records.count %>人中 <span class="my-rank-num"><%= @all_records.index(@my_record) + 1 %>位</span>です。 </div>
-    <% else %>
+    <% elsif params[:type_id] == "2" && @my_record.all_number_of_questions >= 10 %>
+      <div class="my-rank-info">現在あなたは、<%= @all_records.count %>人中 <span class="my-rank-num"><%= @all_records.index(@my_record) + 1 %>位</span>です。 </div>
+    <% elsif params[:type_id] == "3" %>
       <div class="my-rank-info">現在あなたは、<%= @num_of_users %>人中 <span class="my-rank-num"><%= @all_users.index(@my_user) + 1 %>位</span>です。 </div>
     <% end %>
   <% end %>

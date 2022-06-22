@@ -1,8 +1,8 @@
 class DrillsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
   before_action :set_drill, only: [:show, :edit, :update, :destroy, :publish]
-  before_action :set_side_results, only: [:index, :show, :search, :genre]
-  before_action :set_genres, only: [:index, :show, :search, :genre]
+  before_action :set_side_results, only: [:index, :show, :search, :genre, :rank]
+  before_action :set_genres, only: [:index, :show, :search, :genre, :rank]
   before_action :move_to_index, only: [:edit, :destroy]
 
   def index
@@ -74,6 +74,20 @@ class DrillsController < ApplicationController
   def genre
     @genre = Genre.find(params[:id])
     @drills = Drill.where(status: 1, genre_id: @genre.id).order(updated_at: 'DESC').includes(:user, :quizzes)
+  end
+
+  def rank
+    if params[:type_id] == "1"
+      @type = "解答回数"
+      @drills = Drill.where(status: 1).left_joins(:results).group('id').order('count(results.id) desc').limit(100)
+    elsif params[:type_id] == "2"
+      @type = "いいね獲得数"
+      @drills = Drill.where(status: 1).left_joins(:favorites).group('id').order('count(favorites.id) desc').limit(100)
+    end
+
+    if user_signed_in?
+      @my_drills = current_user.drills
+    end
   end
   
   private

@@ -36,8 +36,8 @@ class UsersController < ApplicationController
     end
     
     if user_signed_in?
-      @my_record = Record.find_by(user_id: current_user.id)
-      @my_user = User.find(current_user.id)
+      @my_record = current_user.record
+      @my_user = current_user
     end
   end
   
