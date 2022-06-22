@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     member do
       post 'publish'
       get 'genre'
+      get 'drill_rank'
     end
 
     collection do

@@ -24,7 +24,7 @@
         <div class="drill-right_2">
           <div><%= "#{drill.quizzes.count}問のクイズ" %></div>
           <div><%= drill.favorites.count %>いいね</div>
-          <div><%= link_to "ランキングへ", '#', class: "mini-btn" %></div>
+          <div><%= link_to "ランキングへ", drill_rank_drill_path(drill), class: "mini-btn" %></div>
         </div>
       </div>
     </div>

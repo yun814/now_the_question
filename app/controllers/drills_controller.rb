@@ -1,8 +1,8 @@
 class DrillsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
   before_action :set_drill, only: [:show, :edit, :update, :destroy, :publish]
-  before_action :set_side_results, only: [:index, :show, :search, :genre, :rank]
-  before_action :set_genres, only: [:index, :show, :search, :genre, :rank]
+  before_action :set_side_results, only: [:index, :show, :search, :genre, :rank, :drill_rank]
+  before_action :set_genres, only: [:index, :show, :search, :genre, :rank, :drill_rank]
   before_action :move_to_index, only: [:edit, :destroy]
 
   def index
@@ -87,6 +87,17 @@ class DrillsController < ApplicationController
 
     if user_signed_in?
       @my_drills = current_user.drills
+    end
+  end
+
+  def drill_rank
+    @drill = Drill.find(params[:id])
+    @first_results = @drill.results.where(times: 1).order(correct_answer_rate: 'DESC')
+    @all_results = @drill.results.order(correct_answer_rate: 'DESC')
+
+    if user_signed_in?
+      @my_first_result = @drill.results.find_by(user_id: current_user.id, times: 1)
+      @my_all_results = @drill.results.where(user_id: current_user.id)
     end
   end
   
