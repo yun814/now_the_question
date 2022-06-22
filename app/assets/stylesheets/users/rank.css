@@ -15,6 +15,16 @@
   color: lightseagreen;
 }
 
+.rank-subtitle{
+  font-size: 20px;
+  font-weight: 600;
+  margin: 10px 0 -20px;
+}
+
+.all-ranking{
+  margin-top: 20px;
+}
+
 .my-rank-info{
   font-size: 20px;
   text-align: center;

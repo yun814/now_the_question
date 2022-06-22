@@ -1,0 +1,47 @@
+<%= render 'shared/side-bar' %>
+
+<div class="rank-main main-box">
+  <div class="rank-title">
+    〜<%= @drill.title %>ランキング〜
+  </div>
+
+  <div class="rank-subtitle">＜初見正解率＞</div>
+  <% if user_signed_in? && @my_first_result.present? %>
+    <div class="my-rank-info">現在あなたは、<%= @first_results.count %>人中 <span class="my-rank-num"><%= @first_results.index(@my_first_result) + 1 %>位</span>です。 </div>
+  <% end %>
+
+  <div class="ranking">
+    <table class="ranking-table">
+      <tr>
+        <th class="ranking-th">順位</th> <th class="ranking-th">ユーザー名</th> <th class="ranking-th">初見正解率</th>
+      </tr>
+      <% @first_results.each_with_index do |result, i| %>
+        <tr>
+          <% if result == @my_first_result %>
+            <th class="ranking-th my-rank"><%= i + 1 %>位</th> <td class="ranking-td my-rank"><%= link_to result.user.nickname, user_path(result.user) %></td> <td class="ranking-td my-rank"><%= result.correct_answer_rate.round(1) %>%</td>
+          <% else %>
+            <th class="ranking-th"><%= i + 1 %>位</th> <td class="ranking-td"><%= link_to result.user.nickname, user_path(result.user) %></td> <td class="ranking-td"><%= result.correct_answer_rate.round(1) %>%</td>
+          <% end %>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+
+  <div class="rank-subtitle all-ranking">＜全体正解率＞</div>
+  <div class="ranking">
+    <table class="ranking-table">
+      <tr>
+        <th class="ranking-th">順位</th> <th class="ranking-th">ユーザー名</th> <th class="ranking-th">回数</th> <th class="ranking-th">全体正解率</th>
+      </tr>
+      <% @all_results.each_with_index do |result, i| %>
+        <tr>
+          <% if user_signed_in? && @my_all_results.include?(result) %>
+            <th class="ranking-th my-rank"><%= i + 1 %>位</th> <td class="ranking-td my-rank"><%= link_to result.user.nickname, user_path(result.user) %></td> <td class="ranking-td my-rank"><%= result.times %>回目</td> <td class="ranking-td my-rank"><%= result.correct_answer_rate.round(1) %>%</td>
+          <% else %>
+            <th class="ranking-th"><%= i + 1 %>位</th> <td class="ranking-td"><%= link_to result.user.nickname, user_path(result.user) %></td> <td class="ranking-td"><%= result.times %>回目</td> <td class="ranking-td"><%= result.correct_answer_rate.round(1) %>%</td>
+          <% end %>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
