@@ -53,7 +53,7 @@ https://docs.google.com/spreadsheets/d/1FjFZSAV6R4gZJtOmv5wjZROX9nFLqSOOxDfVZASl
 ![ER図](public/images/now_the_question.png)
 
 # 画面遷移図
-
+![画面遷移図](public/images/screen_transition.png)
 
 # 開発環境
 - Ruby on Rails
