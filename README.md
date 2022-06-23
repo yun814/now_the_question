@@ -50,7 +50,7 @@ https://docs.google.com/spreadsheets/d/1FjFZSAV6R4gZJtOmv5wjZROX9nFLqSOOxDfVZASl
 今後はタイマー機能を実装予定。
 
 # データベース設計
-
+![ER図](public/images/now_the_question.png)
 
 # 画面遷移図
 
