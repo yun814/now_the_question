@@ -6,7 +6,7 @@ class DrillsController < ApplicationController
   before_action :move_to_index, only: [:edit, :destroy]
 
   def index
-    @drills = Drill.where(status: 1).order(updated_at: 'DESC').includes(:user, :quizzes)
+    @drills = Drill.where(status: 1).order(updated_at: 'DESC').includes(:user, :quizzes, :favorites)
   end
 
   def new
@@ -63,26 +63,26 @@ class DrillsController < ApplicationController
   end
 
   def search
-    @drills_searched_by_title = Drill.search_by_title(params[:keyword])
+    @drills_searched_by_title = Drill.search_by_title(params[:keyword]).includes(:user, :quizzes, :favorites)
     unless params[:keyword] == ""
-      @drills_searched_by_info = Drill.search_by_info(params[:keyword])
+      @drills_searched_by_info = Drill.search_by_info(params[:keyword]).includes(:user, :quizzes, :favorites)
       @users = User.search_by_user(params[:keyword])
-      @drills_searched_by_user = Drill.where(user_id: @users.ids).order(updated_at: 'DESC')
+      @drills_searched_by_user = Drill.where(user_id: @users.ids).order(updated_at: 'DESC').includes(:user, :quizzes, :favorites)
     end
   end
 
   def genre
     @genre = Genre.find(params[:id])
-    @drills = Drill.where(status: 1, genre_id: @genre.id).order(updated_at: 'DESC').includes(:user, :quizzes)
+    @drills = Drill.where(status: 1, genre_id: @genre.id).order(updated_at: 'DESC').includes(:user, :quizzes, :favorites)
   end
 
   def rank
     if params[:type_id] == "1"
       @type = "解答回数"
-      @drills = Drill.where(status: 1).left_joins(:results).group('id').order('count(results.id) desc').limit(100)
+      @drills = Drill.where(status: 1).left_joins(:results).group('id').order('count(results.id) desc').includes(:user, :quizzes, :favorites).limit(100)
     elsif params[:type_id] == "2"
       @type = "いいね獲得数"
-      @drills = Drill.where(status: 1).left_joins(:favorites).group('id').order('count(favorites.id) desc').limit(100)
+      @drills = Drill.where(status: 1).left_joins(:favorites).group('id').order('count(favorites.id) desc').includes(:user, :quizzes, :favorites).limit(100)
     end
 
     if user_signed_in?
@@ -91,7 +91,7 @@ class DrillsController < ApplicationController
   end
 
   def drill_rank
-    @drill = Drill.find(params[:id])
+    @drill = Drill.find(params[:id]).includes(:user, :quizzes, :favorites)
     @first_results = @drill.results.where(times: 1).order(correct_answer_rate: 'DESC')
     @all_results = @drill.results.order(correct_answer_rate: 'DESC')
 
