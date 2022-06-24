@@ -45,8 +45,7 @@ https://docs.google.com/spreadsheets/d/1FjFZSAV6R4gZJtOmv5wjZROX9nFLqSOOxDfVZASl
 
 # 実装した機能についての画像やGIFおよびその説明
 ## クイズ集を新規作成する・クイズを追加する
-<img src="https://i.gyazo.com/f321ba4b9763a356de547e507840610e.gif" width="300">
-<img src="https://i.gyazo.com/c6f09008d76cf0acbb7044b4390a5f4b.gif" width="300">
+<img src="https://i.gyazo.com/f321ba4b9763a356de547e507840610e.gif" width="300"><img src="https://i.gyazo.com/c6f09008d76cf0acbb7044b4390a5f4b.gif" width="300">
 <img src="https://i.gyazo.com/5d11a3e81a82366e1e3449376cc33d04.gif" width="300">
 <img src="https://i.gyazo.com/f9942891487edcc41dcff4954ec2b559.gif" width="300">
 
