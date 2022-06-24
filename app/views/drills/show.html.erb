@@ -7,7 +7,7 @@
     </div>
 
     <div class="show-drill-sub_1">
-      <div class="show-drill-genre">ジャンル：<%= link_to @drill.genre.name, '#', class: "mini-btn" %></div>
+      <div class="show-drill-genre">ジャンル：<%= link_to @drill.genre.name, genre_drill_path(@drill.genre), class: "mini-btn" %></div>
       <div class="show-drill-user"><%= link_to "#{@drill.user.nickname}さん", user_path(@drill.user), class: "show-drill-user_name" %>が投稿</div>
     </div>
 
@@ -24,7 +24,7 @@
           <% end %>
         </div>
       <% end %>
-      <div><%= link_to "ランキングへ", '#', class: "mini-btn" %></div>
+      <div><%= link_to "ランキングへ", drill_rank_drill_path(@drill), class: "mini-btn" %></div>
     </div>
 
     <div class="show-drill-ans_times">
