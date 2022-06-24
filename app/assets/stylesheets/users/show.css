@@ -47,6 +47,16 @@
   height: 50px;
 }
 
+.user-show-favorites-num{
+  margin-top: 5px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.favorites-num{
+  color: red;
+}
+
 .latest-drills{
   margin-top: 20px;
 }

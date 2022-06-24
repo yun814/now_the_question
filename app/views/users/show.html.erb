@@ -20,6 +20,8 @@
         </tr>
       </table>
     </div>
+    <div class="user-show-favorites-num"><%= @user.nickname %>さんのクイズ集は、合計で<span class="favorites-num"><%= @favorites_num %>いいね</span>獲得しています</div>
+
     <div class="latest-drills">
       <div class="latest-drills-info">＜<%= @user.nickname %>さんが最近挑戦したクイズ集＞</div>
       <% if @results.present? %>

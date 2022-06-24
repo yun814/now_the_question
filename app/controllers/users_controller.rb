@@ -5,10 +5,16 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @results = @user.results.order(created_at: 'DESC').limit(5)
+    drills = @user.drills
+
+    @favorites_num = 0
+    drills.each do |drill|
+      @favorites_num += drill.favorites.count
+    end
     
-    @public_drills = @user.drills.order(updated_at: 'DESC').where(status: 1)
+    @public_drills = drills.order(updated_at: 'DESC').where(status: 1)
     if user_signed_in? && @user.id == current_user.id
-      @all_drills = @user.drills.order(updated_at: 'DESC')
+      @all_drills = drills.order(updated_at: 'DESC')
     end
   end
   
