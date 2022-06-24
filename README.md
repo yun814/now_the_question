@@ -45,19 +45,29 @@ https://docs.google.com/spreadsheets/d/1FjFZSAV6R4gZJtOmv5wjZROX9nFLqSOOxDfVZASl
 
 # 実装した機能についての画像やGIFおよびその説明
 ## クイズ集を新規作成する・クイズを追加する
-<img src="https://i.gyazo.com/f321ba4b9763a356de547e507840610e.gif" width="400">　<img src="https://i.gyazo.com/c6f09008d76cf0acbb7044b4390a5f4b.gif" width="400">　<img src="https://i.gyazo.com/5d11a3e81a82366e1e3449376cc33d04.gif" width="400">　<img src="https://i.gyazo.com/f9942891487edcc41dcff4954ec2b559.gif" width="400">
+<img src="https://i.gyazo.com/f321ba4b9763a356de547e507840610e.gif" width="50%">
+<img src="https://i.gyazo.com/c6f09008d76cf0acbb7044b4390a5f4b.gif" width="50%">
+<img src="https://i.gyazo.com/5d11a3e81a82366e1e3449376cc33d04.gif" width="50%">
+<img src="https://i.gyazo.com/f9942891487edcc41dcff4954ec2b559.gif" width="50%">
 
 ## クイズを解答する・結果の表示
-<img src="https://i.gyazo.com/b145e44ad8820a6adafa35b6d4b8f00e.gif" width="400">　<img src="https://i.gyazo.com/91337078708c412b0ee773f4dae7bdd6.gif" width="400">　<img src="https://i.gyazo.com/2e257c43eb6c6ed6b95f3ed1fb22f7dc.gif" width="400">
+<img src="https://i.gyazo.com/b145e44ad8820a6adafa35b6d4b8f00e.gif" width="50%">
+<img src="https://i.gyazo.com/91337078708c412b0ee773f4dae7bdd6.gif" width="50%">
+<img src="https://i.gyazo.com/2e257c43eb6c6ed6b95f3ed1fb22f7dc.gif" width="50%">
 
 ## いいね機能・コメント機能
-<img src="https://i.gyazo.com/87e7bd6ab6d4e82ddf23163a8fbb4ad6.gif" width="400">　<img src="https://i.gyazo.com/635417403d9e24e729e2aaffe3e1e5a0.gif" width="400">　<img src="https://i.gyazo.com/97045420524d5e1779b925a680442c55.gif" width="400">
+<img src="https://i.gyazo.com/87e7bd6ab6d4e82ddf23163a8fbb4ad6.gif" width="50%">
+<img src="https://i.gyazo.com/635417403d9e24e729e2aaffe3e1e5a0.gif" width="50%">
+<img src="https://i.gyazo.com/97045420524d5e1779b925a680442c55.gif" width="50%">
 
 ## ジャンル別に表示する・検索する
-<img src="https://i.gyazo.com/cc624f872498d146f1c3f47b76be333e.gif" width="400">　<img src="https://i.gyazo.com/8556cdfe5c303788011c7785833ed439.gif" width="400">
+<img src="https://i.gyazo.com/cc624f872498d146f1c3f47b76be333e.gif" width="50%">
+<img src="https://i.gyazo.com/8556cdfe5c303788011c7785833ed439.gif" width="50%">
 
 ## ランキングを見る
-<img src="https://i.gyazo.com/ea3070faf158458f24127407e28d520e.gif" width="400">　<img src="https://i.gyazo.com/021677fedff275b58225341c9c527253.gif" width="400">　<img src="https://i.gyazo.com/a565f5296ff5b1f8db4542cf922fdeb4.gif" width="400">
+<img src="https://i.gyazo.com/ea3070faf158458f24127407e28d520e.gif" width="50%">
+<img src="https://i.gyazo.com/021677fedff275b58225341c9c527253.gif" width="50%">
+<img src="https://i.gyazo.com/a565f5296ff5b1f8db4542cf922fdeb4.gif" width="50%">
 
 
 # 実装予定機能
