@@ -44,7 +44,9 @@ https://now-the-question.herokuapp.com/
 https://docs.google.com/spreadsheets/d/1FjFZSAV6R4gZJtOmv5wjZROX9nFLqSOOxDfVZASlBpI/edit?usp=sharing
 
 # 実装した機能についての画像やGIFおよびその説明
-
+## クイズ集新規作成・クイズ追加
+[![Image from Gyazo](https://i.gyazo.com/f321ba4b9763a356de547e507840610e.gif)](https://gyazo.com/f321ba4b9763a356de547e507840610e)
+[![Image from Gyazo](https://i.gyazo.com/c6f09008d76cf0acbb7044b4390a5f4b.gif)](https://gyazo.com/c6f09008d76cf0acbb7044b4390a5f4b)
 
 # 実装予定機能
 現在、マイリスト機能を実装中。  
