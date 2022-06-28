@@ -1,0 +1,2 @@
+class MylistDrill < ApplicationRecord
+end
