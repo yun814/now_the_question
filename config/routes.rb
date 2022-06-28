@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :results, only: [:index, :create]
     resource :favorites, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
+    resources :mylists, only: [:create, :update, :show, :destroy]
     
     member do
       post 'publish'
