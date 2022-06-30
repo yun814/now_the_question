@@ -111,11 +111,39 @@
     </div>
 
   <% else %>
+    <% if user_signed_in? %>
+      <div class="mylist-box">
+        <div class="mylist-box-title">マイリスト</div>
+        <div class="mylist-create">
+          <div class="mylist-box-subtitle">＜新規作成して追加する＞</div>
+          <div class="mylist-form">
+            <%= form_with model: [@drill, @mylist], local: true do |f| %>
+              <%= f.text_field :title, placeholder: "タイトル", class: "mylist-create-title" %>
+              <%= f.submit "新規作成", class: "mylist-create-btn btn" %>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="mylist-add">
+          <div class="mylist-box-subtitle">＜既存のマイリストに追加する＞</div>
+          <div class="mylist-form">
+            <%= form_with model: [@drill, @mylist], local: true do |f| %>
+              <select class="mylist-select">
+                <option value="">マイリストを選択</option>
+                <option></option>
+              </select>
+              <%= f.submit "追加", class: "mylist-add-btn btn" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
     <div class="comments">
       <div class="comments-title">コメント</div>
       <div class="comment-alert hidden">※コメントにはネタバレが含まれている可能性があります。<br>初見の場合は表示しないことを推奨します。</div>
       <div class="comment-display-btn hidden" id="comment-display-btn">表示</div>
-      <div class="comment-hidden" id ="comment-hidden">
+      <div class="comment-hidden" id="comment-hidden">
         <%= render 'shared/comments' %>
       </div>
     </div>

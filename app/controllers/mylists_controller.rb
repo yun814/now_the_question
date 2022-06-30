@@ -1,5 +1,6 @@
 class MylistsController < ApplicationController
-  def method_name
+  def create
+    @mylist = Mylist.new(mylist_params)
     
   end
 end
