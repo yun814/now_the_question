@@ -114,11 +114,12 @@
     <% if user_signed_in? %>
       <div class="mylist-box">
         <div class="mylist-box-title">マイリスト</div>
+        <div class="mylist-notice" id="mylist-notice"></div>
         <div class="mylist-create">
           <div class="mylist-box-subtitle">＜新規作成して追加する＞</div>
           <div class="mylist-form">
-            <%= form_with model: [@drill, @mylist], local: true do |f| %>
-              <%= f.text_field :title, placeholder: "タイトル", class: "mylist-create-title" %>
+            <%= form_with model: [@drill, @mylist], local: false do |f| %>
+              <%= f.text_field :title, placeholder: "タイトル", class: "mylist-create-title", id: "mylist-create-title" %>
               <%= f.submit "新規作成", class: "mylist-create-btn btn" %>
             <% end %>
           </div>

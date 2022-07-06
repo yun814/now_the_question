@@ -108,8 +108,8 @@
   border: 1px solid rgba(180, 180, 180, 0.5);
   border-radius: 10px;
   background-color: white;
-
 }
+
 .mylist-box-title{
   width: 90%;
   font-size: 30px;
@@ -119,6 +119,12 @@
   padding-bottom: 5px;
   border-bottom: 1px solid rgb(180, 180, 180);
 }
+
+.mylist-notice{
+  text-align: center;
+  font-size: 20px;
+}
+
 .mylist-box-subtitle{
   text-align: center;
   font-size: 20px;

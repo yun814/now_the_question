@@ -3,7 +3,6 @@ class MylistsController < ApplicationController
     @mylist = Mylist.new(mylist_params)
     if @mylist.save
       MylistDrill.create(mylist_id: @mylist.id, drill_id: params[:drill_id])
-      redirect_to drill_path(params[:drill_id])
     end
   end
 
