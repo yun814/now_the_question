@@ -8,6 +8,8 @@ class ResultsController < ApplicationController
     @favorite = Favorite.find_by(user_id: current_user.id, drill_id: @drill.id)
     @comment = Comment.new
     @comments = @drill.comments.order(created_at: "DESC").includes(:user)
+    @mylist = Mylist.new
+    @mylists = Mylist.where(user_id: current_user.id)
   end
 
   def create
