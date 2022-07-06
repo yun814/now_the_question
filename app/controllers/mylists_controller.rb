@@ -4,7 +4,20 @@ class MylistsController < ApplicationController
     if @mylist.save
       MylistDrill.create(mylist_id: @mylist.id, drill_id: params[:drill_id])
     else
-      render 'error'
+      render 'create_error'
+    end
+  end
+
+  def add
+    @added = MylistDrill.find_by(mylist_id: params[:mylist_id], drill_id: params[:drill_id])
+    if @added.present?
+      render 'added'
+    else
+      if params[:mylist_id] == ""
+        render 'add_error'
+      else
+        @mylist_drill = MylistDrill.create(mylist_id: params[:mylist_id], drill_id: params[:drill_id])
+      end
     end
   end
 

@@ -29,6 +29,7 @@ class DrillsController < ApplicationController
     if user_signed_in?
       @comment = Comment.new
       @mylist = Mylist.new
+      @mylists = Mylist.where(user_id: current_user.id)
       @results = @drill.results.order(created_at: 'DESC').where(user_id: current_user.id)
       @favorite = Favorite.find_by(user_id: current_user.id, drill_id: @drill.id)
     end

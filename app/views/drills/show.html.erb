@@ -128,10 +128,12 @@
         <div class="mylist-add">
           <div class="mylist-box-subtitle">＜既存のマイリストに追加する＞</div>
           <div class="mylist-form">
-            <%= form_with model: [@drill, @mylist], local: true do |f| %>
-              <select class="mylist-select">
+            <%= form_with model: [@drill, @mylist], url: add_drill_mylists_path(@drill), local: false do |f| %>
+              <select class="mylist-select" id="mylist-select" name="mylist_id">
                 <option value="">マイリストを選択</option>
-                <option></option>
+                <% @mylists.each do |mylist| %>
+                  <option value=<%= mylist.id %>><%= mylist.title %></option>
+                <% end %>
               </select>
               <%= f.submit "追加", class: "mylist-add-btn btn" %>
             <% end %>
