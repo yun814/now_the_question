@@ -2,5 +2,42 @@
 
 <div class="mylist-show main-box">
   <div class="mylist-show-title">〜<%= @mylist.title %>〜</div>
-  <%= render partial: 'shared/drill', collection: @mylist.drills %>
+
+  <% @mylist.drills.each do |drill| %>
+    <div class="drill" id="mylist-drill_<%= drill.id %>">
+      <div class="drill-top">
+        <div class="drill-left">
+          <div class="drill-left_1"><%= link_to drill.title, drill_path(drill) %></div>
+          <div class="drill-left_2">
+            <div class="drill-genre">ジャンル：<%= link_to drill.genre.name, genre_drill_path(drill.genre), class: "mini-btn" %></div>
+            <% if user_signed_in? && drill.user_id == current_user.id %>
+              <div>あなたが作成したクイズ集です</div>
+            <% elsif user_signed_in? && drill.results.where(user_id: current_user.id).count == 0 %>
+              <div>あなたはまだ挑戦していません</div>
+            <% elsif user_signed_in? %>
+              <div>あなたは<%= drill.results.where(user_id: current_user.id).count %>回挑戦しました</div>
+            <% else %>
+              <div>ログインしましょう</div>
+            <% end %>
+          </div>
+        </div>
+        
+        <div class="drill-right">
+          <div class="drill-right_1">
+            <div><%= link_to "#{drill.user.nickname}さん", user_path(drill.user), class: "drill-user" %>が投稿</div>
+          </div>
+          <div class="drill-right_2">
+            <div><%= "#{drill.quizzes.count}問のクイズ" %></div>
+            <div><%= drill.favorites.count %>いいね</div>
+            <div><%= link_to "ランキングへ", drill_rank_drill_path(drill), class: "mini-btn" %></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="drill-bottom">
+        <%= "詳細：#{drill.information}" %>
+      </div>
+    </div>
+    <div class="remove-btn-box" id="remove-btn_<%= drill.id %>"><%= link_to 'マイリストから外す', remove_mylists_path(mylist_id: @mylist.id, drill_id: drill.id), method: :delete, remote: true, data: {confirm: "マイリストから#{drill.title}を外しますか？"}, class: "remove-btn btn" %></div>
+  <% end %>
 </div>

@@ -35,6 +35,11 @@ class MylistsController < ApplicationController
     @mylist.destroy
   end
 
+  def remove
+    @mylist_drill = MylistDrill.find_by(mylist_id: params[:mylist_id], drill_id: params[:drill_id])
+    @mylist_drill.destroy
+  end
+
   private
   def mylist_params
     params.require(:mylist)

@@ -27,10 +27,11 @@ Rails.application.routes.draw do
       get 'rank'
     end
   end
-  
+
   resources :mylists, only: [:create, :show, :destroy] do
     collection do
       post 'add'
+      delete 'remove'
     end
   end
 end
