@@ -32,7 +32,9 @@
                 <div class="user-show-mylist-title"><%= link_to mylist.title, mylist_path(mylist) %></div>
                 <div class="user-show-mylist-drills"><%= mylist.drills.count %>個のクイズ集を登録しています。</div>
               </div>
-              <div class="user-show-mylist-box-right"><%= link_to "削除", mylist_path(mylist), method: :delete, remote: true, data: {confirm: "マイリストを削除しますか？"}, class: "mylist-delete-btn btn" %></div>
+              <% if user_signed_in? && @user.id == current_user.id %>
+                <div class="user-show-mylist-box-right"><%= link_to "削除", mylist_path(mylist), method: :delete, remote: true, data: {confirm: "マイリストを削除しますか？"}, class: "mylist-delete-btn btn" %></div>
+              <% end %>
             </div>
           <% end %>
         <% else %>
