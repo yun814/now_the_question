@@ -63,6 +63,11 @@ https://docs.google.com/spreadsheets/d/1FjFZSAV6R4gZJtOmv5wjZROX9nFLqSOOxDfVZASl
 <img src="https://i.gyazo.com/ea3070faf158458f24127407e28d520e.gif" width="45%"> <img src="https://i.gyazo.com/021677fedff275b58225341c9c527253.gif" width="45%">
 <img src="https://i.gyazo.com/a565f5296ff5b1f8db4542cf922fdeb4.gif" width="45%">
 
+## マイリスト機能
+<img src="https://i.gyazo.com/7255ffe14d1b6c29327ec1072ce1927c.gif" width="45%"> <img src="https://i.gyazo.com/7b51921e979631f8e4570a7d889cf620.gif" width="45%">
+<img src="https://i.gyazo.com/66dc77be48b58f4ee3defa49a7e34fd3.gif" width="45%"> <img src="https://i.gyazo.com/b22356b7800ba7cc4366ea28aa655a3b.gif" width="45%">
+<img src="https://i.gyazo.com/b029e26f261ec4294a2ee46de9965a25.gif" width="45%">
+
 
 # 実装予定機能
 現在、マイリスト機能を実装中。  
