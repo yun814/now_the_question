@@ -30,6 +30,11 @@ class MylistsController < ApplicationController
     @mylist = Mylist.find(params[:id])
   end
 
+  def destroy
+    @mylist = Mylist.find(params[:id])
+    @mylist.destroy
+  end
+
   private
   def mylist_params
     params.require(:mylist)
