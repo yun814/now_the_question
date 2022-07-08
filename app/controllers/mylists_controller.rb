@@ -21,6 +21,15 @@ class MylistsController < ApplicationController
     end
   end
 
+  def show
+    @genres = Genre.all
+    if user_signed_in?
+      @side_results = current_user.results.order(created_at: 'DESC').limit(5)
+    end
+
+    @mylist = Mylist.find(params[:id])
+  end
+
   private
   def mylist_params
     params.require(:mylist)

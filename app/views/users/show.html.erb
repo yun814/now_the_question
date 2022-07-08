@@ -28,7 +28,7 @@
         <% @mylists.each do |mylist| %>
           <div class="user-show-mylist-box">
             <div class="user-show-mylist-box-left">
-              <div class="user-show-mylist-title"><%= link_to mylist.title, "#" %></div>
+              <div class="user-show-mylist-title"><%= link_to mylist.title, mylist_path(mylist) %></div>
               <div class="user-show-mylist-drills"><%= mylist.drills.count %>個のクイズ集を登録しています。</div>
             </div>
             <div class="user-show-mylist-box-right"><%= link_to "削除", "#", class: "mylist-delete-btn btn" %></div>

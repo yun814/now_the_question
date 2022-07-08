@@ -1,0 +1,13 @@
+.mylist-show{
+  width: 71%;
+  padding: 20px;
+  background-color: rgba(250, 235, 215, 0.5);
+}
+
+.mylist-show-title{
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 5px;
+  text-align: center;
+  color: lightseagreen;
+}

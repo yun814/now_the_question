@@ -1,0 +1,6 @@
+<%= render 'shared/side-bar' %>
+
+<div class="mylist-show main-box">
+  <div class="mylist-show-title">〜<%= @mylist.title %>〜</div>
+  <%= render partial: 'shared/drill', collection: @mylist.drills %>
+</div>

@@ -5,8 +5,9 @@
     <div class="mylist-create">
       <div class="mylist-box-subtitle">＜新規作成して追加する＞</div>
       <div class="mylist-form">
-        <%= form_with model: [@drill, @mylist], local: false do |f| %>
+        <%= form_with model: @mylist, local: false do |f| %>
           <%= f.text_field :title, placeholder: "タイトル", class: "mylist-create-title", id: "mylist-create-title" %>
+          <input name="drill_id", type="hidden", value=<%= @drill.id %>>
           <%= f.submit "新規作成", class: "mylist-create-btn btn" %>
         <% end %>
       </div>
@@ -15,13 +16,14 @@
     <div class="mylist-add">
       <div class="mylist-box-subtitle">＜既存のマイリストに追加する＞</div>
       <div class="mylist-form">
-        <%= form_with model: [@drill, @mylist], url: add_drill_mylists_path(@drill), local: false do |f| %>
+        <%= form_with model: @mylist, url: add_mylists_path(@drill), local: false do |f| %>
           <select class="mylist-select" id="mylist-select" name="mylist_id">
             <option value="">マイリストを選択</option>
             <% @mylists.each do |mylist| %>
               <option value=<%= mylist.id %>><%= mylist.title %></option>
             <% end %>
           </select>
+          <input name="drill_id", type="hidden", value=<%= @drill.id %>>
           <%= f.submit "追加", class: "mylist-add-btn btn" %>
         <% end %>
       </div>
