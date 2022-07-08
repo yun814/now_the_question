@@ -1,6 +1,6 @@
 class MylistsController < ApplicationController
-  before_action :set_mylist, only: [:show, :destroy, :remove]
-  before_action :move_to_index, only: [:destroy, :remove]
+  before_action :set_mylist, only: [:show, :destroy]
+  before_action :move_to_index, only: :destroy
 
   def create
     @mylist = Mylist.new(mylist_params)
@@ -36,6 +36,8 @@ class MylistsController < ApplicationController
   end
   
   def remove
+    @mylist = Mylist.find(params[:mylist_id])
+    move_to_index
     @mylist_drill = MylistDrill.find_by(mylist_id: params[:mylist_id], drill_id: params[:drill_id])
     @mylist_drill.destroy
   end
