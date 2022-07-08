@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @mylists = @user.mylists.includes(:drills)
     @results = @user.results.order(created_at: 'DESC').limit(5)
     drills = @user.drills
 

@@ -22,6 +22,25 @@
     </div>
     <div class="user-show-favorites-num"><%= @user.nickname %>さんのクイズ集は、合計で<span class="favorites-num"><%= @favorites_num %>いいね</span>獲得しています</div>
 
+    <div class="user-show-mylists">
+      <div class="user-show-mylists-title">＜マイリスト＞</div>
+      <div class="user-show-mylitsts">
+        <% if @mylists.present? %>
+          <% @mylists.each do |mylist| %>
+            <div class="user-show-mylist-box" id="mylist-box_<%= mylist.id %>">
+              <div class="user-show-mylist-box-left">
+                <div class="user-show-mylist-title"><%= link_to mylist.title, mylist_path(mylist) %></div>
+                <div class="user-show-mylist-drills"><%= mylist.drills.count %>個のクイズ集を登録しています。</div>
+              </div>
+              <div class="user-show-mylist-box-right"><%= link_to "削除", mylist_path(mylist), method: :delete, remote: true, data: {confirm: "マイリストを削除しますか？"}, class: "mylist-delete-btn btn" %></div>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="user-show-no-mylist">マイリストは作成されていません</div>
+        <% end %>
+      </div>
+    </div>
+
     <div class="latest-drills">
       <div class="latest-drills-info">＜<%= @user.nickname %>さんが最近挑戦したクイズ集＞</div>
       <% if @results.present? %>
@@ -106,7 +125,7 @@
     <% else %>
       <% if @public_drills.present? %>
         <div class="user-show-drills-num"><%= @user.nickname %>さんが公開しているクイズ集は<%= @public_drills.count %>個あります。</div>
-        <%= render partial: 'drills/drill', collection: @public_drills %>
+        <%= render partial: 'shared/drill', collection: @public_drills %>
 
       <% else %>
         <div class="user-show-drills-num"><%= @user.nickname %>さんが公開しているクイズ集はまだありません。</div>

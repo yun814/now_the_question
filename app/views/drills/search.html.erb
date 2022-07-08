@@ -22,7 +22,7 @@
         <div class="search-num">検索結果は<%= @drills_searched_by_title.count %>件です。</div>
 
         <div class="search-result">
-          <%= render partial: 'drill', collection: @drills_searched_by_title %>
+          <%= render partial: 'shared/drill', collection: @drills_searched_by_title %>
         </div>
       </div>
 
@@ -34,7 +34,7 @@
         <div class="search-num">検索結果は<%= @drills_searched_by_info.count %>件です。</div>
 
         <div class="search-result">
-          <%= render partial: 'drill', collection: @drills_searched_by_info %>
+          <%= render partial: 'shared/drill', collection: @drills_searched_by_info %>
         </div>
       </div>
 
@@ -46,13 +46,13 @@
         <div class="search-num">検索結果は<%= @drills_searched_by_user.count %>件です。</div>
 
         <div class="search-result">
-          <%= render partial: 'drill', collection: @drills_searched_by_user %>
+          <%= render partial: 'shared/drill', collection: @drills_searched_by_user %>
         </div>
       </div>
     <% else %>
 
       <div class="search-num">キーワードが空欄です</div>
-      <%= render partial: 'drill', collection: @drills_searched_by_title %>
+      <%= render partial: 'shared/drill', collection: @drills_searched_by_title %>
     <% end %>
   </div>
 </div>

@@ -15,16 +15,23 @@ Rails.application.routes.draw do
       get 'genre'
       get 'drill_rank'
     end
-
+    
     collection do
       get 'search'
       get 'rank'
     end
   end
-
+  
   resources :users, only: :show do
     collection do
       get 'rank'
+    end
+  end
+
+  resources :mylists, only: [:create, :show, :destroy] do
+    collection do
+      post 'add'
+      delete 'remove'
     end
   end
 end

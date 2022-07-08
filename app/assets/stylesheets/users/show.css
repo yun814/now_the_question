@@ -57,6 +57,54 @@
   color: red;
 }
 
+/************************************
+ マイリスト 
+************************************/
+.user-show-mylists{
+  margin-top: 20px;
+}
+
+.user-show-mylists-title{
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.user-show-mylist-box{
+  padding: 5px 10px;
+  margin-top: 10px;
+  border: 1px solid rgba(180, 180, 180, 0.5);
+  border-radius: 10px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-show-mylist-box-left{
+  display: flex;
+  align-items: flex-end;
+}
+
+.user-show-mylist-title{
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.user-show-mylist-drills{
+  margin-left: 20px;
+}
+
+.mylist-delete-btn{
+  padding: 3px;
+}
+
+.user-show-no-mylist{
+  font-size: 20px;
+}
+
+/************************************
+ 最近挑戦したクイズ集 
+************************************/
 .latest-drills{
   margin-top: 20px;
 }

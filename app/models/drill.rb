@@ -7,6 +7,8 @@ class Drill < ApplicationRecord
   has_many :results, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :mylist_drills, dependent: :destroy
+  has_many :mylists, through: :mylist_drills
   belongs_to :user
 
   extend ActiveHash::Associations::ActiveRecordExtensions
