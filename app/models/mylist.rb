@@ -3,4 +3,5 @@ class Mylist < ApplicationRecord
 
   has_many :mylist_drills
   has_many :drills, through: :mylist_drills
+  belongs_to :user
 end

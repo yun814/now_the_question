@@ -22,10 +22,18 @@
     </div>
     <div class="user-show-favorites-num"><%= @user.nickname %>さんのクイズ集は、合計で<span class="favorites-num"><%= @favorites_num %>いいね</span>獲得しています</div>
 
-    <div class="user-show-my-lists">
-      <div class="my-lists-title">＜マイリスト＞</div>
-      <div class="my-litsts">
-        <%# マイリスト表示 %>
+    <div class="user-show-mylists">
+      <div class="user-show-mylists-title">＜マイリスト＞</div>
+      <div class="user-show-mylitsts">
+        <% @mylists.each do |mylist| %>
+          <div class="user-show-mylist-box">
+            <div class="user-show-mylist-box-left">
+              <div class="user-show-mylist-title"><%= link_to mylist.title, "#" %></div>
+              <div class="user-show-mylist-drills"><%= mylist.drills.count %>個のクイズ集を登録しています。</div>
+            </div>
+            <div class="user-show-mylist-box-right"><%= link_to "削除", "#", class: "mylist-delete-btn btn" %></div>
+          </div>
+        <% end %>
       </div>
     </div>
 

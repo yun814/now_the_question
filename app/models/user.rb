@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :results
   has_many :favorites
   has_many :comments
+  has_many :mylists
   has_one :record
 
   def self.search_by_user(search)
