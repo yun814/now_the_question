@@ -93,7 +93,7 @@ class DrillsController < ApplicationController
   end
 
   def drill_rank
-    @drill = Drill.find(params[:id]).includes(:user, :quizzes, :favorites)
+    @drill = Drill.find(params[:id])
     @first_results = @drill.results.where(times: 1).order(correct_answer_rate: 'DESC')
     @all_results = @drill.results.order(correct_answer_rate: 'DESC')
 
