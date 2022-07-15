@@ -1,6 +1,7 @@
 <div class="quiz-answer main-box">
   <div class="quiz-answer-title">
     <%= @drill.title %>に<span id="times"><%= @times + 1 %></span>回目の挑戦！
+    <div class="timer">残り<span id="timer">10</span>秒</div>
   </div>
 
   <%= render partial: 'shared/quiz', collection: @quizzes %>
