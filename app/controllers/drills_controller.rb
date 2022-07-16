@@ -64,6 +64,13 @@ class DrillsController < ApplicationController
     end
   end
 
+  def timer
+    @drill = Drill.find(params[:id])
+    @drill.timer = params[:timer]
+    @drill.save
+    render :show
+  end
+
   def search
     @drills_searched_by_title = Drill.search_by_title(params[:keyword]).includes(:user, :quizzes, :favorites)
     unless params[:keyword] == ""

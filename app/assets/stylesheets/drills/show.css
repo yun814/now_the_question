@@ -83,8 +83,21 @@
 .drill-editor{
   width: 100%;
   padding: 0 10% 0;
+}
+
+.drill-editor-top,
+.drill-editor-bottom{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
+}
+.drill-editor-bottom{
+  margin-top: 20px;
+}
+
+.form-timer-btn{
+  font-size: 15px;
+  padding: 4px 10px;
 }
 
 .to_edit,

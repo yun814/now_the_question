@@ -20,18 +20,22 @@
 /************************************
  ドリル投稿フォーム 
 ************************************/
-.form-title-box{
-  font-size: 25px;
+.form-title-box,
+.form-genre-box{
+  font-size: 20px;
   margin-top: 20px;
   display: flex;
   justify-content: center;
 }
 
-.form-genre-box{
+.form-timer-box{
   font-size: 20px;
-  margin-top: 15px;
-  display: flex;
+  margin-top: 20px;
   justify-content: center;
+}
+
+.form-timer-notice{
+  font-size: 15px;
 }
 
 .form-info-box{
