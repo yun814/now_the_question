@@ -1,4 +1,6 @@
-<div class="timer">残り<span id="timer">110</span>秒</div>
+<% unless @drill.timer == 0 %>
+  <div class="timer">残り<span id="timer"><%= @drill.timer %></span>秒</div>
+<% end %>
 
 <div class="quiz-answer main-box">
   <div class="quiz-answer-title">
