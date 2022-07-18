@@ -27,7 +27,17 @@
       <div><%= link_to "ランキングへ", drill_rank_drill_path(@drill), class: "mini-btn" %></div>
     </div>
 
-    <div class="show-drill-ans_times">
+
+    <div class="show-drill-sub_3">
+    <div class="show-drill-timer">制限時間：
+      <span id="show-drill-timer">
+        <% if @drill.timer == 0 %>
+          無制限
+        <% else %>
+          <%= @drill.timer %>秒
+        <% end %>
+      </span>
+    </div>
       <% if user_signed_in? && @drill.user_id == current_user.id %>
         <div id="show-drill-status-box">
           <% if @drill.status == 0 %>
@@ -52,17 +62,17 @@
       <% if user_signed_in? && current_user.id == @drill.user_id %>
         <div class="drill-editor">
           <div class="drill-editor-top">
+            <div>
+              <%= form_with url: timer_drill_path(@drill), local: false do |f| %>
+                <%= f.number_field :timer, in: 0..999, class: "form-timer", id: "form-timer" %>秒
+                <%= f.submit "制限時間を設定", class: 'form-timer-btn btn' %>
+              <% end %>
+            </div>
             <div id="publish-btn">
               <% if @drill.status == 0 %>
                 <%= link_to "公開する", publish_drill_path(@drill), method: :post, remote: true, data: {confirm: "クイズ集を公開しますか？\n※問題数が0問のクイズ集は一覧に表示されません。\n※クイズを追加・編集中は非公開にすることを推奨します。"}, class: "to_edit btn" %>
               <% else %>
                 <%= link_to "公開しない", publish_drill_path(@drill), method: :post, remote: true, data: {confirm: "クイズを非公開にしますか？\n※非公開にしたクイズ集は一覧に表示されません。\n※非公開のクイズ集を編集・公開するにはマイページからクイズ集のページにアクセスして下さい。"}, class: "to_edit btn" %>
-              <% end %>
-            </div>
-            <div>
-              <%= form_with url: timer_drill_path(@drill), local: true do |f| %>
-                <%= f.number_field :timer, in: 0..999, class: "form-timer", id: "form-timer" %>秒
-                <%= f.submit "制限時間を設定", class: 'form-timer-btn btn' %>
               <% end %>
             </div>
           </div>

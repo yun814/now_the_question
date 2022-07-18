@@ -68,7 +68,6 @@ class DrillsController < ApplicationController
     @drill = Drill.find(params[:id])
     @drill.timer = params[:timer]
     @drill.save
-    render :show
   end
 
   def search

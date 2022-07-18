@@ -46,10 +46,13 @@
   justify-content: space-between;
 }
 
-.show-drill-ans_times{
+.show-drill-sub_3{
   font-size: 15px;
   text-align: center;
   margin-bottom: 10px;
+  padding: 0 20%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .show-drill-status{
