@@ -82,6 +82,9 @@
 
 .drill-right_1{
   font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
 .drill-user{

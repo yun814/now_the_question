@@ -29,15 +29,11 @@
 
 
     <div class="show-drill-sub_3">
-    <div class="show-drill-timer">制限時間：
-      <span id="show-drill-timer">
-        <% if @drill.timer == 0 %>
-          無制限
-        <% else %>
-          <%= @drill.timer %>秒
-        <% end %>
-      </span>
-    </div>
+    <% if @drill.timer == 0 %>
+      <div class="show-drill-timer">制限時間：<span id="show-drill-timer">無制限</span></div>
+    <% else %>
+      <div class="show-drill-timer">制限時間：<span id="show-drill-timer"><%= @drill.timer %>秒</span></div>
+    <% end %>
       <% if user_signed_in? && @drill.user_id == current_user.id %>
         <div id="show-drill-status-box">
           <% if @drill.status == 0 %>

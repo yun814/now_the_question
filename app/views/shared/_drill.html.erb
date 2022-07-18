@@ -20,6 +20,11 @@
       <div class="drill-right">
         <div class="drill-right_1">
           <div><%= link_to "#{drill.user.nickname}さん", user_path(drill.user), class: "drill-user" %>が投稿</div>
+          <% if drill.timer == 0 %>
+            <div>制限時間：無制限</div>
+          <% else %>
+            <div>制限時間：<%= drill.timer %>秒</div>
+          <% end %>
         </div>
         <div class="drill-right_2">
           <div><%= "#{drill.quizzes.count}問のクイズ" %></div>
