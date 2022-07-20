@@ -100,7 +100,12 @@
 
 .form-timer-btn{
   font-size: 15px;
-  padding: 4px 10px;
+  padding: 5px 10px;
+}
+
+.timer-info{
+  font-size: 13px;
+  text-align: center;
 }
 
 .to_edit,
