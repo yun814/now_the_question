@@ -1,0 +1,5 @@
+<% if @drill.timer == 0 %>
+  $('#show-drill-timer').html('無制限')
+<% else %>
+  $('#show-drill-timer').html('<%= @drill.timer %>秒')
+<% end %>

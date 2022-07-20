@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     
     member do
       post 'publish'
+      post 'timer'
       get 'genre'
       get 'drill_rank'
     end

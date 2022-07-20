@@ -26,3 +26,22 @@
   padding: 5px 40px 5px 50px;
   margin-top: 30px;
 }
+
+/************************************
+ タイマー 
+************************************/
+.timer{
+  font-size: 25px;
+  font-weight: 600;
+  color: red;
+  text-align: center;
+  line-height: 50px;
+  width: 150px;
+  height: 50px;
+  background-color: white;
+  border: 1px solid rgba(180, 180, 180, 0.5);
+  box-shadow: 0 0 5px rgb(180, 180, 180);
+  position: fixed;
+  top: 80px;
+  left: 50px;
+}

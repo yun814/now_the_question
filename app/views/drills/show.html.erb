@@ -27,7 +27,13 @@
       <div><%= link_to "ランキングへ", drill_rank_drill_path(@drill), class: "mini-btn" %></div>
     </div>
 
-    <div class="show-drill-ans_times">
+
+    <div class="show-drill-sub_3">
+    <% if @drill.timer == 0 %>
+      <div class="show-drill-timer">制限時間：<span id="show-drill-timer">無制限</span></div>
+    <% else %>
+      <div class="show-drill-timer">制限時間：<span id="show-drill-timer"><%= @drill.timer %>秒</span></div>
+    <% end %>
       <% if user_signed_in? && @drill.user_id == current_user.id %>
         <div id="show-drill-status-box">
           <% if @drill.status == 0 %>
@@ -51,15 +57,25 @@
     <div class="show-drill-btn">
       <% if user_signed_in? && current_user.id == @drill.user_id %>
         <div class="drill-editor">
-          <div id="publish-btn">
-            <% if @drill.status == 0 %>
-              <%= link_to "公開する", publish_drill_path(@drill), method: :post, remote: true, data: {confirm: "クイズ集を公開しますか？\n※問題数が0問のクイズ集は一覧に表示されません。\n※クイズを追加・編集中は非公開にすることを推奨します。"}, class: "to_edit btn" %>
-            <% else %>
-              <%= link_to "公開しない", publish_drill_path(@drill), method: :post, remote: true, data: {confirm: "クイズを非公開にしますか？\n※非公開にしたクイズ集は一覧に表示されません。\n※非公開のクイズ集を編集・公開するにはマイページからクイズ集のページにアクセスして下さい。"}, class: "to_edit btn" %>
-            <% end %>
+          <div class="drill-editor-top">
+            <div>
+              <%= form_with url: timer_drill_path(@drill), local: false do |f| %>
+                <%= f.number_field :timer, in: 0..999, class: "form-timer", id: "form-timer" %>秒
+                <%= f.submit "制限時間を設定", class: 'form-timer-btn btn' %>
+              <% end %>
+            </div>
+            <div id="publish-btn">
+              <% if @drill.status == 0 %>
+                <%= link_to "公開する", publish_drill_path(@drill), method: :post, remote: true, data: {confirm: "クイズ集を公開しますか？\n※問題数が0問のクイズ集は一覧に表示されません。\n※クイズを追加・編集中は非公開にすることを推奨します。"}, class: "to_edit btn" %>
+              <% else %>
+                <%= link_to "公開しない", publish_drill_path(@drill), method: :post, remote: true, data: {confirm: "クイズを非公開にしますか？\n※非公開にしたクイズ集は一覧に表示されません。\n※非公開のクイズ集を編集・公開するにはマイページからクイズ集のページにアクセスして下さい。"}, class: "to_edit btn" %>
+              <% end %>
+            </div>
           </div>
-          <div><%= link_to "編集する", edit_drill_path(@drill), class: "to_edit btn" %></div>
-          <div><%= link_to "削除する", drill_path(@drill), method: :delete, data: {confirm: "本当に削除しますか？\n※このクイズ集に関するクイズや回答した人の結果が全て削除されます。\n※回答した人の正解率は変化しません。"}, class: "to_destroy btn" %></div>
+          <div class="drill-editor-bottom">
+            <div><%= link_to "編集する", edit_drill_path(@drill), class: "to_edit btn" %></div>
+            <div><%= link_to "削除する", drill_path(@drill), method: :delete, data: {confirm: "本当に削除しますか？\n※このクイズ集に関するクイズや回答した人の結果が全て削除されます。\n※回答した人の正解率は変化しません。"}, class: "to_destroy btn" %></div>
+          </div>
         </div>
 
       <% elsif user_signed_in? %>

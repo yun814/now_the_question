@@ -5,6 +5,7 @@ ja:
         nickname: ニックネーム
       drill:
         title: タイトル
+        timer: 制限時間
         information: 詳細
       quiz:
         question: 問題文
