@@ -68,6 +68,8 @@ https://docs.google.com/spreadsheets/d/1FjFZSAV6R4gZJtOmv5wjZROX9nFLqSOOxDfVZASl
 <img src="https://i.gyazo.com/66dc77be48b58f4ee3defa49a7e34fd3.gif" width="45%"> <img src="https://i.gyazo.com/b22356b7800ba7cc4366ea28aa655a3b.gif" width="45%">
 <img src="https://i.gyazo.com/b029e26f261ec4294a2ee46de9965a25.gif" width="45%">
 
+## タイマー機能
+
 # データベース設計
 ![ER図](public/images/now_the_question.png)
 
