@@ -69,6 +69,8 @@ https://docs.google.com/spreadsheets/d/1FjFZSAV6R4gZJtOmv5wjZROX9nFLqSOOxDfVZASl
 <img src="https://i.gyazo.com/b029e26f261ec4294a2ee46de9965a25.gif" width="45%">
 
 ## タイマー機能
+<img src="https://i.gyazo.com/0f09a7e696f0aca8b5b1919b6d5088e1.gif" width="45%"> <img src="https://i.gyazo.com/71bbc47f8f6af4182c5762846a2aee1a.gif" width="45%">
+<img src="https://i.gyazo.com/6e94a6a2343fd62b17e33e6e3c2d6cc5.gif" width="45%">
 
 # データベース設計
 ![ER図](public/images/now_the_question.png)
